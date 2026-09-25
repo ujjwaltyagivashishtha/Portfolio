@@ -3,11 +3,13 @@ import { cn } from '../../lib/utils';
 
 export const Badge = ({ children, variant = "primary", className = "" }) => {
   const variants = {
-    primary: "bg-indigo-500/10 text-indigo-300 border-indigo-500/30 hover:border-indigo-400",
-    secondary: "bg-emerald-500/10 text-emerald-300 border-emerald-500/30 hover:border-emerald-400",
-    cyan: "bg-cyan-500/10 text-cyan-300 border-cyan-500/30 hover:border-cyan-400",
-    purple: "bg-violet-500/10 text-violet-300 border-violet-500/30 hover:border-violet-400",
-    outline: "bg-slate-900/60 text-slate-300 border-slate-800 hover:border-indigo-500/40",
+    primary: "bg-coral-500/15 text-coral-300 border-coral-500/30 hover:border-coral-400",
+    secondary: "bg-stone-500/15 text-stone-200 border-stone-500/30 hover:border-stone-300",
+    paper: "bg-paper-100/10 text-paper-100 border-paper-100/25 hover:border-paper-200",
+    stone: "bg-stone-500/15 text-stone-200 border-stone-500/30 hover:border-stone-300",
+    cyan: "bg-paper-100/10 text-paper-100 border-paper-100/25 hover:border-paper-200",
+    purple: "bg-coral-600/15 text-coral-200 border-coral-500/30 hover:border-coral-400",
+    outline: "bg-stone-950/80 text-stone-300 border-stone-800 hover:border-coral-500/40",
   };
 
   return (
