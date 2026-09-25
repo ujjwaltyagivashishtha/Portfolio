@@ -8,27 +8,52 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: '#030712',
-        surface: '#0b0f19',
-        card: '#111827',
-        border: 'rgba(255, 255, 255, 0.08)',
-        indigo: {
-          400: '#818cf8',
-          500: '#6366f1',
-          600: '#4f46e5',
+        paper: {
+          DEFAULT: '#F6F4F1',
+          50: '#FFFFFF',
+          100: '#F6F4F1',
+          200: '#ECE8E1',
+          300: '#DFD7CB',
+          400: '#C8BFB1',
+          800: '#2A2724',
+          900: '#181715',
         },
-        cyan: {
-          400: '#22d3ee',
-          500: '#06b6d4',
+        stone: {
+          DEFAULT: '#E4DED2',
+          50: '#F9F8F5',
+          100: '#F1ECE2',
+          200: '#E4DED2',
+          300: '#D3C7B4',
+          400: '#BCAC94',
+          500: '#9F8E76',
+          600: '#7B6C57',
+          700: '#584C3D',
+          800: '#2E281E',
+          900: '#171410',
         },
-        emerald: {
-          400: '#34d399',
-          500: '#10b981',
+        coral: {
+          DEFAULT: '#F95C4B',
+          50: '#FEF2F0',
+          100: '#FDE2DE',
+          200: '#FBC5BE',
+          300: '#FA9B90',
+          400: '#FA7464',
+          500: '#F95C4B',
+          600: '#E03E2D',
+          700: '#B52B1C',
+          800: '#831F14',
+          900: '#4F110B',
         },
-        violet: {
-          400: '#a78bfa',
-          500: '#8b5cf6',
-        }
+        brand: {
+          paper: '#F6F4F1',
+          stone: '#E4DED2',
+          coral: '#F95C4B',
+          black: '#000000',
+        },
+        background: '#060606',
+        surface: '#0F0E0E',
+        card: '#161514',
+        border: 'rgba(228, 222, 210, 0.12)',
       },
       fontFamily: {
         sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
@@ -36,8 +61,8 @@ export default {
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'grid-pattern': "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill='none' stroke='%236366f1' stroke-opacity='0.05'%3E%3Cpath d='M0 .5H40M.5 0V40'/%3E%3C/g%3E%3C/svg%3E\")",
-        'dots-pattern': "url(\"data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='2' cy='2' r='1' fill='%236366f1' fill-opacity='0.1'/%3E%3C/svg%3E\")",
+        'grid-pattern': "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill='none' stroke='%23F95C4B' stroke-opacity='0.06'%3E%3Cpath d='M0 .5H40M.5 0V40'/%3E%3C/g%3E%3C/svg%3E\")",
+        'dots-pattern': "url(\"data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='2' cy='2' r='1' fill='%23F95C4B' fill-opacity='0.08'/%3E%3C/svg%3E\")",
       },
       animation: {
         'spin-slow': 'spin 20s linear infinite',
@@ -55,9 +80,9 @@ export default {
         }
       },
       boxShadow: {
-        'glow-indigo': '0 0 35px -5px rgba(99, 102, 241, 0.25)',
-        'glow-cyan': '0 0 35px -5px rgba(6, 182, 212, 0.25)',
-        'glow-emerald': '0 0 35px -5px rgba(16, 185, 129, 0.25)',
+        'glow-coral': '0 0 35px -5px rgba(249, 92, 75, 0.28)',
+        'glow-stone': '0 0 35px -5px rgba(228, 222, 210, 0.18)',
+        'glow-paper': '0 0 35px -5px rgba(246, 244, 241, 0.15)',
       }
     },
   },
