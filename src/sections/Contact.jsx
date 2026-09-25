@@ -15,7 +15,7 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 relative bg-slate-100/60 dark:bg-slate-950/60">
+    <section id="contact" className="py-24 relative bg-stone-950/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <SectionHeading
@@ -30,16 +30,16 @@ export const Contact = () => {
           <div className="lg:col-span-7 space-y-4">
             
             {/* Email Card */}
-            <Card className="flex items-center justify-between gap-4 border-slate-200 dark:border-slate-800">
+            <Card className="flex items-center justify-between gap-4 border-stone-800">
               <div className="flex items-center gap-3.5">
-                <div className="p-3 rounded-xl bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-500/20">
+                <div className="p-3 rounded-xl bg-coral-500/10 text-coral-400 border border-coral-500/20">
                   <Mail className="w-6 h-6" />
                 </div>
                 <div>
-                  <span className="text-xs font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider font-semibold block">Email Address</span>
+                  <span className="text-xs font-mono text-stone-400 uppercase tracking-wider font-semibold block">Email Address</span>
                   <a
                     href={`mailto:${siteConfig.email}`}
-                    className="text-base font-bold text-slate-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-mono"
+                    className="text-base font-bold text-paper-100 hover:text-coral-400 transition-colors font-mono"
                   >
                     {siteConfig.email}
                   </a>
@@ -47,13 +47,13 @@ export const Contact = () => {
               </div>
               <button
                 onClick={() => copyToClipboard(siteConfig.email, 'email')}
-                className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all text-xs font-mono font-medium flex items-center gap-1.5 shadow-sm"
+                className="p-2.5 rounded-xl bg-stone-950 border border-stone-800 text-stone-300 hover:text-coral-400 transition-all text-xs font-mono font-medium flex items-center gap-1.5 shadow-sm"
                 title="Copy email to clipboard"
               >
                 {copiedField === 'email' ? (
                   <>
-                    <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                    <span className="text-emerald-600 dark:text-emerald-400 font-bold">Copied!</span>
+                    <Check className="w-4 h-4 text-coral-400" />
+                    <span className="text-coral-400 font-bold">Copied!</span>
                   </>
                 ) : (
                   <>
@@ -65,16 +65,16 @@ export const Contact = () => {
             </Card>
 
             {/* Phone Card */}
-            <Card className="flex items-center justify-between gap-4 border-slate-200 dark:border-slate-800">
+            <Card className="flex items-center justify-between gap-4 border-stone-800">
               <div className="flex items-center gap-3.5">
-                <div className="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20">
+                <div className="p-3 rounded-xl bg-coral-500/10 text-coral-400 border border-coral-500/20">
                   <Phone className="w-6 h-6" />
                 </div>
                 <div>
-                  <span className="text-xs font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider font-semibold block">Phone Number</span>
+                  <span className="text-xs font-mono text-stone-400 uppercase tracking-wider font-semibold block">Phone Number</span>
                   <a
                     href={`tel:${siteConfig.phone}`}
-                    className="text-base font-bold text-slate-900 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors font-mono"
+                    className="text-base font-bold text-paper-100 hover:text-coral-400 transition-colors font-mono"
                   >
                     {siteConfig.phone}
                   </a>
@@ -82,13 +82,13 @@ export const Contact = () => {
               </div>
               <button
                 onClick={() => copyToClipboard(siteConfig.phone, 'phone')}
-                className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all text-xs font-mono font-medium flex items-center gap-1.5 shadow-sm"
+                className="p-2.5 rounded-xl bg-stone-950 border border-stone-800 text-stone-300 hover:text-coral-400 transition-all text-xs font-mono font-medium flex items-center gap-1.5 shadow-sm"
                 title="Copy phone to clipboard"
               >
                 {copiedField === 'phone' ? (
                   <>
-                    <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                    <span className="text-emerald-600 dark:text-emerald-400 font-bold">Copied!</span>
+                    <Check className="w-4 h-4 text-coral-400" />
+                    <span className="text-coral-400 font-bold">Copied!</span>
                   </>
                 ) : (
                   <>
@@ -100,13 +100,13 @@ export const Contact = () => {
             </Card>
 
             {/* Location Card */}
-            <Card className="flex items-center gap-3.5 border-slate-200 dark:border-slate-800">
-              <div className="p-3 rounded-xl bg-purple-50 dark:bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-200 dark:border-purple-500/20">
-                <MapPin className="w-6 h-6" />
+            <Card className="flex items-center gap-3.5 border-stone-800">
+              <div className="p-3 rounded-xl bg-stone-500/15 text-stone-200 border border-stone-500/30">
+                <MapPin className="w-6 h-6 text-coral-400" />
               </div>
               <div>
-                <span className="text-xs font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider font-semibold block">Location</span>
-                <span className="text-base font-bold text-slate-900 dark:text-white font-mono">
+                <span className="text-xs font-mono text-stone-400 uppercase tracking-wider font-semibold block">Location</span>
+                <span className="text-base font-bold text-paper-100 font-mono">
                   {siteConfig.location}
                 </span>
               </div>
@@ -116,11 +116,11 @@ export const Contact = () => {
 
           {/* Social Links Config Card */}
           <div className="lg:col-span-5">
-            <Card className="border-slate-200 dark:border-slate-800 space-y-6">
+            <Card className="border-stone-800 space-y-6">
               <div>
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white">Developer Profiles</h3>
-                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
-                  Connect with me across GitHub, LinkedIn, and LeetCode. Configured in <code className="text-indigo-600 dark:text-indigo-300 bg-slate-100 dark:bg-slate-900 px-1.5 py-0.5 rounded font-mono">src/config/site.js</code>.
+                <h3 className="text-xl font-bold text-paper-100">Developer Profiles</h3>
+                <p className="text-xs text-stone-400 mt-1 leading-relaxed">
+                  Connect with me across GitHub, LinkedIn, and LeetCode. Configured in <code className="text-coral-300 bg-stone-950 px-1.5 py-0.5 rounded font-mono border border-stone-800">src/config/site.js</code>.
                 </p>
               </div>
 
@@ -130,18 +130,18 @@ export const Contact = () => {
                   href={siteConfig.socials.github.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 hover:border-indigo-500/40 flex items-center justify-between group transition-all"
+                  className="p-3.5 rounded-xl bg-stone-950/80 border border-stone-800 hover:border-coral-500/45 flex items-center justify-between group transition-all"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors shadow-sm">
+                    <div className="p-2 rounded-lg bg-stone-900 text-stone-200 group-hover:text-coral-400 transition-colors shadow-sm">
                       <Github className="w-5 h-5" />
                     </div>
                     <div>
-                      <h4 className="text-sm font-semibold text-slate-900 dark:text-white">GitHub Profile</h4>
-                      <p className="text-[11px] font-mono text-slate-500 dark:text-slate-400">{siteConfig.socials.github.url}</p>
+                      <h4 className="text-sm font-semibold text-paper-100">GitHub Profile</h4>
+                      <p className="text-[11px] font-mono text-stone-400">{siteConfig.socials.github.url}</p>
                     </div>
                   </div>
-                  <ExternalLink className="w-4 h-4 text-slate-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" />
+                  <ExternalLink className="w-4 h-4 text-stone-400 group-hover:text-coral-400 transition-colors" />
                 </a>
 
                 {/* LinkedIn */}
@@ -149,18 +149,18 @@ export const Contact = () => {
                   href={siteConfig.socials.linkedin.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 hover:border-indigo-500/40 flex items-center justify-between group transition-all"
+                  className="p-3.5 rounded-xl bg-stone-950/80 border border-stone-800 hover:border-coral-500/45 flex items-center justify-between group transition-all"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors shadow-sm">
+                    <div className="p-2 rounded-lg bg-stone-900 text-stone-200 group-hover:text-coral-400 transition-colors shadow-sm">
                       <Linkedin className="w-5 h-5" />
                     </div>
                     <div>
-                      <h4 className="text-sm font-semibold text-slate-900 dark:text-white">LinkedIn Profile</h4>
-                      <p className="text-[11px] font-mono text-slate-500 dark:text-slate-400">{siteConfig.socials.linkedin.url}</p>
+                      <h4 className="text-sm font-semibold text-paper-100">LinkedIn Profile</h4>
+                      <p className="text-[11px] font-mono text-stone-400">{siteConfig.socials.linkedin.url}</p>
                     </div>
                   </div>
-                  <ExternalLink className="w-4 h-4 text-slate-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" />
+                  <ExternalLink className="w-4 h-4 text-stone-400 group-hover:text-coral-400 transition-colors" />
                 </a>
 
                 {/* LeetCode */}
@@ -168,22 +168,22 @@ export const Contact = () => {
                   href={siteConfig.socials.leetcode.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 hover:border-indigo-500/40 flex items-center justify-between group transition-all"
+                  className="p-3.5 rounded-xl bg-stone-950/80 border border-stone-800 hover:border-coral-500/45 flex items-center justify-between group transition-all"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors shadow-sm">
+                    <div className="p-2 rounded-lg bg-stone-900 text-stone-200 group-hover:text-coral-400 transition-colors shadow-sm">
                       <Code className="w-5 h-5" />
                     </div>
                     <div>
-                      <h4 className="text-sm font-semibold text-slate-900 dark:text-white">LeetCode Profile</h4>
-                      <p className="text-[11px] font-mono text-slate-500 dark:text-slate-400">{siteConfig.socials.leetcode.url}</p>
+                      <h4 className="text-sm font-semibold text-paper-100">LeetCode Profile</h4>
+                      <p className="text-[11px] font-mono text-stone-400">{siteConfig.socials.leetcode.url}</p>
                     </div>
                   </div>
-                  <ExternalLink className="w-4 h-4 text-slate-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" />
+                  <ExternalLink className="w-4 h-4 text-stone-400 group-hover:text-coral-400 transition-colors" />
                 </a>
               </div>
 
-              <div className="pt-2 border-t border-slate-200 dark:border-slate-900 text-center">
+              <div className="pt-2 border-t border-stone-900 text-center">
                 <Button href={`mailto:${siteConfig.email}`} variant="primary" className="w-full">
                   <Send className="w-4 h-4" />
                   Send Direct Email
