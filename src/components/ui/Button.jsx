@@ -14,19 +14,19 @@ export const Button = ({
 }) => {
   const Component = href ? 'a' : as;
 
-  const baseStyles = 'inline-flex items-center justify-center font-medium transition-all duration-250 rounded-xl focus:outline-none focus:ring-2 focus:ring-coral-400/50 disabled:opacity-50 disabled:pointer-events-none cursor-pointer tracking-wide shadow-md active:scale-95';
+  const baseStyles = 'inline-flex items-center justify-center font-mono font-medium transition-all duration-200 focus:outline-none disabled:opacity-50 disabled:pointer-events-none cursor-pointer tracking-wider uppercase text-xs rounded-xl border';
 
   const variants = {
-    primary: 'bg-gradient-to-r from-coral-500 via-coral-600 to-coral-700 text-white font-semibold hover:from-coral-400 hover:to-coral-600 shadow-coral-500/25 hover:shadow-coral-500/40 hover:shadow-lg',
-    secondary: 'bg-stone-200 text-stone-950 font-bold hover:bg-paper-100 hover:text-black shadow-stone-200/20 hover:shadow-stone-200/35 hover:shadow-lg',
-    outline: 'border border-stone-800 bg-stone-950/80 text-paper-100 hover:border-coral-500/60 hover:bg-stone-900/90 hover:text-coral-300',
-    ghost: 'text-stone-300 hover:text-coral-400 hover:bg-coral-500/10',
+    primary: 'bg-[#F95C4B] text-black border-[#F95C4B] font-bold hover:bg-[#FF6B5B] hover:border-[#FF6B5B] shadow-md shadow-[#F95C4B]/20',
+    secondary: 'bg-zinc-100 text-black border-zinc-100 font-bold hover:bg-white',
+    outline: 'bg-transparent text-zinc-200 border-white/20 hover:border-[#F95C4B] hover:text-[#F95C4B]',
+    ghost: 'bg-transparent text-zinc-400 border-transparent hover:text-zinc-100 hover:border-white/10',
   };
 
   const sizes = {
-    sm: 'text-xs px-3.5 py-2 gap-1.5',
-    md: 'text-sm px-5 py-2.5 gap-2',
-    lg: 'text-base px-7 py-3.5 gap-3 font-semibold',
+    sm: 'px-3.5 py-2 gap-1.5',
+    md: 'px-5 py-2.5 gap-2',
+    lg: 'px-6 py-3.5 gap-2.5 text-xs',
   };
 
   return (
