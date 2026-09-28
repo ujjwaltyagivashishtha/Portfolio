@@ -1,88 +1,79 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { personalInfo } from '../data/personalInfo';
 import { siteConfig } from '../config/site';
 import { Button } from '../components/ui/Button';
 import { Badge } from '../components/ui/Badge';
-import { MapPin, Mail, ArrowRight, Github, Linkedin, Code, Terminal, Sparkles, CheckCircle2, Layers } from 'lucide-react';
+import { ArrowRight, Mail, Github, Linkedin, Code, MapPin, GraduationCap, Briefcase, UserCheck } from 'lucide-react';
 
 export const Hero = () => {
+  const [imgError, setImgError] = useState(false);
+
   return (
-    <section id="hero" className="relative min-h-[92vh] flex items-center pt-28 pb-20 overflow-hidden">
-      {/* Ambient Background Glow Elements */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-coral-500/15 rounded-full blur-[140px] pointer-events-none animate-pulse-glow"></div>
-      <div className="absolute top-1/3 right-10 w-[400px] h-[400px] bg-stone-400/10 rounded-full blur-[120px] pointer-events-none"></div>
-      <div className="absolute bottom-10 left-10 w-[350px] h-[350px] bg-coral-600/10 rounded-full blur-[100px] pointer-events-none"></div>
-      <div className="absolute inset-0 bg-grid-pattern bg-repeat opacity-60 pointer-events-none"></div>
+    <section id="hero" className="relative min-h-[92vh] flex items-center pt-28 pb-20 overflow-hidden bg-[#080808] text-zinc-100 border-b border-white/10">
+      {/* Subtle Grid Background */}
+      <div className="absolute inset-0 bg-editorial-grid pointer-events-none opacity-30"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Hero Content */}
           <div className="lg:col-span-7 space-y-7 text-left">
             
-            {/* Status Pill Badge */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-stone-950/90 border border-coral-500/35 text-xs font-mono text-coral-300 backdrop-blur-xl shadow-lg shadow-coral-500/5">
+            {/* Availability Pill */}
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#121214] border border-white/10 text-xs font-mono text-zinc-300 shadow-sm">
               <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-coral-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-coral-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F95C4B] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#F95C4B]"></span>
               </span>
               <span className="font-semibold tracking-wide">Available for Full-Stack & Software Engineering Roles</span>
             </div>
 
-            {/* Name & Headline */}
+            {/* Main Headline */}
             <div className="space-y-3">
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-paper-100 tracking-tight leading-[1.1]">
-                Engineered for <br className="hidden sm:inline" />
-                <span className="text-gradient">Performance & Scalability</span>
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-zinc-100 font-display tracking-tight leading-[1.08]">
+                Building <br />
+                <span className="text-[#F95C4B]">Scalable Digital Systems</span> <br />
+                & Real-Time Platforms.
               </h1>
-              <h2 className="text-xl sm:text-2xl font-bold text-stone-200 tracking-tight flex items-center gap-3 pt-1">
-                <span>{personalInfo.name}</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-coral-500"></span>
-                <span className="text-coral-400 font-mono text-base sm:text-lg font-semibold">Full-Stack MERN Developer</span>
-              </h2>
-            </div>
-
-            {/* Location & Academic Tag */}
-            <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm font-mono text-stone-400">
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-stone-950/70 border border-stone-800">
-                <MapPin className="w-4 h-4 text-coral-400" />
-                <span>{personalInfo.location}</span>
-              </div>
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-stone-950/70 border border-stone-800 text-stone-200 font-medium">
-                <Layers className="w-4 h-4 text-coral-400" />
-                <span>Quantum Univ (B.Tech CSE, 7.99 CGPA)</span>
+              
+              <div className="flex flex-wrap items-center gap-3 pt-1 text-xs font-mono text-zinc-400">
+                <span className="text-zinc-100 font-bold text-sm">{personalInfo.name}</span>
+                <span className="text-zinc-600">•</span>
+                <span className="text-[#F95C4B] font-semibold">Full-Stack MERN Developer</span>
+                <span className="text-zinc-600">•</span>
+                <span>B.Tech CSE @ Quantum Univ</span>
               </div>
             </div>
 
-            {/* Hero Summary */}
-            <p className="text-stone-300 text-base sm:text-lg leading-relaxed max-w-2xl font-normal">
+            {/* Summary */}
+            <p className="text-zinc-300 text-base sm:text-lg leading-relaxed max-w-2xl font-sans font-normal">
               {personalInfo.heroDescription}
             </p>
 
             {/* Core Tech Stack Badges */}
             <div className="flex flex-wrap gap-2 pt-1">
-              {personalInfo.focusAreas.map((area, idx) => (
-                <Badge key={area} variant={idx % 2 === 0 ? "primary" : "secondary"}>
+              {personalInfo.focusAreas.map((area) => (
+                <Badge key={area} variant="secondary">
                   {area}
                 </Badge>
               ))}
             </div>
 
-            {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-4 pt-3">
-              <Button href="#projects" variant="primary" size="lg">
-                Explore Projects
+            {/* CTAs */}
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <Button href="#projects" variant="primary" size="lg" className="rounded-xl">
+                <span>Explore Projects</span>
                 <ArrowRight className="w-4 h-4" />
               </Button>
-              <Button href={`mailto:${siteConfig.email}`} variant="outline" size="lg">
-                <Mail className="w-4 h-4 text-coral-400" />
-                Direct Email
+              <Button href={`mailto:${siteConfig.email}`} variant="outline" size="lg" className="rounded-xl">
+                <Mail className="w-4 h-4 text-[#F95C4B]" />
+                <span>Contact Direct</span>
               </Button>
             </div>
 
             {/* Verified Social Profile Buttons */}
-            <div className="pt-6 flex flex-wrap items-center gap-3 border-t border-stone-800/80">
-              <span className="text-xs font-mono text-stone-400 uppercase tracking-widest font-semibold mr-1">
+            <div className="pt-6 flex flex-wrap items-center gap-3 border-t border-white/10">
+              <span className="text-xs font-mono text-zinc-400 uppercase tracking-widest font-semibold mr-1">
                 Profiles:
               </span>
               
@@ -90,9 +81,9 @@ export const Hero = () => {
                 href={siteConfig.socials.github.url}
                 target="_blank"
                 rel="noreferrer"
-                className="px-3.5 py-2 rounded-xl bg-stone-950/80 border border-stone-800 text-stone-200 hover:text-coral-400 hover:border-coral-500/50 shadow-sm transition-all flex items-center gap-2 text-xs font-mono font-medium"
+                className="px-3.5 py-2 rounded-xl bg-[#121214] border border-white/10 text-zinc-200 hover:text-[#F95C4B] hover:border-[#F95C4B]/50 shadow-sm transition-all flex items-center gap-2 text-xs font-mono font-medium"
               >
-                <Github className="w-4 h-4 text-coral-400" />
+                <Github className="w-4 h-4 text-[#F95C4B]" />
                 <span>GitHub</span>
               </a>
 
@@ -100,9 +91,9 @@ export const Hero = () => {
                 href={siteConfig.socials.linkedin.url}
                 target="_blank"
                 rel="noreferrer"
-                className="px-3.5 py-2 rounded-xl bg-stone-950/80 border border-stone-800 text-stone-200 hover:text-coral-400 hover:border-coral-500/50 shadow-sm transition-all flex items-center gap-2 text-xs font-mono font-medium"
+                className="px-3.5 py-2 rounded-xl bg-[#121214] border border-white/10 text-zinc-200 hover:text-[#F95C4B] hover:border-[#F95C4B]/50 shadow-sm transition-all flex items-center gap-2 text-xs font-mono font-medium"
               >
-                <Linkedin className="w-4 h-4 text-stone-300" />
+                <Linkedin className="w-4 h-4 text-zinc-300" />
                 <span>LinkedIn</span>
               </a>
 
@@ -110,62 +101,85 @@ export const Hero = () => {
                 href={siteConfig.socials.leetcode.url}
                 target="_blank"
                 rel="noreferrer"
-                className="px-3.5 py-2 rounded-xl bg-stone-950/80 border border-stone-800 text-stone-200 hover:text-coral-400 hover:border-coral-500/50 shadow-sm transition-all flex items-center gap-2 text-xs font-mono font-medium"
+                className="px-3.5 py-2 rounded-xl bg-[#121214] border border-white/10 text-zinc-200 hover:text-[#F95C4B] hover:border-[#F95C4B]/50 shadow-sm transition-all flex items-center gap-2 text-xs font-mono font-medium"
               >
-                <Code className="w-4 h-4 text-coral-400" />
+                <Code className="w-4 h-4 text-[#F95C4B]" />
                 <span>LeetCode</span>
               </a>
             </div>
 
           </div>
 
-          {/* Right Visual Feature: Developer IDE Card */}
-          <div className="lg:col-span-5 relative">
-            <div className="glass-card rounded-2xl p-6 border border-stone-800/80 bg-stone-950/95 text-paper-100 shadow-2xl relative overflow-hidden">
+          {/* Right Column: Sleek Rounded Portrait Card */}
+          <div className="lg:col-span-5 space-y-6">
+            <div className="bg-[#121214] border border-white/10 rounded-2xl p-5 shadow-2xl hover:border-zinc-700 transition-all group overflow-hidden">
               
-              {/* Window Controls */}
-              <div className="flex items-center justify-between border-b border-stone-800 pb-4 mb-5">
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-coral-500/90"></div>
-                  <div className="w-3 h-3 rounded-full bg-stone-400/90"></div>
-                  <div className="w-3 h-3 rounded-full bg-stone-600/90"></div>
-                </div>
-                <div className="text-xs font-mono text-coral-400 flex items-center gap-2 bg-coral-500/10 px-3 py-1 rounded-md border border-coral-500/20">
-                  <Terminal className="w-3.5 h-3.5" />
-                  <span>ujjwal.stack.ts</span>
+              {/* Header Badge */}
+              <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-white/10 text-xs font-mono">
+                <span className="text-zinc-300 font-semibold flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#F95C4B]"></span>
+                  Software Engineer
+                </span>
+                <span className="text-zinc-400 font-mono text-[11px]">Saharanpur, UP</span>
+              </div>
+
+              {/* Portrait Image Frame */}
+              <div className="relative rounded-xl overflow-hidden aspect-[4/5] bg-zinc-900 mb-4 flex items-center justify-center">
+                {!imgError ? (
+                  <img
+                    src="/ujjwal-profile.jpg"
+                    alt="Ujjwal Tyagi"
+                    onError={() => setImgError(true)}
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  />
+                ) : (
+                  <div className="flex flex-col items-center justify-center p-6 text-center space-y-3">
+                    <div className="w-20 h-20 rounded-full bg-[#F95C4B]/20 border border-[#F95C4B]/40 flex items-center justify-center">
+                      <UserCheck className="w-10 h-10 text-[#F95C4B]" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lg text-white font-display">Ujjwal Tyagi</h3>
+                      <p className="text-xs font-mono text-[#F95C4B]">Software Engineer</p>
+                    </div>
+                  </div>
+                )}
+                
+                <div className="absolute inset-0 bg-gradient-to-t from-[#121214] via-transparent to-transparent opacity-70"></div>
+                
+                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between font-mono text-xs text-zinc-100">
+                  <span className="bg-[#080808]/90 border border-white/10 px-3 py-1.5 rounded-lg font-bold backdrop-blur-md">
+                    Ujjwal Tyagi
+                  </span>
+                  <span className="bg-[#080808]/90 border border-white/10 px-3 py-1.5 rounded-lg text-[#F95C4B] font-semibold backdrop-blur-md">
+                    Full-Stack MERN
+                  </span>
                 </div>
               </div>
 
-              {/* Code Snippet with Warm Palette Syntax Colors */}
-              <div className="font-mono text-xs space-y-2 text-stone-300 overflow-x-auto leading-relaxed">
-                <p className="text-stone-500">// Software Engineering Profile</p>
-                <p><span className="text-coral-400">interface</span> <span className="text-paper-100">SoftwareEngineer</span> &#123;</p>
-                <p className="pl-4"><span className="text-coral-400">name</span>: <span className="text-stone-300">string</span>;</p>
-                <p className="pl-4"><span className="text-coral-400">education</span>: <span className="text-stone-300">string</span>;</p>
-                <p className="pl-4"><span className="text-coral-400">internship</span>: <span className="text-stone-300">string</span>;</p>
-                <p className="pl-4"><span className="text-coral-400">keyProjects</span>: <span className="text-stone-300">string[]</span>;</p>
-                <p>&#125;</p>
-                <br />
-                <p><span className="text-coral-400">export const</span> <span className="text-paper-100">engineer</span>: <span className="text-paper-100">SoftwareEngineer</span> = &#123;</p>
-                <p className="pl-4"><span className="text-coral-400">name</span>: <span className="text-stone-200">"{personalInfo.name}"</span>,</p>
-                <p className="pl-4"><span className="text-coral-400">education</span>: <span className="text-stone-200">"Quantum University (B.Tech CSE)"</span>,</p>
-                <p className="pl-4"><span className="text-coral-400">internship</span>: <span className="text-stone-200">"Web Dev Intern @ 3Skill India"</span>,</p>
-                <p className="pl-4"><span className="text-coral-400">keyProjects</span>: [</p>
-                <p className="pl-8 text-coral-300">"Fusion AI Studio (Real-Time Collaborative AI IDE)",</p>
-                <p className="pl-8 text-coral-300">"Bank Transaction System (Immutable Ledger)"</p>
-                <p className="pl-4">]</p>
-                <p>&#125;;</p>
-              </div>
-
-              {/* Card Footer Badge */}
-              <div className="mt-6 pt-4 border-t border-stone-900 flex items-center justify-between text-xs text-stone-400 font-mono">
-                <div className="flex items-center gap-1.5 text-coral-400 font-semibold">
-                  <CheckCircle2 className="w-4 h-4" />
-                  <span>Resume Verified Facts</span>
+              {/* Key Specs */}
+              <div className="space-y-2.5 font-mono text-xs pt-1 px-1">
+                <div className="flex items-center justify-between py-1.5 border-b border-white/10 text-zinc-300">
+                  <span className="text-zinc-400 flex items-center gap-1.5">
+                    <GraduationCap className="w-3.5 h-3.5 text-[#F95C4B]" />
+                    Degree
+                  </span>
+                  <span className="font-semibold text-zinc-100">B.Tech CSE (7.99 CGPA)</span>
                 </div>
-                <div className="flex items-center gap-1 text-stone-400">
-                  <Sparkles className="w-3.5 h-3.5 text-coral-400" />
-                  <span>Saharanpur, UP, India</span>
+
+                <div className="flex items-center justify-between py-1.5 border-b border-white/10 text-zinc-300">
+                  <span className="text-zinc-400 flex items-center gap-1.5">
+                    <Briefcase className="w-3.5 h-3.5 text-[#F95C4B]" />
+                    Experience
+                  </span>
+                  <span className="font-semibold text-[#F95C4B]">Web Dev Intern @ 3Skill India</span>
+                </div>
+
+                <div className="flex items-center justify-between py-1.5 text-zinc-300">
+                  <span className="text-zinc-400 flex items-center gap-1.5">
+                    <MapPin className="w-3.5 h-3.5 text-[#F95C4B]" />
+                    Location
+                  </span>
+                  <span className="font-medium text-zinc-200">{personalInfo.location}</span>
                 </div>
               </div>
 
