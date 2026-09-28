@@ -5,21 +5,36 @@
 @layer base {
   html {
     color-scheme: dark;
-    background-color: #060606;
-    color: #F6F4F1;
+    background-color: #080808;
+    color: #F4F4F5;
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
   }
   
-  /* Custom Smooth Scrollbar */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Focus visible accessibility outline */
+  :focus-visible {
+    outline: 2px solid #F95C4B;
+    outline-offset: 2px;
+  }
+
+  /* Custom Editorial Scrollbar */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #060606;
+    background: #080808;
   }
   ::-webkit-scrollbar-thumb {
-    background: #2A2724;
+    background: #27272A;
     border-radius: 9999px;
-    border: 2px solid #060606;
   }
   ::-webkit-scrollbar-thumb:hover {
     background: #F95C4B;
@@ -27,55 +42,34 @@
 }
 
 @layer utilities {
-  /* Paper/Stone/Coral Modern Studio Glassmorphic Card Styling */
+  /* Technical Grid Background */
+  .bg-grid-lines {
+    background-size: 60px 60px;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  }
+
+  /* Editorial Card Styling */
+  .editorial-card {
+    background: #111111;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .editorial-card:hover {
+    border-color: rgba(249, 92, 75, 0.4);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+  }
+
+  /* Glass Card */
   .glass-card {
-    background: rgba(18, 17, 16, 0.75);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(228, 222, 210, 0.12);
+    background: rgba(18, 18, 20, 0.75);
+    backdrop-filter: blur(12px);
   }
 
-  .glass-card-hover {
-    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .glass-card-hover:hover {
-    border-color: rgba(249, 92, 75, 0.45);
-    box-shadow: 0 0 35px -5px rgba(249, 92, 75, 0.22);
-    transform: translateY(-3px);
-  }
-
-  /* Glowing Text Gradients */
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-coral-400 via-paper-100 to-stone-200;
-  }
-
-  .text-gradient-coral {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-coral-400 via-coral-500 to-stone-300;
-  }
-
-  /* Shimmer Animated Border Effect */
-  .border-glow {
-    position: relative;
-  }
-  .border-glow::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    background: linear-gradient(90deg, #F95C4B, #E4DED2, #F6F4F1, #F95C4B);
-    background-size: 300% 300%;
-    border-radius: inherit;
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    animation: shimmer 6s ease infinite;
-  }
-  .border-glow:hover::before {
-    opacity: 0.6;
-  }
-
-  @keyframes shimmer {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+  /* Accent Highlight Border */
+  .accent-left-bar {
+    border-left: 2px solid #F95C4B;
   }
 }
