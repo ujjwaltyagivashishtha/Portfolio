@@ -1,62 +1,77 @@
 import React, { useState, useEffect } from 'react';
 import { siteConfig } from '../../config/site';
-import { Menu, X, Terminal } from 'lucide-react';
+import { Menu, X, Terminal, ArrowUpRight } from 'lucide-react';
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('about');
+  const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
 
-      const sections = siteConfig.navLinks.map((link) => link.href.substring(1));
-      const current = sections.find((section) => {
-        const el = document.getElementById(section);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          return rect.top <= 120 && rect.bottom >= 120;
+      const sections = ['hero', ...siteConfig.navLinks.map((link) => link.href.substring(1))];
+      const scrollPosition = window.scrollY + 200;
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const sectionEl = document.getElementById(sections[i]);
+        if (sectionEl) {
+          const top = sectionEl.offsetTop;
+          if (scrollPosition >= top) {
+            setActiveSection(sections[i]);
+            break;
+          }
         }
-        return false;
-      });
-      if (current) setActiveSection(current);
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }, [mobileMenuOpen]);
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#060606]/90 backdrop-blur-md border-b border-stone-800/80 py-3 shadow-xl'
+          ? 'bg-[#080808]/90 backdrop-blur-md border-b border-white/10 py-3 shadow-2xl'
           : 'bg-transparent py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
+          
           {/* Brand Logo */}
           <a
-            href="#"
+            href="#hero"
             className="flex items-center gap-2.5 group focus:outline-none"
+            aria-label="Ujjwal Tyagi Home"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-coral-500/20 to-stone-400/20 border border-coral-500/35 flex items-center justify-center group-hover:border-coral-400 transition-colors shadow-sm">
-              <Terminal className="w-5 h-5 text-coral-400 group-hover:scale-110 transition-transform" />
+            <div className="w-9 h-9 rounded-xl bg-[#F95C4B]/10 border border-[#F95C4B]/30 flex items-center justify-center group-hover:border-[#F95C4B] group-hover:bg-[#F95C4B]/20 transition-all shadow-sm">
+              <Terminal className="w-4 h-4 text-[#F95C4B] group-hover:scale-110 transition-transform" />
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-lg text-paper-100 tracking-tight leading-tight group-hover:text-coral-400 transition-colors">
-                Ujjwal
+              <span className="font-bold text-base text-zinc-100 tracking-tight leading-tight group-hover:text-[#F95C4B] transition-colors font-display">
+                Ujjwal Tyagi
               </span>
-              <span className="text-[10px] font-mono text-stone-400 tracking-wider">
+              <span className="text-[10px] font-mono text-zinc-400 tracking-wider">
                 SOFTWARE ENGINEER
               </span>
             </div>
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-1 bg-stone-950/80 p-1.5 rounded-full border border-stone-800/80 backdrop-blur-sm shadow-sm">
+          <nav className="hidden md:flex items-center gap-1 bg-[#121214]/90 p-1.5 rounded-full border border-white/10 backdrop-blur-md shadow-inner">
             {siteConfig.navLinks.map((link) => {
               const sectionId = link.href.substring(1);
               const isActive = activeSection === sectionId;
@@ -64,10 +79,10 @@ export const Navbar = () => {
                 <a
                   key={link.name}
                   href={link.href}
-                  className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-mono transition-all duration-200 ${
                     isActive
-                      ? 'bg-coral-500/15 text-coral-400 border border-coral-500/30 font-semibold shadow-sm'
-                      : 'text-stone-300 hover:text-paper-100 hover:bg-stone-900/60'
+                      ? 'bg-[#F95C4B]/15 text-[#F95C4B] border border-[#F95C4B]/40 font-semibold shadow-sm'
+                      : 'text-zinc-300 hover:text-white hover:bg-white/5'
                   }`}
                 >
                   {link.name}
@@ -76,46 +91,61 @@ export const Navbar = () => {
             })}
           </nav>
 
-          {/* Action CTAs */}
+          {/* Direct Contact Button */}
           <div className="hidden lg:flex items-center gap-3">
             <a
-              href={`mailto:${siteConfig.email}`}
-              className="px-4 py-2 rounded-xl bg-coral-500/15 hover:bg-coral-500/25 text-coral-400 border border-coral-500/35 text-xs font-mono font-semibold transition-all shadow-sm hover:shadow-coral-500/20"
+              href="#contact"
+              className="px-4 py-2 rounded-xl bg-[#F95C4B]/15 hover:bg-[#F95C4B] hover:text-black text-[#F95C4B] border border-[#F95C4B]/40 text-xs font-mono font-bold transition-all shadow-sm flex items-center gap-1.5"
             >
-              Get In Touch
+              <span>Get In Touch</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
           </div>
 
-          {/* Mobile Menu Toggle Button */}
+          {/* Mobile Menu Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2.5 rounded-xl bg-stone-950 border border-stone-800 text-stone-300 hover:text-paper-100 focus:outline-none"
-            aria-label="Toggle menu"
+            className="md:hidden p-2.5 rounded-xl bg-[#121214] border border-white/10 text-zinc-300 hover:text-white focus:outline-none"
+            aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-5 h-5 text-[#F95C4B]" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Navigation Drawer Overlay */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-stone-950/98 border-b border-stone-800 px-4 pt-3 pb-6 space-y-2 backdrop-blur-xl animate-in slide-in-from-top-5 shadow-lg">
-          {siteConfig.navLinks.map((link) => (
+        <div className="md:hidden fixed inset-x-0 top-[65px] bg-[#080808]/98 border-b border-white/10 px-4 pt-4 pb-8 space-y-2 backdrop-blur-2xl shadow-2xl animate-in fade-in slide-in-from-top-4">
+          <div className="flex flex-col space-y-1">
+            {siteConfig.navLinks.map((link) => {
+              const sectionId = link.href.substring(1);
+              const isActive = activeSection === sectionId;
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`px-4 py-3 rounded-xl text-sm font-mono transition-all flex items-center justify-between ${
+                    isActive
+                      ? 'bg-[#F95C4B]/15 text-[#F95C4B] border border-[#F95C4B]/30 font-bold'
+                      : 'text-zinc-300 hover:bg-white/5 hover:text-white'
+                  }`}
+                >
+                  <span>{link.name}</span>
+                  {isActive && <span className="w-2 h-2 rounded-full bg-[#F95C4B]"></span>}
+                </a>
+              );
+            })}
+          </div>
+
+          <div className="pt-4 border-t border-white/10">
             <a
-              key={link.name}
-              href={link.href}
+              href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-4 py-2.5 rounded-lg text-sm font-medium text-stone-300 hover:bg-stone-900 hover:text-coral-400"
+              className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-[#F95C4B] text-black font-bold text-xs font-mono shadow-lg hover:bg-[#FF6B5B] transition-colors"
             >
-              {link.name}
-            </a>
-          ))}
-          <div className="pt-2 border-t border-stone-900">
-            <a
-              href={`mailto:${siteConfig.email}`}
-              className="block w-full text-center py-2.5 rounded-xl bg-coral-500 text-white font-semibold text-xs font-mono shadow-md"
-            >
-              Get In Touch
+              <span>Contact Ujjwal</span>
+              <ArrowUpRight className="w-4 h-4" />
             </a>
           </div>
         </div>
