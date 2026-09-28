@@ -3,10 +3,17 @@ import { SectionHeading } from '../components/ui/SectionHeading';
 import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
 import { siteConfig } from '../config/site';
-import { Mail, Phone, MapPin, Copy, Check, Github, Linkedin, Code, ExternalLink, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Copy, Check, Github, Linkedin, Code, ExternalLink, Send, MessageSquare } from 'lucide-react';
 
 export const Contact = () => {
   const [copiedField, setCopiedField] = useState(null);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
+  const [submitted, setSubmitted] = useState(false);
 
   const copyToClipboard = (text, fieldName) => {
     navigator.clipboard.writeText(text);
@@ -14,32 +21,44 @@ export const Contact = () => {
     setTimeout(() => setCopiedField(null), 2500);
   };
 
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const mailtoSubject = encodeURIComponent(formData.subject || `Inquiry from ${formData.name}`);
+    const mailtoBody = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    );
+    window.location.href = `mailto:${siteConfig.email}?subject=${mailtoSubject}&body=${mailtoBody}`;
+    setSubmitted(true);
+    setTimeout(() => setSubmitted(false), 5000);
+  };
+
   return (
-    <section id="contact" className="py-24 relative bg-stone-950/60">
+    <section id="contact" className="py-24 relative bg-[#080808]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <SectionHeading
+          number="07"
           badge="Get In Touch"
-          title="Contact & Social Profiles"
-          subtitle="Direct contact details and verified developer profile links."
+          title="Contact & Developer Profiles"
+          subtitle="Direct contact details, interactive messaging, and verified profile links."
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          {/* Direct Contact Cards */}
+          {/* Left Column: Direct Contact Cards & Interactive Form */}
           <div className="lg:col-span-7 space-y-4">
             
             {/* Email Card */}
-            <Card className="flex items-center justify-between gap-4 border-stone-800">
+            <Card className="flex items-center justify-between gap-4 border-white/10 bg-[#121214]">
               <div className="flex items-center gap-3.5">
-                <div className="p-3 rounded-xl bg-coral-500/10 text-coral-400 border border-coral-500/20">
+                <div className="p-3 rounded-xl bg-[#F95C4B]/10 text-[#F95C4B] border border-[#F95C4B]/20">
                   <Mail className="w-6 h-6" />
                 </div>
                 <div>
-                  <span className="text-xs font-mono text-stone-400 uppercase tracking-wider font-semibold block">Email Address</span>
+                  <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold block">Email Address</span>
                   <a
                     href={`mailto:${siteConfig.email}`}
-                    className="text-base font-bold text-paper-100 hover:text-coral-400 transition-colors font-mono"
+                    className="text-base font-bold text-zinc-100 hover:text-[#F95C4B] transition-colors font-mono"
                   >
                     {siteConfig.email}
                   </a>
@@ -47,13 +66,13 @@ export const Contact = () => {
               </div>
               <button
                 onClick={() => copyToClipboard(siteConfig.email, 'email')}
-                className="p-2.5 rounded-xl bg-stone-950 border border-stone-800 text-stone-300 hover:text-coral-400 transition-all text-xs font-mono font-medium flex items-center gap-1.5 shadow-sm"
+                className="p-2.5 rounded-xl bg-[#080808] border border-white/10 text-zinc-300 hover:text-[#F95C4B] transition-all text-xs font-mono font-medium flex items-center gap-1.5 shadow-sm"
                 title="Copy email to clipboard"
               >
                 {copiedField === 'email' ? (
                   <>
-                    <Check className="w-4 h-4 text-coral-400" />
-                    <span className="text-coral-400 font-bold">Copied!</span>
+                    <Check className="w-4 h-4 text-[#F95C4B]" />
+                    <span className="text-[#F95C4B] font-bold">Copied!</span>
                   </>
                 ) : (
                   <>
@@ -65,16 +84,16 @@ export const Contact = () => {
             </Card>
 
             {/* Phone Card */}
-            <Card className="flex items-center justify-between gap-4 border-stone-800">
+            <Card className="flex items-center justify-between gap-4 border-white/10 bg-[#121214]">
               <div className="flex items-center gap-3.5">
-                <div className="p-3 rounded-xl bg-coral-500/10 text-coral-400 border border-coral-500/20">
+                <div className="p-3 rounded-xl bg-[#F95C4B]/10 text-[#F95C4B] border border-[#F95C4B]/20">
                   <Phone className="w-6 h-6" />
                 </div>
                 <div>
-                  <span className="text-xs font-mono text-stone-400 uppercase tracking-wider font-semibold block">Phone Number</span>
+                  <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold block">Phone Number</span>
                   <a
                     href={`tel:${siteConfig.phone}`}
-                    className="text-base font-bold text-paper-100 hover:text-coral-400 transition-colors font-mono"
+                    className="text-base font-bold text-zinc-100 hover:text-[#F95C4B] transition-colors font-mono"
                   >
                     {siteConfig.phone}
                   </a>
@@ -82,13 +101,13 @@ export const Contact = () => {
               </div>
               <button
                 onClick={() => copyToClipboard(siteConfig.phone, 'phone')}
-                className="p-2.5 rounded-xl bg-stone-950 border border-stone-800 text-stone-300 hover:text-coral-400 transition-all text-xs font-mono font-medium flex items-center gap-1.5 shadow-sm"
+                className="p-2.5 rounded-xl bg-[#080808] border border-white/10 text-zinc-300 hover:text-[#F95C4B] transition-all text-xs font-mono font-medium flex items-center gap-1.5 shadow-sm"
                 title="Copy phone to clipboard"
               >
                 {copiedField === 'phone' ? (
                   <>
-                    <Check className="w-4 h-4 text-coral-400" />
-                    <span className="text-coral-400 font-bold">Copied!</span>
+                    <Check className="w-4 h-4 text-[#F95C4B]" />
+                    <span className="text-[#F95C4B] font-bold">Copied!</span>
                   </>
                 ) : (
                   <>
@@ -100,27 +119,96 @@ export const Contact = () => {
             </Card>
 
             {/* Location Card */}
-            <Card className="flex items-center gap-3.5 border-stone-800">
-              <div className="p-3 rounded-xl bg-stone-500/15 text-stone-200 border border-stone-500/30">
-                <MapPin className="w-6 h-6 text-coral-400" />
+            <Card className="flex items-center gap-3.5 border-white/10 bg-[#121214]">
+              <div className="p-3 rounded-xl bg-white/5 text-zinc-200 border border-white/10">
+                <MapPin className="w-6 h-6 text-[#F95C4B]" />
               </div>
               <div>
-                <span className="text-xs font-mono text-stone-400 uppercase tracking-wider font-semibold block">Location</span>
-                <span className="text-base font-bold text-paper-100 font-mono">
+                <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-semibold block">Location</span>
+                <span className="text-base font-bold text-zinc-100 font-mono">
                   {siteConfig.location}
                 </span>
               </div>
+            </Card>
+
+            {/* Interactive Quick Message Form */}
+            <Card className="border-white/10 bg-[#121214] space-y-4">
+              <div className="flex items-center gap-2 pb-2 border-b border-white/10">
+                <MessageSquare className="w-5 h-5 text-[#F95C4B]" />
+                <h3 className="text-lg font-bold text-white font-display">Send a Quick Message</h3>
+              </div>
+
+              <form onSubmit={handleFormSubmit} className="space-y-3 font-mono text-xs">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <label className="block text-zinc-400 mb-1 font-semibold">Your Name *</label>
+                    <input
+                      type="text"
+                      required
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      placeholder="e.g. Alex Smith"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#080808] border border-white/10 text-zinc-100 focus:border-[#F95C4B] focus:outline-none transition-colors"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-zinc-400 mb-1 font-semibold">Your Email *</label>
+                    <input
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      placeholder="alex@company.com"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#080808] border border-white/10 text-zinc-100 focus:border-[#F95C4B] focus:outline-none transition-colors"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-zinc-400 mb-1 font-semibold">Subject</label>
+                  <input
+                    type="text"
+                    value={formData.subject}
+                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                    placeholder="Software Engineering Inquiry"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-[#080808] border border-white/10 text-zinc-100 focus:border-[#F95C4B] focus:outline-none transition-colors"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-zinc-400 mb-1 font-semibold">Message *</label>
+                  <textarea
+                    rows={4}
+                    required
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    placeholder="Hello Ujjwal, I would like to discuss..."
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-[#080808] border border-white/10 text-zinc-100 focus:border-[#F95C4B] focus:outline-none transition-colors resize-none"
+                  ></textarea>
+                </div>
+
+                <Button type="submit" variant="primary" className="w-full rounded-xl py-3 text-xs">
+                  <Send className="w-4 h-4" />
+                  <span>Send Message via Email</span>
+                </Button>
+
+                {submitted && (
+                  <p className="text-xs text-[#F95C4B] text-center font-bold pt-1">
+                    Opening your default email client with pre-filled message...
+                  </p>
+                )}
+              </form>
             </Card>
 
           </div>
 
           {/* Social Links Config Card */}
           <div className="lg:col-span-5">
-            <Card className="border-stone-800 space-y-6">
+            <Card className="border-white/10 bg-[#121214] space-y-6">
               <div>
-                <h3 className="text-xl font-bold text-paper-100">Developer Profiles</h3>
-                <p className="text-xs text-stone-400 mt-1 leading-relaxed">
-                  Connect with me across GitHub, LinkedIn, and LeetCode. Configured in <code className="text-coral-300 bg-stone-950 px-1.5 py-0.5 rounded font-mono border border-stone-800">src/config/site.js</code>.
+                <h3 className="text-xl font-bold text-zinc-100 font-display">Developer Profiles</h3>
+                <p className="text-xs text-zinc-400 mt-1 leading-relaxed font-sans">
+                  Connect with me across GitHub, LinkedIn, and LeetCode. Configured in <code className="text-[#F95C4B] bg-[#080808] px-1.5 py-0.5 rounded font-mono border border-white/10">src/config/site.js</code>.
                 </p>
               </div>
 
@@ -130,18 +218,18 @@ export const Contact = () => {
                   href={siteConfig.socials.github.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="p-3.5 rounded-xl bg-stone-950/80 border border-stone-800 hover:border-coral-500/45 flex items-center justify-between group transition-all"
+                  className="p-3.5 rounded-xl bg-[#080808] border border-white/10 hover:border-[#F95C4B]/40 flex items-center justify-between group transition-all"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-stone-900 text-stone-200 group-hover:text-coral-400 transition-colors shadow-sm">
+                    <div className="p-2 rounded-lg bg-[#121214] text-zinc-200 group-hover:text-[#F95C4B] transition-colors shadow-sm">
                       <Github className="w-5 h-5" />
                     </div>
                     <div>
-                      <h4 className="text-sm font-semibold text-paper-100">GitHub Profile</h4>
-                      <p className="text-[11px] font-mono text-stone-400">{siteConfig.socials.github.url}</p>
+                      <h4 className="text-sm font-semibold text-zinc-100">GitHub Profile</h4>
+                      <p className="text-[11px] font-mono text-zinc-400">{siteConfig.socials.github.url}</p>
                     </div>
                   </div>
-                  <ExternalLink className="w-4 h-4 text-stone-400 group-hover:text-coral-400 transition-colors" />
+                  <ExternalLink className="w-4 h-4 text-zinc-400 group-hover:text-[#F95C4B] transition-colors" />
                 </a>
 
                 {/* LinkedIn */}
@@ -149,18 +237,18 @@ export const Contact = () => {
                   href={siteConfig.socials.linkedin.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="p-3.5 rounded-xl bg-stone-950/80 border border-stone-800 hover:border-coral-500/45 flex items-center justify-between group transition-all"
+                  className="p-3.5 rounded-xl bg-[#080808] border border-white/10 hover:border-[#F95C4B]/40 flex items-center justify-between group transition-all"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-stone-900 text-stone-200 group-hover:text-coral-400 transition-colors shadow-sm">
+                    <div className="p-2 rounded-lg bg-[#121214] text-zinc-200 group-hover:text-[#F95C4B] transition-colors shadow-sm">
                       <Linkedin className="w-5 h-5" />
                     </div>
                     <div>
-                      <h4 className="text-sm font-semibold text-paper-100">LinkedIn Profile</h4>
-                      <p className="text-[11px] font-mono text-stone-400">{siteConfig.socials.linkedin.url}</p>
+                      <h4 className="text-sm font-semibold text-zinc-100">LinkedIn Profile</h4>
+                      <p className="text-[11px] font-mono text-zinc-400">{siteConfig.socials.linkedin.url}</p>
                     </div>
                   </div>
-                  <ExternalLink className="w-4 h-4 text-stone-400 group-hover:text-coral-400 transition-colors" />
+                  <ExternalLink className="w-4 h-4 text-zinc-400 group-hover:text-[#F95C4B] transition-colors" />
                 </a>
 
                 {/* LeetCode */}
@@ -168,23 +256,23 @@ export const Contact = () => {
                   href={siteConfig.socials.leetcode.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="p-3.5 rounded-xl bg-stone-950/80 border border-stone-800 hover:border-coral-500/45 flex items-center justify-between group transition-all"
+                  className="p-3.5 rounded-xl bg-[#080808] border border-white/10 hover:border-[#F95C4B]/40 flex items-center justify-between group transition-all"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-stone-900 text-stone-200 group-hover:text-coral-400 transition-colors shadow-sm">
+                    <div className="p-2 rounded-lg bg-[#121214] text-zinc-200 group-hover:text-[#F95C4B] transition-colors shadow-sm">
                       <Code className="w-5 h-5" />
                     </div>
                     <div>
-                      <h4 className="text-sm font-semibold text-paper-100">LeetCode Profile</h4>
-                      <p className="text-[11px] font-mono text-stone-400">{siteConfig.socials.leetcode.url}</p>
+                      <h4 className="text-sm font-semibold text-zinc-100">LeetCode Profile</h4>
+                      <p className="text-[11px] font-mono text-zinc-400">{siteConfig.socials.leetcode.url}</p>
                     </div>
                   </div>
-                  <ExternalLink className="w-4 h-4 text-stone-400 group-hover:text-coral-400 transition-colors" />
+                  <ExternalLink className="w-4 h-4 text-zinc-400 group-hover:text-[#F95C4B] transition-colors" />
                 </a>
               </div>
 
-              <div className="pt-2 border-t border-stone-900 text-center">
-                <Button href={`mailto:${siteConfig.email}`} variant="primary" className="w-full">
+              <div className="pt-2 border-t border-white/10 text-center">
+                <Button href={`mailto:${siteConfig.email}`} variant="primary" className="w-full rounded-xl">
                   <Send className="w-4 h-4" />
                   Send Direct Email
                 </Button>
