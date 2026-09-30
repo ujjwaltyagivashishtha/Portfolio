@@ -10,8 +10,10 @@ export const Hero = ({ onCopyEmail }) => {
 
   return (
     <section id="hero" className="relative min-h-[85vh] lg:min-h-[92vh] flex items-center pt-24 sm:pt-28 pb-16 sm:pb-20 overflow-hidden bg-slate-50 dark:bg-[#080808] text-slate-900 dark:text-zinc-100 border-b border-slate-200 dark:border-white/10 transition-colors duration-300">
-      {/* Subtle Grid Background */}
+      {/* Editorial Grid Background & Ambient Radial Glows */}
       <div className="absolute inset-0 bg-editorial-grid pointer-events-none opacity-30"></div>
+      <div className="absolute top-1/4 left-10 w-72 sm:w-96 h-72 sm:h-96 bg-[#F95C4B]/15 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute bottom-10 right-10 w-80 h-80 bg-indigo-500/10 rounded-full blur-[140px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 lg:gap-16 items-center">
@@ -20,7 +22,7 @@ export const Hero = ({ onCopyEmail }) => {
           <div className="lg:col-span-7 space-y-6 sm:space-y-7 text-left">
             
             {/* Availability Pill */}
-            <div className="inline-flex items-center gap-2.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-slate-100 dark:bg-[#121214] border border-slate-200 dark:border-white/10 text-xs font-mono text-slate-700 dark:text-zinc-300 shadow-sm max-w-full">
+            <div className="inline-flex items-center gap-2.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-slate-100/90 dark:bg-[#121214]/90 border border-slate-200 dark:border-white/10 text-xs font-mono text-slate-700 dark:text-zinc-300 shadow-sm max-w-full backdrop-blur-md">
               <span className="relative flex h-2.5 w-2.5 shrink-0">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F95C4B] opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#F95C4B]"></span>
@@ -32,7 +34,7 @@ export const Hero = ({ onCopyEmail }) => {
             <div className="space-y-3">
               <h1 className="text-3xl sm:text-5xl lg:text-7xl font-extrabold text-slate-900 dark:text-zinc-100 font-display tracking-tight leading-[1.1] sm:leading-[1.08]">
                 Building <br />
-                <span className="text-[#F95C4B]">Scalable Digital Systems</span> <br />
+                <span className="bg-gradient-to-r from-[#F95C4B] via-[#FA7464] to-[#F95C4B] bg-clip-text text-transparent">Scalable Digital Systems</span> <br />
                 & Real-Time Platforms.
               </h1>
               
@@ -53,22 +55,21 @@ export const Hero = ({ onCopyEmail }) => {
             {/* Core Focus Badges */}
             <div className="flex flex-wrap gap-2 pt-1">
               {(personalInfo.focusAreas || []).map((area) => (
-                <Badge key={area} variant="secondary">
+                <Badge key={area} variant="secondary" className="hover:border-[#F95C4B]/40 hover:text-[#F95C4B] transition-all">
                   {area}
                 </Badge>
               ))}
             </div>
 
-
             {/* Main CTAs */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2 w-full sm:w-auto">
-              <Button href="#projects" variant="primary" size="lg" className="rounded-xl justify-center sm:justify-start">
+              <Button href="#projects" variant="primary" size="lg" className="rounded-xl justify-center sm:justify-start hover:scale-[1.02] transition-transform">
                 <span>Explore Projects</span>
                 <ArrowRight className="w-4 h-4" />
               </Button>
               <button
                 onClick={onCopyEmail}
-                className="px-5 py-3 rounded-xl bg-slate-100 dark:bg-[#121214] border border-slate-200 dark:border-white/10 hover:border-[#F95C4B]/50 text-slate-800 dark:text-zinc-200 hover:text-[#F95C4B] font-mono text-sm font-semibold transition-all shadow-sm flex items-center justify-center gap-2"
+                className="px-5 py-3 rounded-xl bg-slate-100 dark:bg-[#121214] border border-slate-200 dark:border-white/10 hover:border-[#F95C4B]/50 text-slate-800 dark:text-zinc-200 hover:text-[#F95C4B] font-mono text-sm font-semibold transition-all shadow-sm flex items-center justify-center gap-2 hover:scale-[1.02]"
               >
                 <Copy className="w-4 h-4 text-[#F95C4B]" />
                 <span>Copy Email</span>
@@ -85,7 +86,7 @@ export const Hero = ({ onCopyEmail }) => {
                 href={siteConfig.socials.github.url}
                 target="_blank"
                 rel="noreferrer"
-                className="px-3 sm:px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-[#121214] border border-slate-200 dark:border-white/10 text-slate-800 dark:text-zinc-200 hover:text-[#F95C4B] hover:border-[#F95C4B]/50 shadow-sm transition-all flex items-center gap-2 text-xs font-mono font-medium"
+                className="px-3 sm:px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-[#121214] border border-slate-200 dark:border-white/10 text-slate-800 dark:text-zinc-200 hover:text-[#F95C4B] hover:border-[#F95C4B]/50 shadow-sm transition-all flex items-center gap-2 text-xs font-mono font-medium hover:-translate-y-0.5"
               >
                 <Github className="w-4 h-4 text-[#F95C4B]" />
                 <span>GitHub</span>
@@ -95,7 +96,7 @@ export const Hero = ({ onCopyEmail }) => {
                 href={siteConfig.socials.linkedin.url}
                 target="_blank"
                 rel="noreferrer"
-                className="px-3 sm:px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-[#121214] border border-slate-200 dark:border-white/10 text-slate-800 dark:text-zinc-200 hover:text-[#F95C4B] hover:border-[#F95C4B]/50 shadow-sm transition-all flex items-center gap-2 text-xs font-mono font-medium"
+                className="px-3 sm:px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-[#121214] border border-slate-200 dark:border-white/10 text-slate-800 dark:text-zinc-200 hover:text-[#F95C4B] hover:border-[#F95C4B]/50 shadow-sm transition-all flex items-center gap-2 text-xs font-mono font-medium hover:-translate-y-0.5"
               >
                 <Linkedin className="w-4 h-4 text-slate-600 dark:text-zinc-300" />
                 <span>LinkedIn</span>
@@ -105,7 +106,7 @@ export const Hero = ({ onCopyEmail }) => {
                 href={siteConfig.socials.leetcode.url}
                 target="_blank"
                 rel="noreferrer"
-                className="px-3 sm:px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-[#121214] border border-slate-200 dark:border-white/10 text-slate-800 dark:text-zinc-200 hover:text-[#F95C4B] hover:border-[#F95C4B]/50 shadow-sm transition-all flex items-center gap-2 text-xs font-mono font-medium"
+                className="px-3 sm:px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-[#121214] border border-slate-200 dark:border-white/10 text-slate-800 dark:text-zinc-200 hover:text-[#F95C4B] hover:border-[#F95C4B]/50 shadow-sm transition-all flex items-center gap-2 text-xs font-mono font-medium hover:-translate-y-0.5"
               >
                 <Code className="w-4 h-4 text-[#F95C4B]" />
                 <span>LeetCode</span>
@@ -116,19 +117,19 @@ export const Hero = ({ onCopyEmail }) => {
 
           {/* Right Column: Sleek Rounded Portrait & Engineering Specs Card */}
           <div className="lg:col-span-5 space-y-6 max-w-md mx-auto lg:max-w-none w-full">
-            <div className="bg-white dark:bg-[#121214] border border-slate-200 dark:border-white/10 rounded-2xl p-4 sm:p-5 shadow-2xl hover:border-slate-300 dark:hover:border-zinc-700 transition-all group overflow-hidden">
+            <div className="bg-white/90 dark:bg-[#121214]/90 backdrop-blur-md border border-slate-200 dark:border-white/10 rounded-2xl p-4 sm:p-5 shadow-2xl hover:border-[#F95C4B]/40 transition-all group overflow-hidden relative">
               
               {/* Header Badge */}
               <div className="flex items-center justify-between pb-3 mb-3.5 border-b border-slate-200 dark:border-white/10 text-xs font-mono">
                 <span className="text-slate-800 dark:text-zinc-300 font-semibold flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#F95C4B]"></span>
+                  <span className="w-2 h-2 rounded-full bg-[#F95C4B] animate-pulse"></span>
                   Software Engineer
                 </span>
                 <span className="text-slate-500 dark:text-zinc-400 font-mono text-[11px]">Saharanpur, UP, India</span>
               </div>
 
               {/* Portrait Frame */}
-              <div className="relative rounded-xl overflow-hidden aspect-[4/5] bg-slate-100 dark:bg-zinc-900 mb-4 flex items-center justify-center">
+              <div className="relative rounded-xl overflow-hidden aspect-[4/5] bg-slate-100 dark:bg-zinc-900 mb-4 flex items-center justify-center border border-slate-200 dark:border-white/10">
                 {!imgError ? (
                   <img
                     src="./ujjwal-profile.jpg"
@@ -148,7 +149,7 @@ export const Hero = ({ onCopyEmail }) => {
                   </div>
                 )}
                 
-                <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/70 via-transparent to-transparent opacity-70"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/80 via-transparent to-transparent opacity-80"></div>
                 
                 <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between font-mono text-xs text-zinc-100">
                   <span className="bg-slate-900/90 dark:bg-[#080808]/90 border border-white/20 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg font-bold backdrop-blur-md text-white text-[11px] sm:text-xs">
@@ -193,5 +194,6 @@ export const Hero = ({ onCopyEmail }) => {
         </div>
       </div>
     </section>
+
   );
 };
