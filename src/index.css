@@ -10,6 +10,12 @@
     font-family: 'Inter', sans-serif;
     scroll-behavior: smooth;
   }
+
+  html.light {
+    color-scheme: light;
+    background-color: #f8fafc;
+    color: #0f172a;
+  }
   
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Space Grotesk', sans-serif;
@@ -32,9 +38,15 @@
   ::-webkit-scrollbar-track {
     background: #080808;
   }
+  html.light ::-webkit-scrollbar-track {
+    background: #f8fafc;
+  }
   ::-webkit-scrollbar-thumb {
     background: #27272A;
     border-radius: 9999px;
+  }
+  html.light ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
   }
   ::-webkit-scrollbar-thumb:hover {
     background: #F95C4B;
@@ -49,17 +61,10 @@
       linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
   }
-
-  /* Editorial Card Styling */
-  .editorial-card {
-    background: #111111;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
-  }
-
-  .editorial-card:hover {
-    border-color: rgba(249, 92, 75, 0.4);
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+  html.light .bg-grid-lines {
+    background-image: 
+      linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
   }
 
   /* Glass Card */
@@ -67,9 +72,8 @@
     background: rgba(18, 18, 20, 0.75);
     backdrop-filter: blur(12px);
   }
-
-  /* Accent Highlight Border */
-  .accent-left-bar {
-    border-left: 2px solid #F95C4B;
+  html.light .glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
   }
 }

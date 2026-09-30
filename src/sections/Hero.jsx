@@ -3,13 +3,13 @@ import { personalInfo } from '../data/personalInfo';
 import { siteConfig } from '../config/site';
 import { Button } from '../components/ui/Button';
 import { Badge } from '../components/ui/Badge';
-import { ArrowRight, Mail, Github, Linkedin, Code, MapPin, GraduationCap, Briefcase, UserCheck } from 'lucide-react';
+import { ArrowRight, Github, Linkedin, Code, MapPin, GraduationCap, Briefcase, UserCheck, Copy, Search } from 'lucide-react';
 
-export const Hero = () => {
+export const Hero = ({ onOpenCommandPalette, onCopyEmail }) => {
   const [imgError, setImgError] = useState(false);
 
   return (
-    <section id="hero" className="relative min-h-[92vh] flex items-center pt-28 pb-20 overflow-hidden bg-[#080808] text-zinc-100 border-b border-white/10">
+    <section id="hero" className="relative min-h-[92vh] flex items-center pt-28 pb-20 overflow-hidden bg-slate-50 dark:bg-[#080808] text-slate-900 dark:text-zinc-100 border-b border-slate-200 dark:border-white/10 transition-colors duration-300">
       {/* Subtle Grid Background */}
       <div className="absolute inset-0 bg-editorial-grid pointer-events-none opacity-30"></div>
 
@@ -19,38 +19,50 @@ export const Hero = () => {
           {/* Left Hero Content */}
           <div className="lg:col-span-7 space-y-7 text-left">
             
-            {/* Availability Pill */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#121214] border border-white/10 text-xs font-mono text-zinc-300 shadow-sm">
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F95C4B] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#F95C4B]"></span>
-              </span>
-              <span className="font-semibold tracking-wide">Available for Full-Stack & Software Engineering Roles</span>
+            {/* Availability Pill & Command Palette Hint */}
+            <div className="flex flex-wrap items-center gap-3">
+              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-slate-100 dark:bg-[#121214] border border-slate-200 dark:border-white/10 text-xs font-mono text-slate-700 dark:text-zinc-300 shadow-sm">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F95C4B] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#F95C4B]"></span>
+                </span>
+                <span className="font-semibold tracking-wide">Available for Software & Full-Stack Roles</span>
+              </div>
+
+              <button
+                onClick={onOpenCommandPalette}
+                className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-[#121214] border border-slate-200 dark:border-white/10 hover:border-[#F95C4B]/40 text-xs font-mono text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-white transition-all"
+              >
+                <Search className="w-3 h-3 text-[#F95C4B]" />
+                <span>Press</span>
+                <kbd className="px-1.5 py-0.5 text-[10px] rounded bg-slate-200 dark:bg-white/10 text-slate-700 dark:text-zinc-200">⌘K</kbd>
+                <span>for quick actions</span>
+              </button>
             </div>
 
             {/* Main Headline */}
             <div className="space-y-3">
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-zinc-100 font-display tracking-tight leading-[1.08]">
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-slate-900 dark:text-zinc-100 font-display tracking-tight leading-[1.08]">
                 Building <br />
                 <span className="text-[#F95C4B]">Scalable Digital Systems</span> <br />
                 & Real-Time Platforms.
               </h1>
               
-              <div className="flex flex-wrap items-center gap-3 pt-1 text-xs font-mono text-zinc-400">
-                <span className="text-zinc-100 font-bold text-sm">{personalInfo.name}</span>
-                <span className="text-zinc-600">•</span>
+              <div className="flex flex-wrap items-center gap-3 pt-1 text-xs font-mono text-slate-600 dark:text-zinc-400">
+                <span className="text-slate-900 dark:text-zinc-100 font-bold text-sm">{personalInfo.name}</span>
+                <span className="text-slate-400 dark:text-zinc-600">•</span>
                 <span className="text-[#F95C4B] font-semibold">Full-Stack MERN Developer</span>
-                <span className="text-zinc-600">•</span>
+                <span className="text-slate-400 dark:text-zinc-600">•</span>
                 <span>B.Tech CSE @ Quantum Univ</span>
               </div>
             </div>
 
-            {/* Summary */}
-            <p className="text-zinc-300 text-base sm:text-lg leading-relaxed max-w-2xl font-sans font-normal">
+            {/* Narrative Summary */}
+            <p className="text-slate-700 dark:text-zinc-300 text-base sm:text-lg leading-relaxed max-w-2xl font-sans font-normal">
               {personalInfo.heroDescription}
             </p>
 
-            {/* Core Tech Stack Badges */}
+            {/* Core Focus Badges */}
             <div className="flex flex-wrap gap-2 pt-1">
               {personalInfo.focusAreas.map((area) => (
                 <Badge key={area} variant="secondary">
@@ -59,21 +71,24 @@ export const Hero = () => {
               ))}
             </div>
 
-            {/* CTAs */}
+            {/* Main CTAs */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Button href="#projects" variant="primary" size="lg" className="rounded-xl">
                 <span>Explore Projects</span>
                 <ArrowRight className="w-4 h-4" />
               </Button>
-              <Button href={`mailto:${siteConfig.email}`} variant="outline" size="lg" className="rounded-xl">
-                <Mail className="w-4 h-4 text-[#F95C4B]" />
-                <span>Contact Direct</span>
-              </Button>
+              <button
+                onClick={onCopyEmail}
+                className="px-5 py-3 rounded-xl bg-slate-100 dark:bg-[#121214] border border-slate-200 dark:border-white/10 hover:border-[#F95C4B]/50 text-slate-800 dark:text-zinc-200 hover:text-[#F95C4B] font-mono text-sm font-semibold transition-all shadow-sm flex items-center gap-2"
+              >
+                <Copy className="w-4 h-4 text-[#F95C4B]" />
+                <span>Copy Email</span>
+              </button>
             </div>
 
             {/* Verified Social Profile Buttons */}
-            <div className="pt-6 flex flex-wrap items-center gap-3 border-t border-white/10">
-              <span className="text-xs font-mono text-zinc-400 uppercase tracking-widest font-semibold mr-1">
+            <div className="pt-6 flex flex-wrap items-center gap-3 border-t border-slate-200 dark:border-white/10">
+              <span className="text-xs font-mono text-slate-500 dark:text-zinc-400 uppercase tracking-widest font-semibold mr-1">
                 Profiles:
               </span>
               
@@ -81,7 +96,7 @@ export const Hero = () => {
                 href={siteConfig.socials.github.url}
                 target="_blank"
                 rel="noreferrer"
-                className="px-3.5 py-2 rounded-xl bg-[#121214] border border-white/10 text-zinc-200 hover:text-[#F95C4B] hover:border-[#F95C4B]/50 shadow-sm transition-all flex items-center gap-2 text-xs font-mono font-medium"
+                className="px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-[#121214] border border-slate-200 dark:border-white/10 text-slate-800 dark:text-zinc-200 hover:text-[#F95C4B] hover:border-[#F95C4B]/50 shadow-sm transition-all flex items-center gap-2 text-xs font-mono font-medium"
               >
                 <Github className="w-4 h-4 text-[#F95C4B]" />
                 <span>GitHub</span>
@@ -91,9 +106,9 @@ export const Hero = () => {
                 href={siteConfig.socials.linkedin.url}
                 target="_blank"
                 rel="noreferrer"
-                className="px-3.5 py-2 rounded-xl bg-[#121214] border border-white/10 text-zinc-200 hover:text-[#F95C4B] hover:border-[#F95C4B]/50 shadow-sm transition-all flex items-center gap-2 text-xs font-mono font-medium"
+                className="px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-[#121214] border border-slate-200 dark:border-white/10 text-slate-800 dark:text-zinc-200 hover:text-[#F95C4B] hover:border-[#F95C4B]/50 shadow-sm transition-all flex items-center gap-2 text-xs font-mono font-medium"
               >
-                <Linkedin className="w-4 h-4 text-zinc-300" />
+                <Linkedin className="w-4 h-4 text-slate-600 dark:text-zinc-300" />
                 <span>LinkedIn</span>
               </a>
 
@@ -101,7 +116,7 @@ export const Hero = () => {
                 href={siteConfig.socials.leetcode.url}
                 target="_blank"
                 rel="noreferrer"
-                className="px-3.5 py-2 rounded-xl bg-[#121214] border border-white/10 text-zinc-200 hover:text-[#F95C4B] hover:border-[#F95C4B]/50 shadow-sm transition-all flex items-center gap-2 text-xs font-mono font-medium"
+                className="px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-[#121214] border border-slate-200 dark:border-white/10 text-slate-800 dark:text-zinc-200 hover:text-[#F95C4B] hover:border-[#F95C4B]/50 shadow-sm transition-all flex items-center gap-2 text-xs font-mono font-medium"
               >
                 <Code className="w-4 h-4 text-[#F95C4B]" />
                 <span>LeetCode</span>
@@ -110,21 +125,21 @@ export const Hero = () => {
 
           </div>
 
-          {/* Right Column: Sleek Rounded Portrait Card */}
+          {/* Right Column: Sleek Rounded Portrait & Engineering Specs Card */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-[#121214] border border-white/10 rounded-2xl p-5 shadow-2xl hover:border-zinc-700 transition-all group overflow-hidden">
+            <div className="bg-white dark:bg-[#121214] border border-slate-200 dark:border-white/10 rounded-2xl p-5 shadow-2xl hover:border-slate-300 dark:hover:border-zinc-700 transition-all group overflow-hidden">
               
               {/* Header Badge */}
-              <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-white/10 text-xs font-mono">
-                <span className="text-zinc-300 font-semibold flex items-center gap-2">
+              <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-slate-200 dark:border-white/10 text-xs font-mono">
+                <span className="text-slate-800 dark:text-zinc-300 font-semibold flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#F95C4B]"></span>
                   Software Engineer
                 </span>
-                <span className="text-zinc-400 font-mono text-[11px]">Saharanpur, UP</span>
+                <span className="text-slate-500 dark:text-zinc-400 font-mono text-[11px]">Saharanpur, UP, India</span>
               </div>
 
-              {/* Portrait Image Frame */}
-              <div className="relative rounded-xl overflow-hidden aspect-[4/5] bg-zinc-900 mb-4 flex items-center justify-center">
+              {/* Portrait Frame */}
+              <div className="relative rounded-xl overflow-hidden aspect-[4/5] bg-slate-100 dark:bg-zinc-900 mb-4 flex items-center justify-center">
                 {!imgError ? (
                   <img
                     src="/ujjwal-profile.jpg"
@@ -138,48 +153,48 @@ export const Hero = () => {
                       <UserCheck className="w-10 h-10 text-[#F95C4B]" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-lg text-white font-display">Ujjwal Tyagi</h3>
-                      <p className="text-xs font-mono text-[#F95C4B]">Software Engineer</p>
+                      <h3 className="font-bold text-lg text-slate-900 dark:text-white font-display">Ujjwal Tyagi</h3>
+                      <p className="text-xs font-mono text-[#F95C4B]">Full-Stack Developer</p>
                     </div>
                   </div>
                 )}
                 
-                <div className="absolute inset-0 bg-gradient-to-t from-[#121214] via-transparent to-transparent opacity-70"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/70 via-transparent to-transparent opacity-70"></div>
                 
                 <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between font-mono text-xs text-zinc-100">
-                  <span className="bg-[#080808]/90 border border-white/10 px-3 py-1.5 rounded-lg font-bold backdrop-blur-md">
+                  <span className="bg-slate-900/90 dark:bg-[#080808]/90 border border-white/20 px-3 py-1.5 rounded-lg font-bold backdrop-blur-md text-white">
                     Ujjwal Tyagi
                   </span>
-                  <span className="bg-[#080808]/90 border border-white/10 px-3 py-1.5 rounded-lg text-[#F95C4B] font-semibold backdrop-blur-md">
-                    Full-Stack MERN
+                  <span className="bg-slate-900/90 dark:bg-[#080808]/90 border border-white/20 px-3 py-1.5 rounded-lg text-[#F95C4B] font-semibold backdrop-blur-md">
+                    MERN & AI Integrations
                   </span>
                 </div>
               </div>
 
               {/* Key Specs */}
               <div className="space-y-2.5 font-mono text-xs pt-1 px-1">
-                <div className="flex items-center justify-between py-1.5 border-b border-white/10 text-zinc-300">
-                  <span className="text-zinc-400 flex items-center gap-1.5">
+                <div className="flex items-center justify-between py-1.5 border-b border-slate-200 dark:border-white/10 text-slate-700 dark:text-zinc-300">
+                  <span className="text-slate-500 dark:text-zinc-400 flex items-center gap-1.5">
                     <GraduationCap className="w-3.5 h-3.5 text-[#F95C4B]" />
-                    Degree
+                    Education
                   </span>
-                  <span className="font-semibold text-zinc-100">B.Tech CSE (7.99 CGPA)</span>
+                  <span className="font-semibold text-slate-900 dark:text-zinc-100">B.Tech CSE (7.99 CGPA)</span>
                 </div>
 
-                <div className="flex items-center justify-between py-1.5 border-b border-white/10 text-zinc-300">
-                  <span className="text-zinc-400 flex items-center gap-1.5">
+                <div className="flex items-center justify-between py-1.5 border-b border-slate-200 dark:border-white/10 text-slate-700 dark:text-zinc-300">
+                  <span className="text-slate-500 dark:text-zinc-400 flex items-center gap-1.5">
                     <Briefcase className="w-3.5 h-3.5 text-[#F95C4B]" />
                     Experience
                   </span>
                   <span className="font-semibold text-[#F95C4B]">Web Dev Intern @ 3Skill India</span>
                 </div>
 
-                <div className="flex items-center justify-between py-1.5 text-zinc-300">
-                  <span className="text-zinc-400 flex items-center gap-1.5">
+                <div className="flex items-center justify-between py-1.5 text-slate-700 dark:text-zinc-300">
+                  <span className="text-slate-500 dark:text-zinc-400 flex items-center gap-1.5">
                     <MapPin className="w-3.5 h-3.5 text-[#F95C4B]" />
                     Location
                   </span>
-                  <span className="font-medium text-zinc-200">{personalInfo.location}</span>
+                  <span className="font-medium text-slate-800 dark:text-zinc-200">{personalInfo.location}</span>
                 </div>
               </div>
 

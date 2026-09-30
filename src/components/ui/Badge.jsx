@@ -4,9 +4,9 @@ import { cn } from '../../lib/utils';
 export const Badge = ({ children, variant = "primary", className = "" }) => {
   const variants = {
     primary: "bg-[#F95C4B]/10 text-[#F95C4B] border-[#F95C4B]/25 font-semibold",
-    secondary: "bg-zinc-900/90 text-zinc-300 border-zinc-800",
-    paper: "bg-zinc-800 text-zinc-200 border-zinc-700",
-    outline: "bg-transparent text-zinc-400 border-white/10 hover:border-white/25",
+    secondary: "bg-slate-200 dark:bg-zinc-900/90 text-slate-700 dark:text-zinc-300 border-slate-300 dark:border-zinc-800",
+    paper: "bg-slate-100 dark:bg-zinc-800 text-slate-800 dark:text-zinc-200 border-slate-300 dark:border-zinc-700",
+    outline: "bg-transparent text-slate-600 dark:text-zinc-400 border-slate-300 dark:border-white/10 hover:border-[#F95C4B]",
   };
 
   return (
