@@ -27,7 +27,7 @@ export const Skills = () => {
   }).filter((cat) => cat.skills.length > 0);
 
   return (
-    <section id="skills" className="py-24 relative bg-white dark:bg-[#080808] border-b border-slate-200 dark:border-white/10 transition-colors duration-300">
+    <section id="skills" className="py-16 sm:py-24 relative bg-white dark:bg-[#080808] border-b border-slate-200 dark:border-white/10 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <SectionHeading
@@ -38,7 +38,7 @@ export const Skills = () => {
         />
 
         {/* Real-time Search Input */}
-        <div className="mb-10 max-w-md">
+        <div className="mb-8 sm:mb-10 max-w-md w-full">
           <div className="relative">
             <Search className="w-4 h-4 text-[#F95C4B] absolute left-3.5 top-1/2 -translate-y-1/2" />
             <input
@@ -77,7 +77,7 @@ export const Skills = () => {
                     </div>
 
                     {/* Skills List */}
-                    <div className="space-y-3">
+                    <div className="space-y-2.5 sm:space-y-3">
                       {category.skills.map((skill) => (
                         <div
                           key={skill.name}
@@ -106,7 +106,7 @@ export const Skills = () => {
             })}
           </div>
         ) : (
-          <div className="p-12 text-center bg-white dark:bg-[#121214] border border-slate-200 dark:border-white/10 rounded-2xl">
+          <div className="p-8 sm:p-12 text-center bg-white dark:bg-[#121214] border border-slate-200 dark:border-white/10 rounded-2xl">
             <p className="text-sm font-mono text-slate-600 dark:text-zinc-400">
               No skills found matching "<span className="text-[#F95C4B]">{searchQuery}</span>"
             </p>
