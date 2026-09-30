@@ -6,7 +6,7 @@ import { Award, ShieldCheck, CheckCircle2 } from 'lucide-react';
 
 export const Certifications = () => {
   return (
-    <section id="certifications" className="py-24 relative bg-slate-50 dark:bg-[#080808] border-b border-slate-200 dark:border-white/10 transition-colors duration-300">
+    <section id="certifications" className="py-16 sm:py-24 relative bg-slate-50 dark:bg-[#080808] border-b border-slate-200 dark:border-white/10 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <SectionHeading
@@ -35,7 +35,7 @@ export const Certifications = () => {
                     <Award className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-slate-900 dark:text-zinc-100 font-display">
+                    <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-zinc-100 font-display">
                       {cert.title}
                     </h3>
                     <p className="text-xs font-mono text-[#F95C4B] font-semibold mt-0.5">
