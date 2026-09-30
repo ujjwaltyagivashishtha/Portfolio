@@ -95,15 +95,12 @@ export default function App() {
       </a>
 
       <Navbar
-        onOpenCommandPalette={() => setIsCmdOpen(true)}
         theme={theme}
         toggleTheme={toggleTheme}
-        onCopyEmail={copyEmail}
       />
 
       <main id="main-content">
         <Hero
-          onOpenCommandPalette={() => setIsCmdOpen(true)}
           onCopyEmail={copyEmail}
         />
         <About />
@@ -147,4 +144,6 @@ export default function App() {
     </div>
   );
 }
+
+
 
