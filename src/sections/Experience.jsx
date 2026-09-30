@@ -7,7 +7,7 @@ import { Briefcase, Calendar, MapPin, CheckCircle } from 'lucide-react';
 
 export const Experience = () => {
   return (
-    <section id="experience" className="py-24 relative bg-slate-50 dark:bg-[#080808] border-b border-slate-200 dark:border-white/10 transition-colors duration-300">
+    <section id="experience" className="py-16 sm:py-24 relative bg-slate-50 dark:bg-[#080808] border-b border-slate-200 dark:border-white/10 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <SectionHeading
@@ -17,9 +17,9 @@ export const Experience = () => {
           subtitle="Hands-on software development experience gained in industry internship roles."
         />
 
-        <div className="relative border-l-2 border-slate-300 dark:border-white/10 ml-4 md:ml-6 space-y-8">
+        <div className="relative border-l-2 border-slate-300 dark:border-white/10 ml-2 sm:ml-6 space-y-6 sm:space-y-8">
           {experienceData.map((exp, index) => (
-            <div key={index} className="relative pl-6 md:pl-10 group">
+            <div key={index} className="relative pl-5 sm:pl-10 group">
               
               {/* Timeline Indicator Dot */}
               <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-50 dark:bg-[#080808] border-2 border-[#F95C4B] group-hover:bg-[#F95C4B] group-hover:scale-125 transition-all"></div>
@@ -33,12 +33,12 @@ export const Experience = () => {
                       <Briefcase className="w-3.5 h-3.5 text-[#F95C4B]" />
                       {exp.company}
                     </span>
-                    <h3 className="text-xl font-bold text-slate-900 dark:text-zinc-100 font-display mt-1">
+                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-zinc-100 font-display mt-1">
                       {exp.role}
                     </h3>
                   </div>
-                  <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-slate-600 dark:text-zinc-400">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-[#080808] border border-slate-200 dark:border-white/10 font-medium">
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs font-mono text-slate-600 dark:text-zinc-400">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-slate-100 dark:bg-[#080808] border border-slate-200 dark:border-white/10 font-medium">
                       <Calendar className="w-3.5 h-3.5 text-[#F95C4B]" />
                       {exp.period}
                     </span>
@@ -50,10 +50,10 @@ export const Experience = () => {
                 </div>
 
                 {/* Bullet Points */}
-                <div className="space-y-3 mb-6">
+                <div className="space-y-2.5 sm:space-y-3 mb-6">
                   {exp.bulletPoints.map((point, idx) => (
-                    <div key={idx} className="flex items-start gap-3 text-slate-700 dark:text-zinc-300 text-sm leading-relaxed font-sans">
-                      <CheckCircle className="w-4 h-4 text-[#F95C4B] shrink-0 mt-1" />
+                    <div key={idx} className="flex items-start gap-2.5 sm:gap-3 text-slate-700 dark:text-zinc-300 text-xs sm:text-sm leading-relaxed font-sans">
+                      <CheckCircle className="w-4 h-4 text-[#F95C4B] shrink-0 mt-0.5" />
                       <span>{point}</span>
                     </div>
                   ))}
