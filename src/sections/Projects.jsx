@@ -37,7 +37,7 @@ export const Projects = () => {
   }, [selectedProject]);
 
   return (
-    <section id="projects" className="py-24 relative bg-slate-50 dark:bg-[#080808] border-b border-slate-200 dark:border-white/10 transition-colors duration-300">
+    <section id="projects" className="py-16 sm:py-24 relative bg-slate-50 dark:bg-[#080808] border-b border-slate-200 dark:border-white/10 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <SectionHeading
@@ -48,7 +48,7 @@ export const Projects = () => {
         />
 
         {/* Category Filter Tabs */}
-        <div className="flex flex-wrap items-center gap-2 mb-10 pb-2 border-b border-slate-200 dark:border-white/10">
+        <div className="flex flex-wrap items-center gap-2 mb-8 sm:mb-10 pb-2 border-b border-slate-200 dark:border-white/10">
           <div className="flex items-center gap-1.5 mr-2 text-xs font-mono text-slate-500 dark:text-zinc-400 uppercase font-semibold">
             <Filter className="w-3.5 h-3.5 text-[#F95C4B]" />
             <span>Filter:</span>
@@ -57,7 +57,7 @@ export const Projects = () => {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-mono transition-all ${
+              className={`px-3 sm:px-3.5 py-1.5 rounded-xl text-xs font-mono transition-all ${
                 activeCategory === cat
                   ? 'bg-[#F95C4B] text-black font-bold shadow-md shadow-[#F95C4B]/20'
                   : 'bg-slate-200/80 dark:bg-[#121214] text-slate-700 dark:text-zinc-300 hover:text-slate-900 dark:hover:text-white border border-slate-300 dark:border-white/10'
@@ -68,7 +68,7 @@ export const Projects = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
           {filteredProjects.map((project) => (
             <Card
               key={project.id}
@@ -86,7 +86,7 @@ export const Projects = () => {
                   </div>
                 </div>
 
-                <h3 className="text-2xl font-bold text-slate-900 dark:text-zinc-100 group-hover:text-[#F95C4B] transition-colors font-display">
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-zinc-100 group-hover:text-[#F95C4B] transition-colors font-display">
                   {project.title}
                 </h3>
                 <p className="text-xs font-mono text-slate-500 dark:text-zinc-400 mt-1 mb-4">
@@ -98,7 +98,7 @@ export const Projects = () => {
                 </p>
 
                 {/* Key Metric Highlights Grid */}
-                <div className="grid grid-cols-2 gap-2.5 mb-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-6">
                   {project.highlights.map((h, i) => (
                     <div key={i} className="p-2.5 rounded-xl bg-slate-100 dark:bg-[#080808]/80 border border-slate-200 dark:border-white/10 text-xs">
                       <span className="text-slate-500 dark:text-zinc-400 font-mono block text-[10px] uppercase tracking-wider font-semibold">{h.label}</span>
@@ -148,11 +148,11 @@ export const Projects = () => {
       {/* Detailed Architecture Modal */}
       {selectedProject && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md animate-in fade-in"
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/70 backdrop-blur-md animate-in fade-in"
           onClick={() => setSelectedProject(null)}
         >
           <div
-            className="bg-white dark:bg-[#121214] border border-slate-200 dark:border-white/10 rounded-2xl max-w-2xl w-full p-6 sm:p-8 relative shadow-2xl space-y-6 text-slate-900 dark:text-zinc-100 max-h-[90vh] overflow-y-auto"
+            className="bg-white dark:bg-[#121214] border border-slate-200 dark:border-white/10 rounded-2xl max-w-2xl w-full p-5 sm:p-8 relative shadow-2xl space-y-5 sm:space-y-6 text-slate-900 dark:text-zinc-100 max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             
@@ -169,7 +169,7 @@ export const Projects = () => {
                 <FolderGit2 className="w-4 h-4" />
                 <span>{selectedProject.category} Project Breakdown</span>
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white font-display">{selectedProject.title}</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white font-display">{selectedProject.title}</h3>
               <p className="text-xs font-mono text-slate-500 dark:text-zinc-400">{selectedProject.subtitle}</p>
             </div>
 
