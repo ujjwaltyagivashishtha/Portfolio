@@ -1,10 +1,10 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   plugins: [react()],
-  // Use relative base path so hosted assets resolve correctly on GitHub Pages, Vercel, Netlify, or subpaths
-  base: './',
+  // Use relative base path for build (GitHub Pages, Vercel, Netlify subpaths), absolute '/' for dev server
+  base: command === 'build' ? './' : '/',
   server: {
     port: 3000,
     host: true, // Expose on 0.0.0.0 for local network hosting & device testing
@@ -14,4 +14,5 @@ export default defineConfig({
     port: 3000,
     host: true,
   },
-});
+}));
+
