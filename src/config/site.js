@@ -1,11 +1,10 @@
 export const siteConfig = {
-  name: "Ujjwal",
-  title: "Software Engineer & Full-Stack Developer",
+  name: "Ujjwal Tyagi",
+  title: "Full-Stack / MERN Developer",
   location: "Saharanpur, Uttar Pradesh, India",
   email: "ujjwaltyagivashishtha@gmail.com",
   phone: "+91-7505159821",
   
-  // Placeholders for User's actual URLs (strictly adhering to instructions)
   socials: {
     github: {
       label: "GitHub",
@@ -26,11 +25,12 @@ export const siteConfig = {
 
   navLinks: [
     { name: "About", href: "#about" },
-    { name: "Experience", href: "#experience" },
-    { name: "Projects", href: "#projects" },
     { name: "Skills", href: "#skills" },
+    { name: "Projects", href: "#projects" },
+    { name: "Generative AI", href: "#genai" },
+    { name: "Experience", href: "#experience" },
+    { name: "How I Build", href: "#how-i-build" },
     { name: "Education", href: "#education" },
-    { name: "Certifications", href: "#certifications" },
     { name: "Contact", href: "#contact" },
   ],
 };

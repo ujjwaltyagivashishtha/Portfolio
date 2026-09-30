@@ -7,9 +7,9 @@ export const Navbar = ({ theme, toggleTheme }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
 
-  // Core navigation links for desktop navbar
+  // Navigation links for desktop header
   const coreNavLinks = siteConfig.navLinks.filter(link => 
-    ['#about', '#experience', '#projects', '#skills', '#contact'].includes(link.href)
+    ['#about', '#skills', '#projects', '#genai', '#experience', '#how-i-build', '#contact'].includes(link.href)
   );
 
   useEffect(() => {
@@ -62,7 +62,7 @@ export const Navbar = ({ theme, toggleTheme }) => {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled || mobileMenuOpen
             ? 'bg-white/95 dark:bg-[#080808]/95 backdrop-blur-md border-b border-slate-200/80 dark:border-white/10 py-3 shadow-md'
-            : 'bg-white/90 dark:bg-[#080808]/90 md:bg-transparent backdrop-blur-md md:backdrop-blur-none border-b border-slate-200/80 dark:border-white/10 md:border-transparent py-3.5 sm:py-5 shadow-sm md:shadow-none'
+            : 'bg-white/90 dark:bg-[#080808]/90 lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none border-b border-slate-200/80 dark:border-white/10 lg:border-transparent py-3.5 sm:py-4 shadow-sm lg:shadow-none'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -78,13 +78,18 @@ export const Navbar = ({ theme, toggleTheme }) => {
               <div className="w-8 h-8 rounded-lg bg-[#F95C4B]/10 border border-[#F95C4B]/30 flex items-center justify-center group-hover:border-[#F95C4B] group-hover:bg-[#F95C4B]/20 transition-all shadow-sm shrink-0">
                 <Terminal className="w-4 h-4 text-[#F95C4B] group-hover:scale-110 transition-transform" />
               </div>
-              <span className="font-bold text-sm sm:text-base text-slate-900 dark:text-zinc-100 tracking-tight group-hover:text-[#F95C4B] transition-colors font-display">
-                Ujjwal Tyagi
-              </span>
+              <div className="flex flex-col">
+                <span className="font-bold text-sm sm:text-base text-slate-900 dark:text-zinc-100 tracking-tight group-hover:text-[#F95C4B] transition-colors font-display leading-tight">
+                  Ujjwal Tyagi
+                </span>
+                <span className="text-[10px] font-mono text-slate-500 dark:text-zinc-400 hidden sm:inline">
+                  Full-Stack / MERN Developer
+                </span>
+              </div>
             </a>
 
             {/* Desktop Navigation Links */}
-            <nav className="hidden md:flex items-center gap-1 bg-slate-100/90 dark:bg-[#121214]/90 p-1.5 rounded-full border border-slate-200 dark:border-white/10 backdrop-blur-md shadow-inner">
+            <nav className="hidden lg:flex items-center gap-1 bg-slate-100/90 dark:bg-[#121214]/90 p-1.5 rounded-full border border-slate-200 dark:border-white/10 backdrop-blur-md shadow-inner">
               {coreNavLinks.map((link) => {
                 const sectionId = link.href.substring(1);
                 const isActive = activeSection === sectionId;
@@ -92,7 +97,7 @@ export const Navbar = ({ theme, toggleTheme }) => {
                   <a
                     key={link.name}
                     href={link.href}
-                    className={`px-3.5 py-1.5 rounded-full text-xs font-mono transition-all duration-200 ${
+                    className={`px-3 py-1 rounded-full text-xs font-mono transition-all duration-200 ${
                       isActive
                         ? 'bg-[#F95C4B]/15 text-[#F95C4B] border border-[#F95C4B]/40 font-semibold shadow-sm'
                         : 'text-slate-700 dark:text-zinc-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/60 dark:hover:bg-white/5'
@@ -105,7 +110,7 @@ export const Navbar = ({ theme, toggleTheme }) => {
             </nav>
 
             {/* Desktop Right Controls */}
-            <div className="hidden md:flex items-center gap-2.5">
+            <div className="hidden lg:flex items-center gap-2.5">
               <button
                 onClick={toggleTheme}
                 className="p-2 rounded-xl bg-slate-100 dark:bg-[#121214] border border-slate-200 dark:border-white/10 hover:border-[#F95C4B]/40 text-slate-700 dark:text-zinc-300 hover:text-slate-900 dark:hover:text-white transition-all shadow-sm"
@@ -124,7 +129,7 @@ export const Navbar = ({ theme, toggleTheme }) => {
             </div>
 
             {/* Mobile Right Controls */}
-            <div className="flex items-center gap-2 md:hidden">
+            <div className="flex items-center gap-2 lg:hidden">
               <button
                 onClick={toggleTheme}
                 className="p-2.5 rounded-xl bg-slate-100 dark:bg-[#121214] border border-slate-200 dark:border-white/10 text-slate-800 dark:text-zinc-200 shadow-sm transition-colors"
@@ -148,7 +153,7 @@ export const Navbar = ({ theme, toggleTheme }) => {
 
       {/* Full-Screen Mobile Navigation Overlay Drawer */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-white dark:bg-[#080808] text-slate-900 dark:text-zinc-100 pt-20 pb-8 px-6 flex flex-col justify-between md:hidden overflow-y-auto animate-in fade-in duration-200">
+        <div className="fixed inset-0 z-40 bg-white dark:bg-[#080808] text-slate-900 dark:text-zinc-100 pt-20 pb-8 px-6 flex flex-col justify-between lg:hidden overflow-y-auto animate-in fade-in duration-200">
           
           <div className="space-y-6">
             <div className="flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-zinc-400 uppercase tracking-widest font-semibold pb-3 border-b border-slate-200 dark:border-white/10">
@@ -165,7 +170,7 @@ export const Navbar = ({ theme, toggleTheme }) => {
                     key={link.name}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`px-4 py-3.5 rounded-xl text-base font-mono transition-all flex items-center justify-between ${
+                    className={`px-4 py-3 rounded-xl text-sm font-mono transition-all flex items-center justify-between ${
                       isActive
                         ? 'bg-[#F95C4B]/15 text-[#F95C4B] border border-[#F95C4B]/30 font-bold'
                         : 'text-slate-800 dark:text-zinc-200 hover:bg-slate-100 dark:hover:bg-white/5 border border-slate-200/50 dark:border-white/5'
