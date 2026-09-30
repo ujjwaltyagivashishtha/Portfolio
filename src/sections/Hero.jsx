@@ -130,7 +130,7 @@ export const Hero = ({ onCopyEmail }) => {
               <div className="relative rounded-xl overflow-hidden aspect-[4/5] bg-slate-100 dark:bg-zinc-900 mb-4 flex items-center justify-center">
                 {!imgError ? (
                   <img
-                    src="/ujjwal-profile.jpg"
+                    src="./ujjwal-profile.jpg"
                     alt="Ujjwal Tyagi"
                     onError={() => setImgError(true)}
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
