@@ -85,7 +85,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#080808] dark:bg-[#080808] text-zinc-100 selection:bg-[#F95C4B]/25 selection:text-[#F95C4B] relative font-sans transition-colors duration-300">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#080808] text-slate-900 dark:text-zinc-100 selection:bg-[#F95C4B]/25 selection:text-[#F95C4B] relative font-sans transition-colors duration-300">
       {/* Skip to Content for Accessibility */}
       <a
         href="#main-content"
@@ -135,7 +135,7 @@ export default function App() {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 z-30 p-3 rounded-full bg-[#121214]/90 border border-white/10 text-zinc-300 hover:text-[#F95C4B] hover:border-[#F95C4B] shadow-2xl backdrop-blur-md transition-all duration-300 group"
+          className="fixed bottom-6 right-6 z-30 p-3 rounded-full bg-white dark:bg-[#121214]/90 border border-slate-200 dark:border-white/10 text-slate-700 dark:text-zinc-300 hover:text-[#F95C4B] dark:hover:text-[#F95C4B] hover:border-[#F95C4B] shadow-2xl backdrop-blur-md transition-all duration-300 group"
           aria-label="Scroll to top of page"
         >
           <ArrowUp className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform" />
