@@ -8,7 +8,7 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="bg-slate-100 dark:bg-[#080808] border-t border-slate-200 dark:border-white/10 pt-14 pb-10 text-slate-600 dark:text-zinc-400 text-sm relative transition-colors duration-300">
+    <footer className="bg-slate-100 dark:bg-[#080808] border-t border-slate-200 dark:border-white/10 pt-10 sm:pt-14 pb-8 sm:pb-10 text-slate-600 dark:text-zinc-400 text-sm relative transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-slate-200 dark:border-white/10">
           
@@ -19,7 +19,7 @@ export const Footer = () => {
               Computer Science & Engineering Student | Full-Stack Developer specializing in React.js, Node.js, Express, MongoDB, REST APIs, and AI platform engineering.
             </p>
             <div className="flex items-center gap-2 text-xs font-mono text-[#F95C4B] font-semibold">
-              <MapPin className="w-3.5 h-3.5 text-[#F95C4B]" />
+              <MapPin className="w-3.5 h-3.5 text-[#F95C4B] shrink-0" />
               <span>{siteConfig.location}</span>
             </div>
           </div>
@@ -52,10 +52,10 @@ export const Footer = () => {
               <li>
                 <a
                   href={`mailto:${siteConfig.email}`}
-                  className="flex items-center gap-2 text-slate-700 dark:text-zinc-300 hover:text-[#F95C4B] transition-colors"
+                  className="flex items-center gap-2 text-slate-700 dark:text-zinc-300 hover:text-[#F95C4B] transition-colors truncate"
                 >
-                  <Mail className="w-3.5 h-3.5 text-[#F95C4B]" />
-                  <span>{siteConfig.email}</span>
+                  <Mail className="w-3.5 h-3.5 text-[#F95C4B] shrink-0" />
+                  <span className="truncate">{siteConfig.email}</span>
                 </a>
               </li>
               <li>
@@ -63,7 +63,7 @@ export const Footer = () => {
                   href={`tel:${siteConfig.phone}`}
                   className="flex items-center gap-2 text-slate-700 dark:text-zinc-300 hover:text-[#F95C4B] transition-colors"
                 >
-                  <Phone className="w-3.5 h-3.5 text-[#F95C4B]" />
+                  <Phone className="w-3.5 h-3.5 text-[#F95C4B] shrink-0" />
                   <span>{siteConfig.phone}</span>
                 </a>
               </li>
@@ -72,10 +72,10 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 dark:text-zinc-400 gap-4">
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 dark:text-zinc-400 gap-4 text-center sm:text-left">
           <p>© {new Date().getFullYear()} Ujjwal Tyagi. Engineered with React & Tailwind CSS.</p>
           
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-3 sm:gap-4">
             <div className="flex items-center gap-2 font-mono text-[11px] text-slate-500 dark:text-zinc-400">
               <Code2 className="w-3.5 h-3.5 text-[#F95C4B]" />
               <span>Verified Technical Portfolio</span>
@@ -83,7 +83,7 @@ export const Footer = () => {
 
             <button
               onClick={scrollToTop}
-              className="p-2.5 rounded-xl bg-white dark:bg-[#121214] border border-slate-200 dark:border-white/10 hover:border-[#F95C4B] text-slate-700 dark:text-zinc-300 hover:text-[#F95C4B] transition-all flex items-center gap-1.5 font-mono text-xs shadow-sm"
+              className="p-2 sm:p-2.5 rounded-xl bg-white dark:bg-[#121214] border border-slate-200 dark:border-white/10 hover:border-[#F95C4B] text-slate-700 dark:text-zinc-300 hover:text-[#F95C4B] transition-all flex items-center gap-1.5 font-mono text-xs shadow-sm"
               title="Scroll back to top"
             >
               <span>Back to Top</span>
