@@ -16,5 +16,14 @@ export const personalInfo = {
     { label: "DSA Focus", value: "Java Data Structures" },
     { label: "Real-Time", value: "Socket.io Rooms" },
     { label: "AI Integration", value: "Google Gemini API" }
-  ]
+  ],
+  focusAreas: [
+    "Full-Stack MERN Architecture",
+    "Node.js & Express REST APIs",
+    "MongoDB ACID Transactions",
+    "Socket.io Real-Time Rooms",
+    "Google Gemini AI Integration"
+  ],
+  heroDescription: "Computer Science & Engineering student at Quantum University. Experienced in building production-style full-stack applications—from real-time collaborative development platforms and Gemini AI code generation to transaction-oriented banking ledgers."
 };
+

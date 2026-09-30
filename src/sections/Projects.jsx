@@ -109,7 +109,7 @@ export const Projects = () => {
 
                 {/* Bullet Points */}
                 <div className="space-y-2.5 mb-6">
-                  {project.bulletPoints.map((point, index) => (
+                  {(project.bulletPoints || project.features || []).map((point, index) => (
                     <div key={index} className="flex items-start gap-2.5 text-xs text-slate-700 dark:text-zinc-300 leading-normal font-sans">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#F95C4B] shrink-0 mt-0.5" />
                       <span>{point}</span>
@@ -178,7 +178,7 @@ export const Projects = () => {
                 Implementation & Architecture Details:
               </h4>
               <ul className="space-y-2 text-xs text-slate-700 dark:text-zinc-300">
-                {selectedProject.bulletPoints.map((pt, i) => (
+                {(selectedProject.bulletPoints || selectedProject.features || []).map((pt, i) => (
                   <li key={i} className="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50 dark:bg-[#080808] border border-slate-200 dark:border-white/10 font-sans">
                     <ShieldCheck className="w-4 h-4 text-[#F95C4B] shrink-0 mt-0.5" />
                     <span className="leading-relaxed">{pt}</span>

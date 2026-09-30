@@ -52,12 +52,13 @@ export const Hero = ({ onCopyEmail }) => {
 
             {/* Core Focus Badges */}
             <div className="flex flex-wrap gap-2 pt-1">
-              {personalInfo.focusAreas.map((area) => (
+              {(personalInfo.focusAreas || []).map((area) => (
                 <Badge key={area} variant="secondary">
                   {area}
                 </Badge>
               ))}
             </div>
+
 
             {/* Main CTAs */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2 w-full sm:w-auto">
