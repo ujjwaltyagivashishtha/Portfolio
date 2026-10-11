@@ -5,50 +5,38 @@ import {
   Briefcase, 
   FolderGit2, 
   Cpu, 
-  GraduationCap, 
-  Award, 
   Mail, 
-  Phone, 
   Github, 
   Linkedin, 
-  Code, 
   Sun, 
   Moon, 
   X,
   Copy,
-  ArrowRight
+  ArrowRight,
+  FileText,
+  GraduationCap
 } from 'lucide-react';
 import { siteConfig } from '../../config/site';
 
-export const CommandPalette = ({ isOpen, onClose, onCopyEmail, onCopyPhone, theme, toggleTheme }) => {
+export const CommandPalette = ({ isOpen, onClose, onCopyEmail, onOpenResume, theme, toggleTheme }) => {
   const [query, setQuery] = useState('');
   const [selectedIndex, setSelectedIndex] = useState(0);
   const inputRef = useRef(null);
 
   const actions = [
     {
-      id: 'about',
-      title: 'Go to About Section',
-      category: 'Navigation',
-      icon: User,
+      id: 'resume',
+      title: 'View Engineering Resume',
+      category: 'Actions',
+      icon: FileText,
       action: () => {
-        document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-        onClose();
-      }
-    },
-    {
-      id: 'experience',
-      title: 'Go to Experience & Internships',
-      category: 'Navigation',
-      icon: Briefcase,
-      action: () => {
-        document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' });
+        onOpenResume?.();
         onClose();
       }
     },
     {
       id: 'projects',
-      title: 'Go to Software Projects',
+      title: 'Go to Featured Projects',
       category: 'Navigation',
       icon: FolderGit2,
       action: () => {
@@ -57,18 +45,39 @@ export const CommandPalette = ({ isOpen, onClose, onCopyEmail, onCopyPhone, them
       }
     },
     {
-      id: 'skills',
-      title: 'Go to Technical Skills',
+      id: 'about',
+      title: 'Go to Engineering Approach & About',
       category: 'Navigation',
-      icon: Cpu,
+      icon: User,
+      action: () => {
+        document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+        onClose();
+      }
+    },
+
+    {
+      id: 'skills',
+      title: 'Go to Technical Competencies',
+      category: 'Navigation',
+      icon: Terminal,
       action: () => {
         document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' });
         onClose();
       }
     },
     {
+      id: 'experience',
+      title: 'Go to Industry Experience (3Skill India)',
+      category: 'Navigation',
+      icon: Briefcase,
+      action: () => {
+        document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' });
+        onClose();
+      }
+    },
+    {
       id: 'education',
-      title: 'Go to Education',
+      title: 'Go to Education & Certifications',
       category: 'Navigation',
       icon: GraduationCap,
       action: () => {
@@ -77,18 +86,8 @@ export const CommandPalette = ({ isOpen, onClose, onCopyEmail, onCopyPhone, them
       }
     },
     {
-      id: 'certifications',
-      title: 'Go to Certifications',
-      category: 'Navigation',
-      icon: Award,
-      action: () => {
-        document.getElementById('certifications')?.scrollIntoView({ behavior: 'smooth' });
-        onClose();
-      }
-    },
-    {
       id: 'contact',
-      title: 'Go to Contact Section',
+      title: 'Go to Contact Hub',
       category: 'Navigation',
       icon: Mail,
       action: () => {
@@ -98,7 +97,7 @@ export const CommandPalette = ({ isOpen, onClose, onCopyEmail, onCopyPhone, them
     },
     {
       id: 'copy-email',
-      title: `Copy Email (${siteConfig.email})`,
+      title: 'Copy Email Address',
       category: 'Actions',
       icon: Copy,
       action: () => {
@@ -107,18 +106,8 @@ export const CommandPalette = ({ isOpen, onClose, onCopyEmail, onCopyPhone, them
       }
     },
     {
-      id: 'copy-phone',
-      title: `Copy Phone (${siteConfig.phone})`,
-      category: 'Actions',
-      icon: Phone,
-      action: () => {
-        onCopyPhone();
-        onClose();
-      }
-    },
-    {
       id: 'toggle-theme',
-      title: `Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`,
+      title: `Toggle Theme (Currently ${theme === 'dark' ? 'Dark' : 'Light'})`,
       category: 'Actions',
       icon: theme === 'dark' ? Sun : Moon,
       action: () => {
@@ -132,7 +121,7 @@ export const CommandPalette = ({ isOpen, onClose, onCopyEmail, onCopyPhone, them
       category: 'Socials',
       icon: Github,
       action: () => {
-        window.open(siteConfig.socials.github.url, '_blank');
+        window.open(siteConfig.socials.github.url, '_blank', 'noopener,noreferrer');
         onClose();
       }
     },
@@ -142,17 +131,7 @@ export const CommandPalette = ({ isOpen, onClose, onCopyEmail, onCopyPhone, them
       category: 'Socials',
       icon: Linkedin,
       action: () => {
-        window.open(siteConfig.socials.linkedin.url, '_blank');
-        onClose();
-      }
-    },
-    {
-      id: 'leetcode',
-      title: 'Open LeetCode Profile',
-      category: 'Socials',
-      icon: Code,
-      action: () => {
-        window.open(siteConfig.socials.leetcode.url, '_blank');
+        window.open(siteConfig.socials.linkedin.url, '_blank', 'noopener,noreferrer');
         onClose();
       }
     }
@@ -203,27 +182,32 @@ export const CommandPalette = ({ isOpen, onClose, onCopyEmail, onCopyPhone, them
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4 bg-black/60 backdrop-blur-md animate-in fade-in"
+      className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4 bg-slate-900/70 dark:bg-black/80 backdrop-blur-sm animate-in fade-in"
       onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Command Palette"
     >
       <div
-        className="w-full max-w-xl bg-white dark:bg-[#121214] border border-slate-200 dark:border-white/10 rounded-2xl shadow-2xl overflow-hidden text-slate-900 dark:text-zinc-100"
+        className="w-full max-w-xl bg-white dark:bg-[#111115] border border-slate-200 dark:border-white/[0.1] rounded-2xl shadow-2xl overflow-hidden text-slate-900 dark:text-zinc-100 transition-colors animate-modal-enter"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Search Input Bar */}
-        <div className="flex items-center gap-3 px-4 py-3.5 border-b border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[#080808]/50">
-          <Terminal className="w-5 h-5 text-[#F95C4B] shrink-0" />
+        <div className="flex items-center gap-3 px-4 py-3.5 border-b border-slate-200 dark:border-white/[0.08] bg-slate-50 dark:bg-[#0c0c10]">
+          <Terminal className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0" />
           <input
             ref={inputRef}
             type="text"
-            placeholder="Type a command or search (e.g. projects, github, email)..."
+            placeholder="Search commands, navigate sections, open resume..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="w-full bg-transparent text-sm font-mono text-slate-900 dark:text-zinc-100 placeholder-slate-400 dark:placeholder-zinc-500 focus:outline-none"
+            className="w-full bg-transparent text-sm font-mono text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-zinc-500 focus:outline-none"
+            aria-label="Search commands"
           />
           <button
             onClick={onClose}
-            className="p-1 rounded-lg hover:bg-slate-200 dark:hover:bg-white/10 text-slate-500 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-white transition-colors"
+            className="p-1 rounded-lg hover:bg-slate-200 dark:hover:bg-white/[0.08] text-slate-500 dark:text-zinc-400 transition-colors"
+            aria-label="Close Command Palette"
           >
             <X className="w-4 h-4" />
           </button>
@@ -240,21 +224,21 @@ export const CommandPalette = ({ isOpen, onClose, onCopyEmail, onCopyPhone, them
                   key={item.id}
                   onClick={item.action}
                   onMouseEnter={() => setSelectedIndex(idx)}
-                  className={`flex items-center justify-between px-3 py-2.5 rounded-xl cursor-pointer transition-all ${
+                  className={`flex items-center justify-between px-3.5 py-2.5 rounded-xl cursor-pointer transition-all ${
                     isSelected
-                      ? 'bg-[#F95C4B]/15 text-[#F95C4B] border border-[#F95C4B]/30 font-semibold'
-                      : 'text-slate-700 dark:text-zinc-300 hover:bg-slate-100 dark:hover:bg-white/5 hover:text-slate-900 dark:hover:text-white border border-transparent'
+                      ? 'bg-emerald-500/10 dark:bg-emerald-500/15 text-emerald-800 dark:text-emerald-400 border border-emerald-500/20 dark:border-emerald-500/30 font-semibold'
+                      : 'text-slate-700 dark:text-zinc-300 hover:bg-slate-100 dark:hover:bg-white/[0.04] border border-transparent'
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <IconComp className={`w-4 h-4 ${isSelected ? 'text-[#F95C4B]' : 'text-slate-400 dark:text-zinc-400'}`} />
+                    <IconComp className={`w-4 h-4 ${isSelected ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-400 dark:text-zinc-500'}`} />
                     <span>{item.title}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] uppercase text-slate-500 dark:text-zinc-500 px-2 py-0.5 rounded bg-slate-100 dark:bg-[#080808] border border-slate-200 dark:border-white/10">
+                    <span className="text-[10px] uppercase text-slate-500 dark:text-zinc-400 px-2 py-0.5 rounded bg-slate-100 dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.06]">
                       {item.category}
                     </span>
-                    {isSelected && <ArrowRight className="w-3.5 h-3.5 text-[#F95C4B]" />}
+                    {isSelected && <ArrowRight className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />}
                   </div>
                 </div>
               );
@@ -266,14 +250,14 @@ export const CommandPalette = ({ isOpen, onClose, onCopyEmail, onCopyPhone, them
           )}
         </div>
 
-        {/* Keyboard Shortcuts Hints Footer */}
-        <div className="px-4 py-2.5 border-t border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[#080808]/80 flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-zinc-500">
+        {/* Shortcuts Hints Footer */}
+        <div className="px-4 py-2.5 border-t border-slate-200 dark:border-white/[0.08] bg-slate-50 dark:bg-[#0c0c10] flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-zinc-400">
           <div className="flex items-center gap-3">
-            <span><kbd className="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-white/10 text-slate-700 dark:text-zinc-300">↑↓</kbd> navigate</span>
-            <span><kbd className="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-white/10 text-slate-700 dark:text-zinc-300">↵</kbd> select</span>
-            <span><kbd className="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-white/10 text-slate-700 dark:text-zinc-300">esc</kbd> close</span>
+            <span><kbd className="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-white/[0.08] text-slate-700 dark:text-zinc-300">↑↓</kbd> navigate</span>
+            <span><kbd className="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-white/[0.08] text-slate-700 dark:text-zinc-300">↵</kbd> select</span>
+            <span><kbd className="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-white/[0.08] text-slate-700 dark:text-zinc-300">esc</kbd> close</span>
           </div>
-          <span className="text-[#F95C4B]">Ujjwal Tyagi Portfolio</span>
+          <span className="text-emerald-700 dark:text-teal-300 font-medium">Command Menu</span>
         </div>
 
       </div>
