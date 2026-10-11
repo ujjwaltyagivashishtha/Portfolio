@@ -14,13 +14,14 @@ export const Toast = ({ message, isVisible, onClose }) => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 animate-in fade-in slide-in-from-bottom-5">
-      <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white dark:bg-[#121214] border border-[#F95C4B]/50 text-slate-900 dark:text-zinc-100 shadow-2xl backdrop-blur-md text-xs font-mono">
-        <CheckCircle2 className="w-4 h-4 text-[#F95C4B] shrink-0" />
+    <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 animate-modal-enter">
+      <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-zinc-950 dark:bg-[#111115] border border-emerald-500/30 text-white shadow-2xl backdrop-blur-md text-xs font-mono">
+        <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
         <span className="font-semibold">{message}</span>
         <button
           onClick={onClose}
-          className="ml-2 text-slate-400 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-white transition-colors"
+          className="ml-2 text-zinc-400 hover:text-white transition-colors"
+          aria-label="Dismiss notification"
         >
           <X className="w-3.5 h-3.5" />
         </button>
