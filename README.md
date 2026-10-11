@@ -1,155 +1,185 @@
 # Ujjwal Tyagi — Developer Portfolio
 
-A typography-led, editorial portfolio website showcasing backend-focused software development, distributed REST APIs, atomic database transaction ledgers, and real-time collaboration engines. Built using **React 18**, **Vite 6**, and **Tailwind CSS**.
+A modern, responsive developer portfolio showcasing my projects, technical skills, and journey as a software developer with a focus on backend engineering, APIs, databases, and reliable systems.
+
+- **Live Portfolio:** [Visit Website](https://ujjwaltyagivashishtha.github.io/Portfolio/)
+- **GitHub:** [ujjwaltyagivashishtha](https://github.com/ujjwaltyagivashishtha)
+- **LinkedIn:** [Connect with me](https://www.linkedin.com/in/ujjwal-tyagi-0a3798386)
 
 ---
 
-## 🌟 Overview & Design Philosophy
+## Overview
 
-This portfolio is built on an **editorial, typography-led design system** rather than generic software templates. It avoids decorative glows and radial mesh blurs in favor of strong typographic scale, clean 1px structural dividing rules, intentional whitespace, and authentic engineering case studies.
+This portfolio is designed to present my work through a clean, typography-led interface with subtle animations and a professional visual identity.
 
-### Key Capabilities & Features
-
-- **Strictly Verified Information:** Powered 100% by verified academic coursework at Quantum University, industry internship experience at 3Skill India, real project architectures, and certified technical credentials.
-- **Dual-Theme Editorial Surface:** Full native support for dark ink (`#09090b`) and warm paper (`#fafaf9`) themes with persistent state saved in `localStorage`.
-- **Selected Engineering Case Studies:**
-  - **Bank Transaction System:** Financial management backend featuring MongoDB ACID session transactions, double-entry audit ledgers, JWT authentication, and automated email alerts.
-  - **Fusion AI Studio:** Real-time collaborative workspace platform combining Socket.io room isolation, structured Google Gemini API prompt-to-file pipelines, and an in-browser WebContainer Node.js runtime.
-  - **Interactive Resume Builder:** Document engineering tool with controlled nested form state, live side-by-side preview rendering, and dedicated CSS print-media PDF export styling.
-- **Interactive Keyboard & Modal Utilities:**
-  - **Command Palette (`⌘K` / `Ctrl+K`):** Fast keyboard-first search to navigate sections, open profile links, and trigger actions.
-  - **Verified Resume Modal:** In-app readable resume with dedicated Print and Save-to-PDF formatting.
-  - **Case Study Drawer:** In-depth technical breakdown modal for examining problem statements, architectural solutions, and engineering trade-offs.
-  - **Direct Email Launcher:** One-click copy interaction with clipboard fallback and pre-filled email client helper.
+Rather than relying on excessive visual effects, the design emphasizes readability, thoughtful spacing, project storytelling, and a clear presentation of my technical experience.
 
 ---
 
-## 🛠️ Technology Stack
+## Features
 
-| Layer | Technologies |
+- **Modern UI:** Minimal, editorial-inspired design with clear visual hierarchy.
+- **Dark and Light Themes:** Switch between themes with your preference persisted locally.
+- **Responsive Layout:** Adaptable experience across desktop, tablet, and mobile screens.
+- **Smooth Animations:** Staggered hero animations, scroll-triggered reveals, and subtle transitions.
+- **Interactive Project Showcases:** Explore projects through dedicated case study views.
+- **Resume Preview:** View and print the resume using the built-in resume interface.
+- **Command Palette:** Quickly navigate portfolio sections using `Cmd + K` on supported devices.
+- **Micro-interactions:** Refined hover states, animated navigation, and interactive controls.
+- **Reading Progress Indicator:** Track progress while exploring the page.
+- **Contact Utilities:** Copy the email address or open an email client.
+- **Accessibility Considerations:** Reduced-motion support and semantic interface elements.
+- **SEO Metadata:** Page title, description, and social-sharing metadata.
+
+---
+
+## Tech Stack
+
+| Technology | Purpose |
 | :--- | :--- |
-| **Frontend Framework** | [React 18](https://react.dev/) |
-| **Build Tooling & Bundler** | [Vite 6](https://vitejs.dev/) |
-| **Styling & Design System** | [Tailwind CSS 3.4](https://tailwindcss.com/) with custom paper/ink tokens |
-| **Icons** | [Lucide React](https://lucide.dev/) |
-| **Typography** | [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk), [Inter](https://fonts.google.com/specimen/Inter), [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) |
+| **React** | Component-based UI |
+| **Vite** | Development server and build tooling |
+| **JavaScript** | Application logic |
+| **Tailwind CSS** | Utility-first styling |
+| **CSS** | Custom styling, animations, and responsive behavior |
+| **Lucide React** | Interface icons |
+| **Git & GitHub** | Version control and hosting |
 
 ---
 
-## 📂 Project Architecture
+## Featured Projects
 
-```text
-src/
-├── components/
-│   ├── layout/
-│   │   ├── Navbar.jsx               # Editorial header, wordmark & mobile index drawer
-│   │   └── Footer.jsx               # Colophon, copyright year & back-to-top trigger
-│   └── ui/
-│       ├── Button.jsx               # Accessible button & link primitive
-│       ├── Card.jsx                 # Minimal container surface
-│       ├── CommandPalette.jsx       # Keyboard palette (Cmd+K)
-│       ├── ProjectCaseStudyModal.jsx# Deep technical inspection modal
-│       ├── ResumeModal.jsx          # Accessible resume modal with Print/PDF export
-│       ├── SectionHeading.jsx       # Section header with badge & title
-│       └── Toast.jsx                # Temporary feedback notification banner
-├── config/
-│   └── site.js                      # Verified URLs, contact details & section links
-├── data/
-│   ├── personalInfo.js              # Professional summary & engineering focus
-│   ├── projects.js                  # Case study narratives, stacks & challenges
-│   ├── skills.js                    # Categorized competencies & CS foundations
-│   ├── experience.js                # 3Skill India web dev internship data
-│   ├── education.js                 # Quantum University (7.99 CGPA) & coursework
-│   ├── certifications.js            # IIT Mandi & Database Foundations credentials
-│   └── genAI.js                     # 5-stage deterministic LLM flow
-├── sections/
-│   ├── Hero.jsx                     # Typographic headline & system invariants
-│   ├── About.jsx                    # Engineering mindset & 4 architectural tenets
-│   ├── Projects.jsx                 # Selected case study compositions
-│   ├── Skills.jsx                   # Categorized technical matrix & CS rigor
-│   ├── Experience.jsx               # Chronological internship timeline
-│   ├── Education.jsx                # Degrees, honors, and verified certifications
-│   └── Contact.jsx                  # Direct inbox callout & email drafter
-├── index.css                        # Editorial dividing rules & theme base styles
-├── App.jsx                          # Main application assembler
-└── main.jsx                         # React 18 root entry point
-```
+### 1. Bank Transaction System
+A banking application focused on secure account operations and transaction consistency.
+
+**Key features and technologies:**
+- Node.js and Express.js backend.
+- MongoDB for data persistence.
+- ACID transaction sessions for transaction consistency.
+- Double-entry ledger approach.
+- JWT-based authentication.
+- Nodemailer integration.
+
+### 2. Fusion AI Studio
+A collaborative AI application combining real-time communication and AI-powered workflows.
+
+**Key features and technologies:**
+- MERN stack.
+- Socket.io for real-time collaboration.
+- Google Gemini API for structured AI prompt orchestration.
+- WebContainer runtime integration.
+
+### 3. Interactive Resume Builder
+A web application for creating and presenting resumes through an interactive interface.
+
+**Key features and technologies:**
+- React frontend.
+- Express.js backend.
+- MongoDB data persistence.
+- Nested state management.
+- Print-specific CSS for PDF output.
+
+> Explore the live portfolio for available project demonstrations, case studies, and source-code links.
 
 ---
 
-## 🚀 Getting Started Locally
+## Getting Started
+
+Follow these steps to run the portfolio locally.
 
 ### Prerequisites
-
-- **Node.js**: Version 18.x or later installed
-- **npm**: Version 9.x or later
+- Node.js and npm installed.
+- Git installed if you plan to clone the repository.
 
 ### Installation
 
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/ujjwaltyagivashishtha/Portfolio.git
+   ```
+
+2. **Navigate to the project directory:**
+   ```bash
    cd Portfolio
    ```
 
-2. **Install project dependencies:**
+3. **Install dependencies:**
    ```bash
    npm install
    ```
 
-3. **Start the local development server:**
+4. **Start the development server:**
    ```bash
    npm run dev
    ```
-   Open [http://localhost:3000](http://localhost:3000) in your browser.
+   Open the local URL displayed in your terminal (typically `http://localhost:3000`).
 
-4. **Compile production build:**
-   ```bash
-   npm run build
-   ```
-   The production bundle is generated inside the `dist/` directory.
+### Production Build
 
-5. **Preview production build locally:**
-   ```bash
-   npm run preview
-   ```
+Create an optimized production build:
+```bash
+npm run build
+```
 
----
-
-## 🌐 Deployment to GitHub Pages
-
-To deploy this project to GitHub Pages:
-
-1. In `vite.config.js`, ensure the base path matches your repository name:
-   ```javascript
-   export default defineConfig({
-     base: '/Portfolio/',
-     plugins: [react()],
-   });
-   ```
-2. Build the production assets:
-   ```bash
-   npm run build
-   ```
-3. Commit and push your changes to the `main` branch:
-   ```bash
-   git add .
-   git commit -m "Deploy: Updated editorial portfolio"
-   git push origin main
-   ```
-4. Configure GitHub Pages in your repository settings under **Settings > Pages** to deploy from GitHub Actions or the `gh-pages` branch.
+Preview the production build locally:
+```bash
+npm run preview
+```
+The generated production files are placed in the `dist/` directory.
 
 ---
 
-## 📬 Contact & Verified Profiles
+## Project Structure
+
+```text
+Portfolio/
+├── public/              # Static assets, favicon files, and public media
+├── src/
+│   ├── components/      # Shared layout and UI components
+│   ├── sections/        # Portfolio page sections (Hero, About, Projects, etc.)
+│   ├── lib/             # Utilities and custom hooks (useScrollReveal)
+│   ├── config/          # Site configuration and social links
+│   ├── data/            # Structured data for projects, skills, education
+│   ├── index.css        # Global styles, design tokens, and keyframe animations
+│   ├── App.jsx          # Main application assembler
+│   └── main.jsx         # React DOM entry point
+├── index.html           # HTML entry point and SEO metadata
+├── package.json         # Dependencies and npm scripts
+├── vite.config.js       # Vite configuration
+└── README.md            # Project documentation
+```
+
+---
+
+## Deployment
+
+This portfolio can be deployed using GitHub Pages or another static hosting provider.
+
+For GitHub Pages deployment:
+1. Verify the `base` configuration in `vite.config.js` matches the repository deployment path.
+2. Build the project with `npm run build`.
+3. Deploy the generated `dist/` directory using your chosen GitHub Pages workflow.
+4. Verify that images, favicon assets, and other static resources load correctly on the deployed website.
+
+---
+
+## Design Philosophy
+
+The portfolio follows a few core principles:
+- **Clarity over clutter:** Keep the focus on meaningful content and projects.
+- **Subtle motion:** Use animation to guide attention rather than distract.
+- **Engineering-first storytelling:** Communicate technical decisions and project functionality.
+- **Consistency:** Maintain a coherent design across themes and screen sizes.
+- **Performance and accessibility:** Prefer lightweight effects and respect reduced-motion preferences.
+
+---
+
+## Contact
+
+I'm interested in software development opportunities, backend engineering, and building reliable applications.
 
 - **Email:** [ujjwaltyagivashishtha@gmail.com](mailto:ujjwaltyagivashishtha@gmail.com)
-- **GitHub:** [github.com/ujjwaltyagivashishtha](https://github.com/ujjwaltyagivashishtha)
-- **LinkedIn:** [linkedin.com/in/ujjwal-tyagi](https://www.linkedin.com/in/ujjwal-tyagi-0a3798386)
-- **Location:** Saharanpur, Uttar Pradesh, India
+- **GitHub:** [ujjwaltyagivashishtha](https://github.com/ujjwaltyagivashishtha)
+- **LinkedIn:** [Ujjwal Tyagi](https://www.linkedin.com/in/ujjwal-tyagi-0a3798386)
 
----
-
-## 📄 License
-
-This repository is open-source and available under the [MIT License](LICENSE).
+Designed and developed by **Ujjwal Tyagi**.
