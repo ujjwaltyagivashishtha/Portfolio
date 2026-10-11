@@ -1,96 +1,83 @@
 import React from 'react';
 import { siteConfig } from '../../config/site';
-import { MapPin, Mail, Phone, Code2, ArrowUp } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 
 export const Footer = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="bg-slate-100 dark:bg-[#080808] border-t border-slate-200 dark:border-white/10 pt-10 sm:pt-14 pb-8 sm:pb-10 text-slate-600 dark:text-zinc-400 text-sm relative transition-colors duration-300">
+    <footer className="py-12 bg-[#fafaf9] dark:bg-[#09090b] text-zinc-500 font-mono text-xs transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-slate-200 dark:border-white/10">
-          
-          {/* Identity */}
-          <div className="space-y-3">
-            <h3 className="text-slate-900 dark:text-zinc-100 font-bold text-lg tracking-tight font-display">Ujjwal Tyagi</h3>
-            <p className="text-xs text-slate-600 dark:text-zinc-400 leading-relaxed max-w-sm font-sans">
-              Computer Science & Engineering Student | Full-Stack Developer specializing in React.js, Node.js, Express, MongoDB, REST APIs, and AI platform engineering.
-            </p>
-            <div className="flex items-center gap-2 text-xs font-mono text-[#F95C4B] font-semibold">
-              <MapPin className="w-3.5 h-3.5 text-[#F95C4B] shrink-0" />
-              <span>{siteConfig.location}</span>
-            </div>
+        
+        {/* Top Row: Wordmark & Navigation Links */}
+        <div className="flex flex-col sm:flex-row items-baseline justify-between gap-6 pb-8 border-b border-zinc-200 dark:border-white/[0.08]">
+          <div className="space-y-1 text-left">
+            <span className="font-display font-bold text-sm text-zinc-950 dark:text-white tracking-tight block">
+              UJJWAL TYAGI
+            </span>
+            <span className="text-[11px] text-zinc-500 block">
+              Software Developer — Backend & Systems Focus
+            </span>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-xs font-mono uppercase tracking-wider text-slate-800 dark:text-zinc-300 font-semibold mb-3">
-              Navigation
-            </h4>
-            <ul className="grid grid-cols-2 gap-2 text-xs font-mono">
-              {siteConfig.navLinks.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="hover:text-[#F95C4B] transition-colors"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Direct Contact Info */}
-          <div>
-            <h4 className="text-xs font-mono uppercase tracking-wider text-slate-800 dark:text-zinc-300 font-semibold mb-3">
-              Direct Contact
-            </h4>
-            <ul className="space-y-2 text-xs font-mono">
-              <li>
-                <a
-                  href={`mailto:${siteConfig.email}`}
-                  className="flex items-center gap-2 text-slate-700 dark:text-zinc-300 hover:text-[#F95C4B] transition-colors truncate"
-                >
-                  <Mail className="w-3.5 h-3.5 text-[#F95C4B] shrink-0" />
-                  <span className="truncate">{siteConfig.email}</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`tel:${siteConfig.phone}`}
-                  className="flex items-center gap-2 text-slate-700 dark:text-zinc-300 hover:text-[#F95C4B] transition-colors"
-                >
-                  <Phone className="w-3.5 h-3.5 text-[#F95C4B] shrink-0" />
-                  <span>{siteConfig.phone}</span>
-                </a>
-              </li>
-            </ul>
+          <div className="flex flex-wrap items-center gap-6 text-xs">
+            {siteConfig.navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="hover:text-zinc-900 dark:hover:text-white transition-colors"
+              >
+                {link.name}
+              </a>
+            ))}
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 dark:text-zinc-400 gap-4 text-center sm:text-left">
-          <p>© {new Date().getFullYear()} Ujjwal Tyagi. Engineered with React & Tailwind CSS.</p>
-          
-          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-3 sm:gap-4">
-            <div className="flex items-center gap-2 font-mono text-[11px] text-slate-500 dark:text-zinc-400">
-              <Code2 className="w-3.5 h-3.5 text-[#F95C4B]" />
-              <span>Verified Technical Portfolio</span>
-            </div>
+        {/* Bottom Row: Colophon, Socials & Back to Top */}
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">
+          <p className="text-zinc-500">
+            © {currentYear} Ujjwal Tyagi. Built with React & Tailwind CSS.
+          </p>
 
+          <div className="flex items-center gap-6">
+            <a
+              href={siteConfig.socials.github.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-zinc-900 dark:hover:text-white transition-colors"
+            >
+              GitHub
+            </a>
+            <a
+              href={siteConfig.socials.linkedin.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-zinc-900 dark:hover:text-white transition-colors"
+            >
+              LinkedIn
+            </a>
+            <a
+              href={`mailto:${siteConfig.email}`}
+              className="hover:text-zinc-900 dark:hover:text-white transition-colors"
+            >
+              Email
+            </a>
             <button
+              type="button"
               onClick={scrollToTop}
-              className="p-2 sm:p-2.5 rounded-xl bg-white dark:bg-[#121214] border border-slate-200 dark:border-white/10 hover:border-[#F95C4B] text-slate-700 dark:text-zinc-300 hover:text-[#F95C4B] transition-all flex items-center gap-1.5 font-mono text-xs shadow-sm"
-              title="Scroll back to top"
+              className="group hover:text-zinc-900 dark:hover:text-white transition-colors flex items-center gap-1 font-medium ml-2 active:scale-95"
+              aria-label="Back to top of page"
             >
               <span>Back to Top</span>
-              <ArrowUp className="w-3.5 h-3.5" />
+              <ArrowUp className="w-3 h-3 group-hover:-translate-y-0.5 transition-transform duration-200" />
             </button>
           </div>
         </div>
+
       </div>
     </footer>
   );
