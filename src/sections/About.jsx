@@ -1,158 +1,121 @@
 import React from 'react';
+import { useScrollReveal } from '../lib/useScrollReveal';
+import { 
+  Database, 
+  Server, 
+  Radio, 
+  Code2,
+  GraduationCap,
+  Briefcase,
+  CheckCircle2
+} from 'lucide-react';
 
 export const About = () => {
+  const [sectionRef, isSectionVisible] = useScrollReveal();
+  const [rightRef, isRightVisible] = useScrollReveal();
+
+  const architecturalPrinciples = [
+    {
+      num: "01",
+      title: "Data Consistency & Atomic Persistence",
+      desc: "Financial balances and shared states demand strict atomicity. I model Mongoose schemas and enforce MongoDB session transactions (`session.withTransaction()`) so partial failures immediately roll back, preventing silent corruption."
+    },
+    {
+      num: "02",
+      title: "Deterministic REST API Contracts",
+      desc: "Services must be predictable under stress. I structure Express routes with strict payload schema validation, unified JSON envelopes, proper HTTP status semantics, and centralized error handling middleware."
+    },
+    {
+      num: "03",
+      title: "Resilient Real-Time Event Synchronization",
+      desc: "Interactive multi-user systems require decoupled communication channels. I utilize Socket.io rooms to isolate collaborative traffic, manage user join/leave lifecycles, and synchronize shared state across sessions."
+    },
+    {
+      num: "04",
+      title: "Algorithmic Grounding & Core Systems",
+      desc: "Software design begins with data structures. Practicing algorithmic problem-solving in Java informs how I design time- and space-efficient backend services, manage memory, and structure clean modular code."
+    }
+  ];
+
   return (
-    <section id="about" className="py-16 sm:py-24 lg:py-36 relative bg-white dark:bg-[#080808] text-slate-900 dark:text-zinc-100 border-b border-slate-200 dark:border-white/5 overflow-hidden transition-colors duration-300">
-      {/* Editorial Grid Texture */}
-      <div className="absolute inset-0 bg-editorial-grid pointer-events-none opacity-30"></div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-14 sm:space-y-20 lg:space-y-28">
+    <section 
+      id="about" 
+      className="py-20 sm:py-28 border-b border-zinc-200 dark:border-white/[0.08] transition-colors duration-200"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Top Header & Section Label */}
-        <div className="flex items-center justify-between border-b border-slate-200 dark:border-white/10 pb-4 sm:pb-6 font-mono text-xs text-slate-500 dark:text-zinc-400 uppercase tracking-widest">
-          <div className="flex items-center gap-3">
-            <span className="text-[#F95C4B] font-bold text-sm">01</span>
-            <span className="text-slate-400 dark:text-zinc-600">/</span>
-            <span>PROFILE</span>
-          </div>
-          <div className="hidden sm:block text-slate-400 dark:text-zinc-500">
-            ENGINEERING EDITORIAL SPREAD
-          </div>
+        {/* Editorial Section Label */}
+        <div className="flex items-center gap-3 text-xs font-mono text-zinc-500 mb-8 uppercase tracking-widest">
+          <span>01</span>
+          <span>/</span>
+          <span>ENGINEERING MINDSET & BACKGROUND</span>
         </div>
 
-        {/* Hero Element: Large Statement */}
-        <div className="space-y-4 sm:space-y-6">
-          <h2 className="text-3xl sm:text-5xl lg:text-7xl xl:text-8xl font-bold font-display uppercase tracking-tight text-slate-900 dark:text-zinc-100 leading-[1.06] max-w-6xl">
-            I BUILD SOFTWARE <br className="hidden sm:inline" />
-            TO UNDERSTAND HOW <br className="hidden sm:inline" />
-            <span className="text-[#F95C4B]">SYSTEMS ACTUALLY WORK.</span>
-          </h2>
-        </div>
-
-        {/* Narrative & Profile Metadata */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+        {/* Two-Column Editorial Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
-          {/* Main Introduction Narrative */}
-          <div className="lg:col-span-7 space-y-5 sm:space-y-6 text-slate-700 dark:text-zinc-300 text-sm sm:text-base leading-relaxed font-sans font-normal border-l border-slate-200 dark:border-white/10 pl-4 sm:pl-8">
-            <p>
-              I am a Computer Science & Engineering student at Quantum University with a Minor in Data Analytics, specializing in full-stack web software engineering. I focus on software where backend structure, database efficiency, and user experience converge into a reliable whole.
-            </p>
-            <p>
-              My approach to software engineering centers on practical systems. Rather than building isolated UI layers, I design end-to-end applications—from real-time collaborative development platforms integrated with Google Gemini AI and WebContainer APIs, to financial transaction systems engineered with immutable double-entry ledgers.
-            </p>
-            <p>
-              Through my industry internship at 3Skill India, I gained practical grounding across the full software lifecycle—building responsive React frontends, designing RESTful APIs using Node.js and Express, and managing MongoDB database collections with Mongoose ORM.
-            </p>
-          </div>
+          {/* Left Column: Core Narrative (5 cols) */}
+          <div 
+            ref={sectionRef}
+            className={`lg:col-span-5 space-y-6 text-left reveal-init ${
+              isSectionVisible ? 'reveal-active' : ''
+            }`}
+          >
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold tracking-tight text-zinc-950 dark:text-white leading-[1.08]">
+              Reliability is won or lost at the architecture level.
+            </h2>
 
-          {/* Profile Data Column */}
-          <div className="lg:col-span-5 space-y-6 sm:space-y-8 font-mono text-xs text-slate-700 dark:text-zinc-300 lg:pl-6">
-            
-            <div className="text-[10px] text-slate-500 dark:text-zinc-500 uppercase tracking-widest font-semibold pb-2 border-b border-slate-200 dark:border-white/20">
-              PROFILE METADATA
-            </div>
-
-            {/* Item 1 */}
-            <div className="space-y-1.5 pb-4 sm:pb-6 border-b border-slate-200 dark:border-white/10">
-              <div className="text-[11px] text-[#F95C4B] uppercase tracking-wider font-semibold">
-                DEGREE & INSTITUTION
-              </div>
-              <div className="text-sm font-bold text-slate-900 dark:text-zinc-100 font-display">
-                B.Tech Computer Science & Engineering
-              </div>
-              <div className="text-slate-600 dark:text-zinc-400 font-sans">
-                Quantum University · Minor in Data Analytics (CGPA 7.99)
-              </div>
-            </div>
-
-            {/* Item 2 */}
-            <div className="space-y-1.5 pb-4 sm:pb-6 border-b border-slate-200 dark:border-white/10">
-              <div className="text-[11px] text-[#F95C4B] uppercase tracking-wider font-semibold">
-                CORE FOCUS
-              </div>
-              <div className="text-sm font-bold text-slate-900 dark:text-zinc-100 font-display">
-                Full-Stack Systems Engineering
-              </div>
-              <div className="text-slate-600 dark:text-zinc-400 font-sans">
-                React.js · Node.js · Express.js · MongoDB
-              </div>
-            </div>
-
-            {/* Item 3 */}
-            <div className="space-y-1.5 pb-4 sm:pb-6 border-b border-slate-200 dark:border-white/10">
-              <div className="text-[11px] text-[#F95C4B] uppercase tracking-wider font-semibold">
-                INDUSTRY EXPERIENCE
-              </div>
-              <div className="text-sm font-bold text-slate-900 dark:text-zinc-100 font-display">
-                Web Development Intern
-              </div>
-              <div className="text-slate-600 dark:text-zinc-400 font-sans">
-                3Skill India · Jun. 2026 – Aug. 2026
-              </div>
-            </div>
-
-            {/* Item 4 */}
-            <div className="space-y-1.5">
-              <div className="text-[11px] text-[#F95C4B] uppercase tracking-wider font-semibold">
-                KEY PLATFORMS
-              </div>
-              <div className="text-sm font-bold text-slate-900 dark:text-zinc-100 font-display">
-                Real-Time IDE & Transaction Ledgers
-              </div>
-              <div className="text-slate-600 dark:text-zinc-400 font-sans">
-                Socket.io · Google Gemini AI API · WebContainer API
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
-        {/* Pull Quote */}
-        <div className="py-8 sm:py-12 border-y border-slate-200 dark:border-white/10 my-8 sm:my-12">
-          <blockquote className="text-xl sm:text-3xl lg:text-5xl font-bold font-display uppercase tracking-tight text-[#F95C4B] leading-tight max-w-4xl">
-            "GOOD SOFTWARE ARCHITECTURE SHOULD MAKE COMPLEX SYSTEMS FEEL NATURAL AND OBVIOUS."
-          </blockquote>
-        </div>
-
-        {/* "HOW I BUILD" Micro-Section */}
-        <div className="space-y-6 sm:space-y-8">
-          <div className="flex items-center gap-3 font-mono text-xs text-slate-500 dark:text-zinc-400 uppercase tracking-widest">
-            <span className="text-[#F95C4B] font-bold">02</span>
-            <span className="text-slate-400 dark:text-zinc-600">/</span>
-            <span>HOW I BUILD</span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 pt-2">
-            
-            {/* Step 1 */}
-            <div className="space-y-2 border-l border-slate-200 dark:border-white/10 pl-4 sm:pl-5">
-              <div className="text-xs font-mono font-bold text-[#F95C4B]">01 / UNDERSTAND</div>
-              <h4 className="text-base font-bold font-display text-slate-900 dark:text-zinc-100 uppercase">System Requirements</h4>
-              <p className="text-xs text-slate-600 dark:text-zinc-400 leading-relaxed font-sans">
-                Deconstruct domain logic, data aggregations, and transaction rules before architecting backend or frontend modules.
+            <div className="space-y-4 text-sm sm:text-base text-zinc-700 dark:text-zinc-300 font-sans leading-relaxed">
+              <p>
+                I am an undergraduate in Computer Science & Engineering at <strong>Quantum University</strong> (CGPA 7.99, Minor in Data Analytics). Rather than treating backend systems as simple database wrappers, I view them as state machines where data consistency, error handling, and latency matter.
+              </p>
+              <p>
+                During my web development internship at <strong>3Skill India</strong>, I built modular REST APIs in Node.js/Express, managed schemas with Mongoose ORM, and collaborated using disciplined Git version control workflows.
+              </p>
+              <p>
+                My projects reflect this mindset: from engineering double-entry audit ledgers in a banking backend to orchestrating real-time WebSockets and LLM file systems in browser-based runtimes.
               </p>
             </div>
 
-            {/* Step 2 */}
-            <div className="space-y-2 border-l border-slate-200 dark:border-white/10 pl-4 sm:pl-5">
-              <div className="text-xs font-mono font-bold text-[#F95C4B]">02 / BUILD</div>
-              <h4 className="text-base font-bold font-display text-slate-900 dark:text-zinc-100 uppercase">Modular Full-Stack</h4>
-              <p className="text-xs text-slate-600 dark:text-zinc-400 leading-relaxed font-sans">
-                Implement performant React components, RESTful Node/Express endpoints, Mongoose ORM models, and real-time WebSockets.
-              </p>
+            {/* Academic Credential Summary Box */}
+            <div className="pt-6 border-t border-zinc-200 dark:border-white/[0.08] flex items-center justify-between text-xs font-mono text-zinc-600 dark:text-zinc-400">
+              <div>
+                <span className="text-zinc-400 block text-[11px]">DEGREE</span>
+                <strong className="text-zinc-900 dark:text-white font-medium">B.Tech CSE (2023–2027)</strong>
+              </div>
+              <div>
+                <span className="text-zinc-400 block text-[11px]">ACADEMICS</span>
+                <strong className="text-emerald-700 dark:text-emerald-400 font-bold">7.99 CGPA • Data Analytics</strong>
+              </div>
             </div>
-
-            {/* Step 3 */}
-            <div className="space-y-2 border-l border-slate-200 dark:border-white/10 pl-4 sm:pl-5">
-              <div className="text-xs font-mono font-bold text-[#F95C4B]">03 / REFINE</div>
-              <h4 className="text-base font-bold font-display text-slate-900 dark:text-zinc-100 uppercase">Security & Reliability</h4>
-              <p className="text-xs text-slate-600 dark:text-zinc-400 leading-relaxed font-sans">
-                Validate idempotency, enforce double-entry ledger integrity, optimize MongoDB aggregation pipelines, and ensure error handling.
-              </p>
-            </div>
-
           </div>
+
+          {/* Right Column: 4 Architecture Principles Divided by Rules (7 cols) */}
+          <div 
+            ref={rightRef}
+            className={`lg:col-span-7 space-y-0 divide-y divide-zinc-200 dark:divide-white/[0.08] border-y border-zinc-200 dark:border-white/[0.08] reveal-init ${
+              isRightVisible ? 'reveal-active' : ''
+            }`}
+          >
+            {architecturalPrinciples.map((item) => (
+              <div 
+                key={item.num} 
+                className="group py-7 space-y-2 text-left transition-colors duration-200 hover:pl-2"
+              >
+                <div className="flex items-baseline justify-between font-mono text-xs">
+                  <span className="text-emerald-600 dark:text-emerald-400 font-bold group-hover:translate-x-1 transition-transform duration-200 inline-block">{item.num}</span>
+                  <span className="text-zinc-400 text-[11px] uppercase tracking-wider">CORE TENET</span>
+                </div>
+                <h3 className="text-lg sm:text-xl font-display font-bold text-zinc-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                  {item.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed pt-1">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
         </div>
 
       </div>
