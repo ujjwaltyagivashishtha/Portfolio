@@ -1,26 +1,21 @@
 import React from 'react';
 
-export const SectionHeading = ({ number, badge, title, subtitle, className = "" }) => {
+export const SectionHeading = ({ badge, title, subtitle, className = "" }) => {
   return (
-    <div className={`flex flex-col items-start mb-12 sm:mb-16 border-b border-slate-200 dark:border-white/10 pb-6 ${className}`}>
-      <div className="flex items-center gap-3 mb-3">
-        {number && (
-          <span className="text-xs font-mono font-bold tracking-widest text-[#F95C4B] uppercase">
-            {number}
-          </span>
-        )}
-        {number && badge && <span className="text-xs font-mono text-slate-400 dark:text-zinc-600">/</span>}
-        {badge && (
-          <span className="text-xs font-mono font-medium tracking-wider text-slate-500 dark:text-zinc-400 uppercase">
-            {badge}
-          </span>
-        )}
-      </div>
-      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-zinc-100 font-display uppercase leading-tight">
+    <div className={`mb-12 sm:mb-16 text-left ${className}`}>
+      {badge && (
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gradient-to-r from-emerald-500/15 via-teal-500/10 to-cyan-500/15 border border-teal-500/30 text-teal-300 font-mono text-[11px] font-medium tracking-wider uppercase mb-3.5 shadow-sm">
+          <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400 animate-pulse"></span>
+          <span>{badge}</span>
+        </div>
+      )}
+      
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-zinc-100 font-display">
         {title}
       </h2>
+
       {subtitle && (
-        <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-zinc-400 max-w-2xl leading-relaxed font-sans">
+        <p className="mt-3 text-base sm:text-lg text-zinc-400 max-w-2xl leading-relaxed font-sans">
           {subtitle}
         </p>
       )}
