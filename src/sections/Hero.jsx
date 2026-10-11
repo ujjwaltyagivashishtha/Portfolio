@@ -1,199 +1,178 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { personalInfo } from '../data/personalInfo';
 import { siteConfig } from '../config/site';
-import { Button } from '../components/ui/Button';
-import { Badge } from '../components/ui/Badge';
-import { ArrowRight, Github, Linkedin, Code, MapPin, GraduationCap, Briefcase, UserCheck, Copy } from 'lucide-react';
+import { 
+  ArrowDown, 
+  FileText, 
+  ArrowUpRight,
+  Database,
+  Server,
+  Layers,
+  Radio
+} from 'lucide-react';
 
-export const Hero = ({ onCopyEmail }) => {
-  const [imgError, setImgError] = useState(false);
-
+export const Hero = ({ onOpenResume }) => {
   return (
-    <section id="hero" className="relative min-h-[85vh] lg:min-h-[92vh] flex items-center pt-24 sm:pt-28 pb-16 sm:pb-20 overflow-hidden bg-slate-50 dark:bg-[#080808] text-slate-900 dark:text-zinc-100 border-b border-slate-200 dark:border-white/10 transition-colors duration-300">
-      {/* Editorial Grid Background & Ambient Radial Glows */}
-      <div className="absolute inset-0 bg-editorial-grid pointer-events-none opacity-30"></div>
-      <div className="absolute top-1/4 left-10 w-72 sm:w-96 h-72 sm:h-96 bg-[#F95C4B]/15 rounded-full blur-[120px] pointer-events-none"></div>
-      <div className="absolute bottom-10 right-10 w-80 h-80 bg-indigo-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+    <section 
+      id="hero" 
+      className="relative pt-32 sm:pt-40 pb-20 sm:pb-28 border-b border-zinc-200 dark:border-white/[0.08] transition-colors duration-200 overflow-hidden"
+    >
+      {/* Restrained Technical Architecture & Data Flow Background */}
+      <div 
+        className="pointer-events-none absolute inset-0 select-none overflow-hidden opacity-[0.2] dark:opacity-[0.25]"
+        aria-hidden="true"
+      >
+        <svg
+          className="w-full h-full"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 1440 800"
+          preserveAspectRatio="xMidYMid slice"
+        >
+          {/* Subtle Grid Coordinates */}
+          <defs>
+            <pattern id="hero-grid" width="48" height="48" patternUnits="userSpaceOnUse">
+              <path d="M 48 0 L 0 0 0 48" fill="none" stroke="currentColor" strokeWidth="0.75" className="text-zinc-300 dark:text-zinc-800" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#hero-grid)" opacity="0.35" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 lg:gap-16 items-center">
+          {/* Distributed Topology Connection Lines */}
+          <path
+            d="M 120 180 C 340 180, 480 320, 720 320 C 960 320, 1100 220, 1340 220"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            className="text-emerald-500/40 animate-data-pulse"
+          />
+          <path
+            d="M 180 520 C 420 520, 560 360, 800 360 C 1040 360, 1180 480, 1380 480"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            className="text-zinc-400 dark:text-emerald-400/30 animate-data-pulse"
+            style={{ animationDelay: '1.5s' }}
+          />
+          <path
+            d="M 320 100 L 320 400 L 640 400"
+            stroke="currentColor"
+            strokeWidth="1"
+            strokeDasharray="4 4"
+            className="text-zinc-300 dark:text-zinc-700/60"
+          />
+          <path
+            d="M 980 200 L 980 500 L 1260 500"
+            stroke="currentColor"
+            strokeWidth="1"
+            strokeDasharray="4 4"
+            className="text-zinc-300 dark:text-zinc-700/60"
+          />
+
+          {/* Node 1 */}
+          <g transform="translate(120, 180)">
+            <circle r="4" fill="#10b981" className="animate-node-breathe" />
+            <circle r="1.5" fill="#ffffff" />
+          </g>
+
+          {/* Node 2 */}
+          <g transform="translate(720, 320)">
+            <circle r="4" fill="#10b981" className="animate-node-breathe" style={{ animationDelay: '1s' }} />
+            <circle r="1.5" fill="#ffffff" />
+          </g>
+
+          {/* Node 3 */}
+          <g transform="translate(1340, 220)">
+            <circle r="4" fill="#10b981" className="animate-node-breathe" style={{ animationDelay: '2s' }} />
+            <circle r="1.5" fill="#ffffff" />
+          </g>
+
+          {/* Node 4 */}
+          <g transform="translate(800, 360)">
+            <circle r="3.5" fill="#10b981" className="animate-node-breathe" style={{ animationDelay: '0.5s' }} />
+            <circle r="1.5" fill="#ffffff" />
+          </g>
+        </svg>
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Editorial Header Block */}
+        <div className="space-y-8 max-w-5xl">
           
-          {/* Left Hero Content */}
-          <div className="lg:col-span-7 space-y-6 sm:space-y-7 text-left">
-            
-            {/* Availability Pill */}
-            <div className="inline-flex items-center gap-2.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-slate-100/90 dark:bg-[#121214]/90 border border-slate-200 dark:border-white/10 text-xs font-mono text-slate-700 dark:text-zinc-300 shadow-sm max-w-full backdrop-blur-md">
-              <span className="relative flex h-2.5 w-2.5 shrink-0">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F95C4B] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#F95C4B]"></span>
+          {/* Eyebrow Label & Current Availability - Staggered 0ms */}
+          <div className="animate-fade-up flex flex-wrap items-center gap-3 text-xs font-mono text-zinc-600 dark:text-zinc-400">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-zinc-100 dark:bg-white/[0.05] border border-zinc-200 dark:border-white/[0.08] text-zinc-900 dark:text-zinc-200 font-medium transition-all hover:border-emerald-500/40">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
-              <span className="font-semibold tracking-wide truncate">Available for Software & Full-Stack Roles</span>
-            </div>
-
-            {/* Main Headline */}
-            <div className="space-y-3">
-              <h1 className="text-3xl sm:text-5xl lg:text-7xl font-extrabold text-slate-900 dark:text-zinc-100 font-display tracking-tight leading-[1.1] sm:leading-[1.08]">
-                Building <br />
-                <span className="bg-gradient-to-r from-[#F95C4B] via-[#FA7464] to-[#F95C4B] bg-clip-text text-transparent">Scalable Digital Systems</span> <br />
-                & Real-Time Platforms.
-              </h1>
-              
-              <div className="flex flex-wrap items-center gap-2 sm:gap-3 pt-1 text-xs font-mono text-slate-600 dark:text-zinc-400">
-                <span className="text-slate-900 dark:text-zinc-100 font-bold text-sm">{personalInfo.name}</span>
-                <span className="text-slate-400 dark:text-zinc-600">•</span>
-                <span className="text-[#F95C4B] font-semibold">Full-Stack MERN Developer</span>
-                <span className="text-slate-400 dark:text-zinc-600">•</span>
-                <span>B.Tech CSE @ Quantum Univ</span>
-              </div>
-            </div>
-
-            {/* Narrative Summary */}
-            <p className="text-slate-700 dark:text-zinc-300 text-sm sm:text-base lg:text-lg leading-relaxed max-w-2xl font-sans font-normal">
-              {personalInfo.heroDescription}
-            </p>
-
-            {/* Core Focus Badges */}
-            <div className="flex flex-wrap gap-2 pt-1">
-              {(personalInfo.focusAreas || []).map((area) => (
-                <Badge key={area} variant="secondary" className="hover:border-[#F95C4B]/40 hover:text-[#F95C4B] transition-all">
-                  {area}
-                </Badge>
-              ))}
-            </div>
-
-            {/* Main CTAs */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2 w-full sm:w-auto">
-              <Button href="#projects" variant="primary" size="lg" className="rounded-xl justify-center sm:justify-start hover:scale-[1.02] transition-transform">
-                <span>Explore Projects</span>
-                <ArrowRight className="w-4 h-4" />
-              </Button>
-              <button
-                onClick={onCopyEmail}
-                className="px-5 py-3 rounded-xl bg-slate-100 dark:bg-[#121214] border border-slate-200 dark:border-white/10 hover:border-[#F95C4B]/50 text-slate-800 dark:text-zinc-200 hover:text-[#F95C4B] font-mono text-sm font-semibold transition-all shadow-sm flex items-center justify-center gap-2 hover:scale-[1.02]"
-              >
-                <Copy className="w-4 h-4 text-[#F95C4B]" />
-                <span>Copy Email</span>
-              </button>
-            </div>
-
-            {/* Verified Social Profile Buttons */}
-            <div className="pt-6 flex flex-wrap items-center gap-2.5 sm:gap-3 border-t border-slate-200 dark:border-white/10">
-              <span className="text-xs font-mono text-slate-500 dark:text-zinc-400 uppercase tracking-widest font-semibold mr-1">
-                Profiles:
-              </span>
-              
-              <a
-                href={siteConfig.socials.github.url}
-                target="_blank"
-                rel="noreferrer"
-                className="px-3 sm:px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-[#121214] border border-slate-200 dark:border-white/10 text-slate-800 dark:text-zinc-200 hover:text-[#F95C4B] hover:border-[#F95C4B]/50 shadow-sm transition-all flex items-center gap-2 text-xs font-mono font-medium hover:-translate-y-0.5"
-              >
-                <Github className="w-4 h-4 text-[#F95C4B]" />
-                <span>GitHub</span>
-              </a>
-
-              <a
-                href={siteConfig.socials.linkedin.url}
-                target="_blank"
-                rel="noreferrer"
-                className="px-3 sm:px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-[#121214] border border-slate-200 dark:border-white/10 text-slate-800 dark:text-zinc-200 hover:text-[#F95C4B] hover:border-[#F95C4B]/50 shadow-sm transition-all flex items-center gap-2 text-xs font-mono font-medium hover:-translate-y-0.5"
-              >
-                <Linkedin className="w-4 h-4 text-slate-600 dark:text-zinc-300" />
-                <span>LinkedIn</span>
-              </a>
-
-              <a
-                href={siteConfig.socials.leetcode.url}
-                target="_blank"
-                rel="noreferrer"
-                className="px-3 sm:px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-[#121214] border border-slate-200 dark:border-white/10 text-slate-800 dark:text-zinc-200 hover:text-[#F95C4B] hover:border-[#F95C4B]/50 shadow-sm transition-all flex items-center gap-2 text-xs font-mono font-medium hover:-translate-y-0.5"
-              >
-                <Code className="w-4 h-4 text-[#F95C4B]" />
-                <span>LeetCode</span>
-              </a>
-            </div>
-
+              Available for Software Roles
+            </span>
+            <span>•</span>
+            <span className="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors">Based in Saharanpur, UP, India</span>
           </div>
 
-          {/* Right Column: Sleek Rounded Portrait & Engineering Specs Card */}
-          <div className="lg:col-span-5 space-y-6 max-w-md mx-auto lg:max-w-none w-full">
-            <div className="bg-white/90 dark:bg-[#121214]/90 backdrop-blur-md border border-slate-200 dark:border-white/10 rounded-2xl p-4 sm:p-5 shadow-2xl hover:border-[#F95C4B]/40 transition-all group overflow-hidden relative">
-              
-              {/* Header Badge */}
-              <div className="flex items-center justify-between pb-3 mb-3.5 border-b border-slate-200 dark:border-white/10 text-xs font-mono">
-                <span className="text-slate-800 dark:text-zinc-300 font-semibold flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#F95C4B] animate-pulse"></span>
-                  Software Engineer
-                </span>
-                <span className="text-slate-500 dark:text-zinc-400 font-mono text-[11px]">Saharanpur, UP, India</span>
-              </div>
+          {/* Expressive Oversized Headline - Staggered 100ms */}
+          <h1 className="animate-fade-up delay-100 text-5xl sm:text-7xl lg:text-8xl font-display font-bold tracking-tighter text-zinc-950 dark:text-white leading-[0.98]">
+            Building Reliable Systems.<br />
+            <span className="text-zinc-500 dark:text-zinc-400 font-normal">
+              Engineering Scalable Backends.
+            </span>
+          </h1>
 
-              {/* Portrait Frame */}
-              <div className="relative rounded-xl overflow-hidden aspect-[4/5] bg-slate-100 dark:bg-zinc-900 mb-4 flex items-center justify-center border border-slate-200 dark:border-white/10">
-                {!imgError ? (
-                  <img
-                    src="./ujjwal-profile.jpg"
-                    alt="Ujjwal Tyagi"
-                    onError={() => setImgError(true)}
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                  />
-                ) : (
-                  <div className="flex flex-col items-center justify-center p-6 text-center space-y-3">
-                    <div className="w-20 h-20 rounded-full bg-[#F95C4B]/20 border border-[#F95C4B]/40 flex items-center justify-center">
-                      <UserCheck className="w-10 h-10 text-[#F95C4B]" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-lg text-slate-900 dark:text-white font-display">Ujjwal Tyagi</h3>
-                      <p className="text-xs font-mono text-[#F95C4B]">Full-Stack Developer</p>
-                    </div>
-                  </div>
-                )}
-                
-                <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/80 via-transparent to-transparent opacity-80"></div>
-                
-                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between font-mono text-xs text-zinc-100">
-                  <span className="bg-slate-900/90 dark:bg-[#080808]/90 border border-white/20 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg font-bold backdrop-blur-md text-white text-[11px] sm:text-xs">
-                    Ujjwal Tyagi
-                  </span>
-                  <span className="bg-slate-900/90 dark:bg-[#080808]/90 border border-white/20 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg text-[#F95C4B] font-semibold backdrop-blur-md text-[11px] sm:text-xs">
-                    MERN & AI Integrations
-                  </span>
-                </div>
-              </div>
+          {/* Concise Editorial Introduction - Staggered 200ms */}
+          <p className="animate-fade-up delay-200 text-lg sm:text-xl text-zinc-700 dark:text-zinc-300 font-sans max-w-3xl leading-relaxed">
+            I am a software developer with a backend focus, currently pursuing Computer Science & Engineering at Quantum University. I design predictable RESTful APIs, enforce ACID transaction integrity in databases, and build real-time collaborative systems with Node.js, Express, and MongoDB.
+          </p>
 
-              {/* Key Specs */}
-              <div className="space-y-2 font-mono text-xs pt-1 px-1">
-                <div className="flex items-center justify-between py-1.5 border-b border-slate-200 dark:border-white/10 text-slate-700 dark:text-zinc-300">
-                  <span className="text-slate-500 dark:text-zinc-400 flex items-center gap-1.5">
-                    <GraduationCap className="w-3.5 h-3.5 text-[#F95C4B]" />
-                    Education
-                  </span>
-                  <span className="font-semibold text-slate-900 dark:text-zinc-100 text-[11px] sm:text-xs">B.Tech CSE (7.99 CGPA)</span>
-                </div>
+          {/* Dual Action CTAs - Staggered 300ms */}
+          <div className="animate-fade-up delay-300 flex flex-wrap items-center gap-4 pt-2">
+            <a
+              href="#projects"
+              className="group px-6 py-3.5 rounded bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 hover:bg-emerald-600 dark:hover:bg-emerald-400 font-mono text-xs font-bold tracking-wide transition-all duration-200 flex items-center gap-2 shadow-sm hover:shadow-md active:scale-[0.98]"
+            >
+              <span>Explore Selected Projects</span>
+              <ArrowDown className="w-3.5 h-3.5 group-hover:translate-y-1 transition-transform duration-200" />
+            </a>
 
-                <div className="flex items-center justify-between py-1.5 border-b border-slate-200 dark:border-white/10 text-slate-700 dark:text-zinc-300">
-                  <span className="text-slate-500 dark:text-zinc-400 flex items-center gap-1.5">
-                    <Briefcase className="w-3.5 h-3.5 text-[#F95C4B]" />
-                    Experience
-                  </span>
-                  <span className="font-semibold text-[#F95C4B] text-[11px] sm:text-xs">Web Dev Intern @ 3Skill</span>
-                </div>
-
-                <div className="flex items-center justify-between py-1.5 text-slate-700 dark:text-zinc-300">
-                  <span className="text-slate-500 dark:text-zinc-400 flex items-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-[#F95C4B]" />
-                    Location
-                  </span>
-                  <span className="font-medium text-slate-800 dark:text-zinc-200 text-[11px] sm:text-xs">{personalInfo.location}</span>
-                </div>
-              </div>
-
-            </div>
+            <button
+              type="button"
+              onClick={onOpenResume}
+              className="group px-6 py-3.5 rounded border border-zinc-300 dark:border-white/[0.15] hover:border-zinc-950 dark:hover:border-white hover:bg-zinc-100/50 dark:hover:bg-white/[0.04] text-zinc-900 dark:text-white font-mono text-xs font-medium transition-all duration-200 flex items-center gap-2 active:scale-[0.98]"
+            >
+              <FileText className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 group-hover:scale-110 transition-transform duration-200" />
+              <span>Review Verified Resume</span>
+            </button>
           </div>
 
         </div>
+
+        {/* Structural Architecture Signature Strip - Staggered 400ms */}
+        <div className="animate-fade-up delay-400 mt-16 sm:mt-24 pt-8 border-t border-zinc-200 dark:border-white/[0.08] grid grid-cols-2 md:grid-cols-4 gap-6 font-mono text-xs">
+          <div className="space-y-1 group">
+            <span className="text-zinc-400 text-[11px] block uppercase tracking-wider group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">01 / PERSISTENCE</span>
+            <strong className="text-zinc-900 dark:text-white block font-medium">MongoDB ACID Sessions</strong>
+            <span className="text-zinc-600 dark:text-zinc-400 text-[11px] block">Multi-document atomicity</span>
+          </div>
+
+          <div className="space-y-1 group">
+            <span className="text-zinc-400 text-[11px] block uppercase tracking-wider group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">02 / PROTOCOLS</span>
+            <strong className="text-zinc-900 dark:text-white block font-medium">Express & REST Contracts</strong>
+            <span className="text-zinc-600 dark:text-zinc-400 text-[11px] block">Deterministic JSON envelopes</span>
+          </div>
+
+          <div className="space-y-1 group">
+            <span className="text-zinc-400 text-[11px] block uppercase tracking-wider group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">03 / REAL-TIME</span>
+            <strong className="text-zinc-900 dark:text-white block font-medium">Socket.io Event Rooms</strong>
+            <span className="text-zinc-600 dark:text-zinc-400 text-[11px] block">Isolated multi-tenant channels</span>
+          </div>
+
+          <div className="space-y-1 group">
+            <span className="text-zinc-400 text-[11px] block uppercase tracking-wider group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">04 / ALGORITHMS</span>
+            <strong className="text-zinc-900 dark:text-white block font-medium">Java DSA Core</strong>
+            <span className="text-zinc-600 dark:text-zinc-400 text-[11px] block">Algorithmic complexity rigor</span>
+          </div>
+        </div>
+
       </div>
     </section>
-
   );
 };
