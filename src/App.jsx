@@ -3,15 +3,13 @@ import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { Hero } from './sections/Hero';
 import { About } from './sections/About';
-import { Skills } from './sections/Skills';
 import { Projects } from './sections/Projects';
-import { GenAI } from './sections/GenAI';
+import { Skills } from './sections/Skills';
 import { Experience } from './sections/Experience';
-import { HowIBuild } from './sections/HowIBuild';
 import { Education } from './sections/Education';
-import { Certifications } from './sections/Certifications';
 import { Contact } from './sections/Contact';
 import { CommandPalette } from './components/ui/CommandPalette';
+import { ResumeModal } from './components/ui/ResumeModal';
 import { Toast } from './components/ui/Toast';
 import { siteConfig } from './config/site';
 import { ArrowUp } from 'lucide-react';
@@ -19,6 +17,7 @@ import { ArrowUp } from 'lucide-react';
 export default function App() {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [isCmdOpen, setIsCmdOpen] = useState(false);
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
   const [toast, setToast] = useState({ message: '', isVisible: false });
   const [theme, setTheme] = useState(() => {
     if (typeof window !== 'undefined') {
@@ -45,7 +44,6 @@ export default function App() {
     triggerToast(`Switched to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`);
   };
 
-  // Toast trigger helper
   const triggerToast = (msg) => {
     setToast({ message: msg, isVisible: true });
   };
@@ -55,12 +53,6 @@ export default function App() {
     triggerToast(`Email copied: ${siteConfig.email}`);
   };
 
-  const copyPhone = () => {
-    navigator.clipboard.writeText(siteConfig.phone);
-    triggerToast(`Phone copied: ${siteConfig.phone}`);
-  };
-
-  // Scroll position & keyboard listeners for Cmd+K
   useEffect(() => {
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 400);
@@ -87,11 +79,11 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-[#080808] text-slate-900 dark:text-zinc-100 selection:bg-[#F95C4B]/25 selection:text-[#F95C4B] relative font-sans transition-colors duration-300">
+    <div className="min-h-screen bg-[#fafaf9] dark:bg-[#09090b] text-zinc-900 dark:text-zinc-100 selection:bg-emerald-500 selection:text-zinc-950 relative font-sans transition-colors duration-200">
       {/* Skip to Content for Accessibility */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 px-4 py-2 bg-[#F95C4B] text-black font-bold font-mono text-xs rounded-xl shadow-xl"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 px-4 py-2 bg-emerald-600 text-white font-mono text-xs rounded shadow-lg"
       >
         Skip to main content
       </a>
@@ -99,20 +91,17 @@ export default function App() {
       <Navbar
         theme={theme}
         toggleTheme={toggleTheme}
+        onOpenCmd={() => setIsCmdOpen(true)}
+        onOpenResume={() => setIsResumeOpen(true)}
       />
 
       <main id="main-content">
-        <Hero
-          onCopyEmail={copyEmail}
-        />
+        <Hero onOpenResume={() => setIsResumeOpen(true)} />
         <About />
-        <Skills />
         <Projects />
-        <GenAI />
+        <Skills />
         <Experience />
-        <HowIBuild />
         <Education />
-        <Certifications />
         <Contact />
       </main>
 
@@ -123,9 +112,15 @@ export default function App() {
         isOpen={isCmdOpen}
         onClose={() => setIsCmdOpen(false)}
         onCopyEmail={copyEmail}
-        onCopyPhone={copyPhone}
+        onOpenResume={() => setIsResumeOpen(true)}
         theme={theme}
         toggleTheme={toggleTheme}
+      />
+
+      {/* Verified Resume Modal */}
+      <ResumeModal
+        isOpen={isResumeOpen}
+        onClose={() => setIsResumeOpen(false)}
       />
 
       {/* Floating Toast Notification */}
@@ -139,10 +134,10 @@ export default function App() {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 z-30 p-3 rounded-full bg-white dark:bg-[#121214]/90 border border-slate-200 dark:border-white/10 text-slate-700 dark:text-zinc-300 hover:text-[#F95C4B] dark:hover:text-[#F95C4B] hover:border-[#F95C4B] shadow-2xl backdrop-blur-md transition-all duration-300 group"
+          className="fixed bottom-6 right-6 z-30 p-2.5 rounded-full bg-white dark:bg-[#121215] border border-zinc-200 dark:border-white/[0.1] text-zinc-700 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-emerald-400 shadow-lg backdrop-blur-md transition-all duration-200 active:scale-90 animate-modal-enter group"
           aria-label="Scroll to top of page"
         >
-          <ArrowUp className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform" />
+          <ArrowUp className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform duration-200" />
         </button>
       )}
     </div>
