@@ -63,9 +63,9 @@ export const Education = () => {
               <span className="text-zinc-500 text-[11px]">Degree & Secondary</span>
             </div>
 
-            <div className="space-y-10">
+            <div className="space-y-6">
               {educationData.map((edu, idx) => (
-                <div key={idx} className="space-y-3 pb-8 border-b border-zinc-200/70 dark:border-white/[0.06] last:border-b-0 last:pb-0">
+                <div key={idx} className="p-6 rounded-xl bg-zinc-50/70 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] space-y-3 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-md dark:hover:shadow-[0_12px_24px_-10px_rgba(0,0,0,0.5)] hover:border-zinc-300 dark:hover:border-white/[0.15]">
                   <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
                     <div>
                       <h3 className="text-xl sm:text-2xl font-display font-bold text-zinc-950 dark:text-white">
@@ -89,7 +89,7 @@ export const Education = () => {
                   {/* Academic Metrics */}
                   {edu.minor && (
                     <div className="flex flex-wrap items-center gap-2 font-mono text-xs pt-1">
-                      <span className="px-2.5 py-0.5 rounded bg-zinc-100 dark:bg-white/[0.05] text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-white/[0.08]">
+                      <span className="px-2.5 py-0.5 rounded-lg bg-zinc-100 dark:bg-white/[0.05] text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-white/[0.08]">
                         {edu.minor}
                       </span>
                     </div>
@@ -128,7 +128,7 @@ export const Education = () => {
               {certificationsData.map((cert, idx) => (
                 <div 
                   key={idx} 
-                  className="p-5 rounded bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] space-y-2.5 transition-colors duration-200 hover:border-indigo-500/30"
+                  className="p-5 rounded-xl bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] space-y-2.5 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-md dark:hover:shadow-[0_12px_24px_-10px_rgba(0,0,0,0.5)] hover:border-indigo-500/40"
                 >
                   <div className="flex items-baseline justify-between font-mono text-xs">
                     <span className="text-[11px] text-zinc-500 uppercase tracking-wider">
