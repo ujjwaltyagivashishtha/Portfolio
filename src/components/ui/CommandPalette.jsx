@@ -194,7 +194,7 @@ export const CommandPalette = ({ isOpen, onClose, onCopyEmail, onOpenResume, the
       >
         {/* Search Input Bar */}
         <div className="flex items-center gap-3 px-4 py-3.5 border-b border-slate-200 dark:border-white/[0.08] bg-slate-50 dark:bg-[#0c0c10]">
-          <Terminal className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0" />
+          <Terminal className="w-5 h-5 text-indigo-600 dark:text-indigo-400 shrink-0" />
           <input
             ref={inputRef}
             type="text"
@@ -226,19 +226,19 @@ export const CommandPalette = ({ isOpen, onClose, onCopyEmail, onOpenResume, the
                   onMouseEnter={() => setSelectedIndex(idx)}
                   className={`flex items-center justify-between px-3.5 py-2.5 rounded-xl cursor-pointer transition-all ${
                     isSelected
-                      ? 'bg-emerald-500/10 dark:bg-emerald-500/15 text-emerald-800 dark:text-emerald-400 border border-emerald-500/20 dark:border-emerald-500/30 font-semibold'
+                      ? 'bg-indigo-500/10 dark:bg-indigo-500/15 text-indigo-800 dark:text-indigo-300 border border-indigo-500/20 dark:border-indigo-500/30 font-semibold'
                       : 'text-slate-700 dark:text-zinc-300 hover:bg-slate-100 dark:hover:bg-white/[0.04] border border-transparent'
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <IconComp className={`w-4 h-4 ${isSelected ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-400 dark:text-zinc-500'}`} />
+                    <IconComp className={`w-4 h-4 ${isSelected ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-400 dark:text-zinc-500'}`} />
                     <span>{item.title}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-[10px] uppercase text-slate-500 dark:text-zinc-400 px-2 py-0.5 rounded bg-slate-100 dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.06]">
                       {item.category}
                     </span>
-                    {isSelected && <ArrowRight className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />}
+                    {isSelected && <ArrowRight className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />}
                   </div>
                 </div>
               );
@@ -257,7 +257,7 @@ export const CommandPalette = ({ isOpen, onClose, onCopyEmail, onOpenResume, the
             <span><kbd className="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-white/[0.08] text-slate-700 dark:text-zinc-300">↵</kbd> select</span>
             <span><kbd className="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-white/[0.08] text-slate-700 dark:text-zinc-300">esc</kbd> close</span>
           </div>
-          <span className="text-emerald-700 dark:text-teal-300 font-medium">Command Menu</span>
+          <span className="text-indigo-700 dark:text-indigo-300 font-medium">Command Menu</span>
         </div>
 
       </div>
