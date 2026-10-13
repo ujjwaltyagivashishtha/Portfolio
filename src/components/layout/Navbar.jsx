@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { siteConfig } from '../../config/site';
 import { 
   Menu, 
@@ -12,39 +12,56 @@ export const Navbar = ({ theme, toggleTheme }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const progressBarRef = useRef(null);
 
   const coreNavLinks = siteConfig.navLinks;
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+    let rafId = null;
 
-      // Calculate Reading Progress Indicator
+    const updateScrollMetrics = () => {
+      const scrollY = window.scrollY;
+
+      // Butter-smooth GPU-accelerated Reading Progress Bar (no reflows or transition latency)
       const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-      if (totalHeight > 0) {
-        const progress = Math.min(100, Math.max(0, (window.scrollY / totalHeight) * 100));
-        setScrollProgress(progress);
+      const progress = totalHeight > 0 ? Math.min(1, Math.max(0, scrollY / totalHeight)) : 0;
+      if (progressBarRef.current) {
+        progressBarRef.current.style.transform = `scaleX(${progress})`;
       }
 
+      // Only update Navbar state when the scroll threshold flips
+      const nextScrolled = scrollY > 20;
+      setIsScrolled((prev) => (prev !== nextScrolled ? nextScrolled : prev));
+
+      // Active Section detection
       const sections = ['hero', ...siteConfig.navLinks.map((link) => link.href.substring(1))];
-      const scrollPosition = window.scrollY + 200;
+      const scrollPosition = scrollY + 200;
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const sectionEl = document.getElementById(sections[i]);
-        if (sectionEl) {
-          const top = sectionEl.offsetTop;
-          if (scrollPosition >= top) {
-            setActiveSection(sections[i]);
-            break;
-          }
+        if (sectionEl && scrollPosition >= sectionEl.offsetTop) {
+          setActiveSection((prev) => (prev !== sections[i] ? sections[i] : prev));
+          break;
         }
       }
     };
 
+    const handleScroll = () => {
+      if (!rafId) {
+        rafId = window.requestAnimationFrame(() => {
+          updateScrollMetrics();
+          rafId = null;
+        });
+      }
+    };
+
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    updateScrollMetrics();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (rafId) window.cancelAnimationFrame(rafId);
+    };
   }, []);
 
   // Handle body scroll lock & Escape key closing for mobile menu
@@ -70,14 +87,15 @@ export const Navbar = ({ theme, toggleTheme }) => {
 
   return (
     <>
-      {/* Unobtrusive Reading Progress Bar */}
+      {/* Butter-Smooth GPU-Accelerated Reading Progress Bar */}
       <div 
-        className="fixed top-0 left-0 right-0 h-[2px] z-50 bg-transparent pointer-events-none"
+        className="fixed top-0 left-0 right-0 h-[3px] z-50 bg-black/10 dark:bg-white/[0.04] backdrop-blur-[1px] pointer-events-none overflow-hidden"
         aria-hidden="true"
       >
         <div 
-          className="h-full bg-emerald-500 transition-all duration-100 ease-out" 
-          style={{ width: `${scrollProgress}%` }}
+          ref={progressBarRef}
+          className="h-full w-full origin-left bg-gradient-to-r from-emerald-600 via-emerald-400 to-teal-300 shadow-[0_0_10px_rgba(16,185,129,0.7),0_0_3px_rgba(52,211,153,0.9)] will-change-transform"
+          style={{ transform: 'scaleX(0)' }}
         />
       </div>
       {/* Editorial Sticky Header */}
