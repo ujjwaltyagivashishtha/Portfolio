@@ -5,14 +5,11 @@ import {
   X, 
   Sun, 
   Moon, 
-  Github, 
-  Linkedin, 
-  Command, 
   FileText,
   ArrowUpRight 
 } from 'lucide-react';
 
-export const Navbar = ({ theme, toggleTheme, onOpenCmd, onOpenResume }) => {
+export const Navbar = ({ theme, toggleTheme, onOpenResume }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
@@ -141,17 +138,6 @@ export const Navbar = ({ theme, toggleTheme, onOpenCmd, onOpenResume }) => {
 
             {/* Desktop Action Controls */}
             <div className="hidden md:flex items-center gap-3">
-              {/* Cmd+K trigger */}
-              <button
-                type="button"
-                onClick={onOpenCmd}
-                className="px-2 py-1 rounded bg-zinc-100 dark:bg-white/[0.05] border border-zinc-200 dark:border-white/[0.08] text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white text-[11px] font-mono flex items-center gap-1 transition-all duration-150 active:scale-95"
-                title="Search commands (Cmd+K)"
-                aria-label="Open command palette"
-              >
-                <Command className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />
-                <span>⌘K</span>
-              </button>
 
               {/* Theme Toggle */}
               <button
