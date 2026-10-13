@@ -78,7 +78,7 @@ export const About = () => {
             </div>
 
             {/* Academic Credential Summary Box */}
-            <div className="pt-6 border-t border-zinc-200 dark:border-white/[0.08] flex items-center justify-between text-xs font-mono text-zinc-600 dark:text-zinc-400">
+            <div className="p-4 rounded-xl bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] flex items-center justify-between text-xs font-mono text-zinc-600 dark:text-zinc-400 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-sm hover:border-indigo-500/40">
               <div>
                 <span className="text-zinc-400 block text-[11px]">DEGREE</span>
                 <strong className="text-zinc-900 dark:text-white font-medium">B.Tech CSE (2023–2027)</strong>
@@ -93,14 +93,14 @@ export const About = () => {
           {/* Right Column: 4 Architecture Principles Divided by Rules (7 cols) */}
           <div 
             ref={rightRef}
-            className={`lg:col-span-7 space-y-0 divide-y divide-zinc-200 dark:divide-white/[0.08] border-y border-zinc-200 dark:border-white/[0.08] reveal-init ${
+            className={`lg:col-span-7 space-y-2 reveal-init ${
               isRightVisible ? 'reveal-active' : ''
             }`}
           >
             {architecturalPrinciples.map((item) => (
               <div 
                 key={item.num} 
-                className="group py-7 space-y-2 text-left transition-colors duration-200 hover:pl-2"
+                className="group p-5 rounded-xl border border-transparent hover:border-zinc-200/80 dark:hover:border-white/[0.06] space-y-2 text-left transition-all duration-200 ease-out hover:bg-zinc-100/60 dark:hover:bg-white/[0.02] hover:-translate-y-0.5 hover:shadow-sm"
               >
                 <div className="flex items-baseline justify-between font-mono text-xs">
                   <span className="text-indigo-600 dark:text-indigo-400 font-bold group-hover:translate-x-1 transition-transform duration-200 inline-block">{item.num}</span>
