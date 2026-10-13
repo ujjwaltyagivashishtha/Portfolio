@@ -112,7 +112,7 @@ export const Contact = () => {
           >
             
             {/* Primary Direct Inbox Callout */}
-            <div className="p-6 sm:p-8 rounded bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] space-y-4 transition-colors hover:border-indigo-500/30">
+            <div className="p-6 sm:p-8 rounded-2xl bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] space-y-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg dark:hover:shadow-[0_16px_32px_-12px_rgba(99,102,241,0.18)] hover:border-indigo-500/40">
               <span className="font-mono text-xs uppercase tracking-wider text-indigo-700 dark:text-indigo-400 font-bold block">
                 Direct Email Inbox
               </span>
@@ -128,7 +128,7 @@ export const Contact = () => {
                 <button
                   type="button"
                   onClick={copyEmail}
-                  className="px-4 py-2 rounded bg-zinc-900 dark:bg-white text-zinc-100 dark:text-zinc-950 font-mono text-xs font-medium flex items-center gap-1.5 shrink-0 transition-all duration-200 active:scale-95 shadow-sm hover:bg-indigo-600 dark:hover:bg-indigo-400"
+                  className="px-4 py-2 rounded-xl bg-zinc-900 dark:bg-white text-zinc-100 dark:text-zinc-950 font-mono text-xs font-medium flex items-center gap-1.5 shrink-0 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-sm active:translate-y-0 active:scale-95 hover:bg-indigo-600 dark:hover:bg-indigo-500"
                   aria-label="Copy email address"
                 >
                   {copied ? (
@@ -229,7 +229,7 @@ export const Contact = () => {
 
                 <button 
                   type="submit" 
-                  className="group px-5 py-3 rounded bg-zinc-900 dark:bg-white text-zinc-100 dark:text-zinc-950 font-mono text-xs font-bold hover:bg-indigo-600 dark:hover:bg-indigo-400 transition-all duration-200 flex items-center justify-center gap-2 w-full sm:w-auto active:scale-95 shadow-sm"
+                  className="group px-5 py-3 rounded-xl bg-zinc-900 dark:bg-white text-zinc-100 dark:text-zinc-950 font-mono text-xs font-bold hover:bg-indigo-600 dark:hover:bg-indigo-500 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200 ease-out flex items-center justify-center gap-2 w-full sm:w-auto active:translate-y-0 active:scale-[0.98] shadow-sm"
                 >
                   <Send className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
                   <span>Launch Email Client with Message</span>
@@ -294,13 +294,13 @@ export const Contact = () => {
                   href={siteConfig.socials.github.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3.5 rounded bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] hover:border-zinc-950 dark:hover:border-white flex items-center justify-between transition-colors group"
+                  className="p-4 rounded-xl bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] hover:border-indigo-500/40 dark:hover:border-indigo-400/40 flex items-center justify-between transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-sm group"
                 >
                   <div className="flex items-center gap-3">
                     <Github className="w-4 h-4 text-zinc-700 dark:text-zinc-300" />
                     <div>
                       <strong className="text-zinc-900 dark:text-white block font-medium">GitHub</strong>
-                      <span className="text-[11px] text-zinc-500">github.com/ujjwaltyagivashishtha</span>
+                      <span className="text-[11px] text-zinc-500">github.com/ujjwaltyagi/Portfolio</span>
                     </div>
                   </div>
                   <ArrowUpRight className="w-4 h-4 text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
@@ -310,7 +310,7 @@ export const Contact = () => {
                   href={siteConfig.socials.linkedin.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3.5 rounded bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] hover:border-zinc-950 dark:hover:border-white flex items-center justify-between transition-colors group"
+                  className="p-4 rounded-xl bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] hover:border-indigo-500/40 dark:hover:border-indigo-400/40 flex items-center justify-between transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-sm group"
                 >
                   <div className="flex items-center gap-3">
                     <Linkedin className="w-4 h-4 text-zinc-700 dark:text-zinc-300" />
