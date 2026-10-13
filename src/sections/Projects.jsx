@@ -71,7 +71,7 @@ export const Projects = () => {
           <div className="flex flex-wrap items-baseline justify-between gap-4 pb-4 border-b border-zinc-200 dark:border-white/[0.08] font-mono text-xs">
             <div className="flex items-center gap-3">
               <span className="text-2xl font-bold font-display text-zinc-400">01</span>
-              <span className="text-emerald-700 dark:text-emerald-400 font-semibold uppercase tracking-wider">
+              <span className="text-indigo-700 dark:text-indigo-400 font-semibold uppercase tracking-wider">
                 Financial Backend & Persistence
               </span>
             </div>
@@ -80,7 +80,7 @@ export const Projects = () => {
                 href={bankProject.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-1.5 text-zinc-700 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors font-medium"
+                className="group inline-flex items-center gap-1.5 text-zinc-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium"
               >
                 <Github className="w-4 h-4" />
                 <span>Source Repository</span>
@@ -89,7 +89,7 @@ export const Projects = () => {
               <button
                 type="button"
                 onClick={() => setSelectedProject(bankProject)}
-                className="group inline-flex items-center gap-1.5 text-zinc-950 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400 font-semibold transition-colors active:scale-95"
+                className="group inline-flex items-center gap-1.5 text-zinc-950 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 font-semibold transition-colors active:scale-95"
               >
                 <Maximize2 className="w-3.5 h-3.5 group-hover:scale-110 transition-transform duration-200" />
                 <span>Case Study</span>
@@ -113,7 +113,7 @@ export const Projects = () => {
               </span>
               <div className="flex flex-wrap gap-1.5 font-mono text-xs">
                 {bankProject.techStack.map(t => (
-                  <span key={t} className="px-2.5 py-1 rounded bg-zinc-100 dark:bg-white/[0.05] border border-zinc-200 dark:border-white/[0.08] text-zinc-800 dark:text-zinc-200 transition-colors hover:border-emerald-500/30">
+                  <span key={t} className="px-2.5 py-1 rounded bg-zinc-100 dark:bg-white/[0.05] border border-zinc-200 dark:border-white/[0.08] text-zinc-800 dark:text-zinc-200 transition-colors hover:border-indigo-500/30">
                     {t}
                   </span>
                 ))}
@@ -132,8 +132,8 @@ export const Projects = () => {
               </p>
             </div>
 
-            <div className="p-6 rounded-lg bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] space-y-3 transition-colors hover:border-emerald-500/30">
-              <span className="font-mono text-xs uppercase tracking-wider text-emerald-700 dark:text-emerald-400 font-semibold block">
+            <div className="p-6 rounded-lg bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] space-y-3 transition-colors hover:border-indigo-500/30">
+              <span className="font-mono text-xs uppercase tracking-wider text-indigo-700 dark:text-indigo-400 font-semibold block">
                 The Architectural Solution
               </span>
               <p className="text-xs sm:text-sm text-zinc-700 dark:text-zinc-300 font-sans leading-relaxed">
@@ -173,7 +173,7 @@ export const Projects = () => {
           <div className="flex flex-wrap items-baseline justify-between gap-4 pb-4 border-b border-zinc-200 dark:border-white/[0.08] font-mono text-xs">
             <div className="flex items-center gap-3">
               <span className="text-2xl font-bold font-display text-zinc-400">02</span>
-              <span className="text-emerald-700 dark:text-emerald-400 font-semibold uppercase tracking-wider">
+              <span className="text-indigo-700 dark:text-indigo-400 font-semibold uppercase tracking-wider">
                 Real-Time Systems & In-Browser Runtimes
               </span>
             </div>
@@ -182,7 +182,7 @@ export const Projects = () => {
                 href={fusionProject.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-1.5 text-zinc-700 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors font-medium"
+                className="group inline-flex items-center gap-1.5 text-zinc-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium"
               >
                 <Github className="w-4 h-4" />
                 <span>Source Repository</span>
@@ -191,7 +191,7 @@ export const Projects = () => {
               <button
                 type="button"
                 onClick={() => setSelectedProject(fusionProject)}
-                className="group inline-flex items-center gap-1.5 text-zinc-950 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400 font-semibold transition-colors active:scale-95"
+                className="group inline-flex items-center gap-1.5 text-zinc-950 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 font-semibold transition-colors active:scale-95"
               >
                 <Maximize2 className="w-3.5 h-3.5 group-hover:scale-110 transition-transform duration-200" />
                 <span>Case Study</span>
@@ -215,7 +215,7 @@ export const Projects = () => {
               </span>
               <div className="flex flex-wrap gap-1.5 font-mono text-xs">
                 {fusionProject.techStack.map(t => (
-                  <span key={t} className="px-2.5 py-1 rounded bg-zinc-100 dark:bg-white/[0.05] border border-zinc-200 dark:border-white/[0.08] text-zinc-800 dark:text-zinc-200 transition-colors hover:border-emerald-500/30">
+                  <span key={t} className="px-2.5 py-1 rounded bg-zinc-100 dark:bg-white/[0.05] border border-zinc-200 dark:border-white/[0.08] text-zinc-800 dark:text-zinc-200 transition-colors hover:border-indigo-500/30">
                     {t}
                   </span>
                 ))}
@@ -229,7 +229,7 @@ export const Projects = () => {
               <span className="font-semibold text-zinc-900 dark:text-white uppercase tracking-wider">
                 Deterministic LLM Orchestration & Execution Flow
               </span>
-              <span className="text-emerald-700 dark:text-emerald-400 text-[11px]">
+              <span className="text-indigo-700 dark:text-indigo-400 text-[11px]">
                 End-to-End Pipeline
               </span>
             </div>
@@ -238,9 +238,9 @@ export const Projects = () => {
               {genAiSectionData.architectureFlow.map((item, idx) => (
                 <div 
                   key={idx} 
-                  className="p-3.5 rounded bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] space-y-1.5 transition-colors hover:border-emerald-500/30"
+                  className="p-3.5 rounded bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] space-y-1.5 transition-colors hover:border-indigo-500/30"
                 >
-                  <span className="text-[10px] text-emerald-700 dark:text-emerald-400 font-bold block">
+                  <span className="text-[10px] text-indigo-700 dark:text-indigo-400 font-bold block">
                     STAGE 0{idx + 1}
                   </span>
                   <strong className="text-xs text-zinc-900 dark:text-white block font-medium">
@@ -284,7 +284,7 @@ export const Projects = () => {
           <div className="flex flex-wrap items-baseline justify-between gap-4 pb-4 border-b border-zinc-200 dark:border-white/[0.08] font-mono text-xs">
             <div className="flex items-center gap-3">
               <span className="text-2xl font-bold font-display text-zinc-400">03</span>
-              <span className="text-emerald-700 dark:text-emerald-400 font-semibold uppercase tracking-wider">
+              <span className="text-indigo-700 dark:text-indigo-400 font-semibold uppercase tracking-wider">
                 Document Engineering & State Architecture
               </span>
             </div>
@@ -293,7 +293,7 @@ export const Projects = () => {
                 href={resumeProject.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-1.5 text-zinc-700 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors font-medium"
+                className="group inline-flex items-center gap-1.5 text-zinc-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium"
               >
                 <Github className="w-4 h-4" />
                 <span>Source Repository</span>
@@ -302,7 +302,7 @@ export const Projects = () => {
               <button
                 type="button"
                 onClick={() => setSelectedProject(resumeProject)}
-                className="group inline-flex items-center gap-1.5 text-zinc-950 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400 font-semibold transition-colors active:scale-95"
+                className="group inline-flex items-center gap-1.5 text-zinc-950 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 font-semibold transition-colors active:scale-95"
               >
                 <Maximize2 className="w-3.5 h-3.5 group-hover:scale-110 transition-transform duration-200" />
                 <span>Case Study</span>
@@ -326,7 +326,7 @@ export const Projects = () => {
               </span>
               <div className="flex flex-wrap gap-1.5 font-mono text-xs">
                 {resumeProject.techStack.map(t => (
-                  <span key={t} className="px-2.5 py-1 rounded bg-zinc-100 dark:bg-white/[0.05] border border-zinc-200 dark:border-white/[0.08] text-zinc-800 dark:text-zinc-200 transition-colors hover:border-emerald-500/30">
+                  <span key={t} className="px-2.5 py-1 rounded bg-zinc-100 dark:bg-white/[0.05] border border-zinc-200 dark:border-white/[0.08] text-zinc-800 dark:text-zinc-200 transition-colors hover:border-indigo-500/30">
                     {t}
                   </span>
                 ))}
@@ -337,8 +337,8 @@ export const Projects = () => {
           {/* Technical Decisions */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-4">
             {resumeProject.engineeringChallenges.map((ec, i) => (
-              <div key={i} className="p-6 rounded-lg bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] space-y-2 transition-colors hover:border-emerald-500/30">
-                <span className="font-mono text-xs uppercase tracking-wider text-emerald-700 dark:text-emerald-400 font-semibold block">
+              <div key={i} className="p-6 rounded-lg bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] space-y-2 transition-colors hover:border-indigo-500/30">
+                <span className="font-mono text-xs uppercase tracking-wider text-indigo-700 dark:text-indigo-400 font-semibold block">
                   {ec.title}
                 </span>
                 <p className="text-xs sm:text-sm text-zinc-700 dark:text-zinc-300 font-sans leading-relaxed">
