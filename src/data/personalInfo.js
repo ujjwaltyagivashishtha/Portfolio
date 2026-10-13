@@ -4,9 +4,9 @@ export const personalInfo = {
   location: "Saharanpur, Uttar Pradesh, India",
   email: "ujjwaltyagivashishtha@gmail.com",
   headline: "Software developer specializing in backend engineering, database architectures, real-time WebSockets, and Generative AI integration.",
-  description: "Computer Science & Engineering undergraduate at Quantum University (CGPA 7.99, Minor in Data Analytics). Focused on building reliable backend APIs, atomic database transaction systems, real-time event platforms, and practical LLM integration with Java, Node.js, and the MERN stack.",
+  description: "Computer Science & Engineering undergraduate at Quantum University (Minor in Data Analytics). Focused on building reliable backend APIs, atomic database transaction systems, real-time event platforms, and practical LLM integration with Java, Node.js, and the MERN stack.",
   aboutSummary: [
-    "I am a Computer Science & Engineering undergraduate at Quantum University with an academic minor in Data Analytics (CGPA 7.99), specializing in backend-oriented software development.",
+    "I am a Computer Science & Engineering undergraduate at Quantum University with an academic minor in Data Analytics, specializing in backend-oriented software development.",
     "My engineering approach prioritizes data consistency, API design, event-driven synchronization, and software reliability. I enjoy solving architectural problems—from ensuring ACID atomicity in MongoDB ledgers to building isolated real-time collaboration rooms with Socket.io and integrating LLM APIs.",
     "Through my Web Development Internship at 3Skill India and personal project engineering, I have developed production-style RESTful services in Node.js/Express, structured Mongoose database schemas, handled JWT authentication, and built developer tools."
   ],
