@@ -91,7 +91,6 @@ export default function App() {
       <Navbar
         theme={theme}
         toggleTheme={toggleTheme}
-        onOpenResume={() => setIsResumeOpen(true)}
       />
 
       <main id="main-content">
