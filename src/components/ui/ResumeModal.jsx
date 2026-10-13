@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { X, Download, Printer, ExternalLink, Mail, MapPin, GraduationCap, Briefcase, Code, Award } from 'lucide-react';
+import { X, ExternalLink, Mail, MapPin, GraduationCap, Briefcase, Code, Award } from 'lucide-react';
 import { personalInfo } from '../../data/personalInfo';
 import { educationData } from '../../data/education';
 import { experienceData } from '../../data/experience';
@@ -27,10 +27,6 @@ export const ResumeModal = ({ isOpen, onClose }) => {
 
   if (!isOpen) return null;
 
-  const handlePrint = () => {
-    window.print();
-  };
-
   return (
     <div 
       className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-900/70 dark:bg-black/80 backdrop-blur-sm animate-in fade-in"
@@ -52,14 +48,6 @@ export const ResumeModal = ({ isOpen, onClose }) => {
             </h3>
           </div>
           <div className="flex items-center gap-2">
-            <button
-              onClick={handlePrint}
-              className="px-3 py-1.5 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 font-mono text-xs font-medium flex items-center gap-1.5 transition-colors"
-              title="Print or Save as PDF"
-            >
-              <Printer className="w-3.5 h-3.5" />
-              <span>Print / Save PDF</span>
-            </button>
             <button
               onClick={onClose}
               className="p-1.5 rounded-lg hover:bg-slate-200 dark:hover:bg-white/[0.08] text-slate-500 dark:text-zinc-400 transition-colors"
