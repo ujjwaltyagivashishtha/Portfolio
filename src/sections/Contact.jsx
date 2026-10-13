@@ -112,15 +112,15 @@ export const Contact = () => {
           >
             
             {/* Primary Direct Inbox Callout */}
-            <div className="p-6 sm:p-8 rounded bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] space-y-4 transition-colors hover:border-emerald-500/30">
-              <span className="font-mono text-xs uppercase tracking-wider text-emerald-700 dark:text-emerald-400 font-bold block">
+            <div className="p-6 sm:p-8 rounded bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] space-y-4 transition-colors hover:border-indigo-500/30">
+              <span className="font-mono text-xs uppercase tracking-wider text-indigo-700 dark:text-indigo-400 font-bold block">
                 Direct Email Inbox
               </span>
 
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <a
                   href={`mailto:${siteConfig.email}`}
-                  className="text-xl sm:text-2xl font-display font-bold text-zinc-950 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors font-mono truncate"
+                  className="text-xl sm:text-2xl font-display font-bold text-zinc-950 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-mono truncate"
                 >
                   {siteConfig.email}
                 </a>
@@ -128,12 +128,12 @@ export const Contact = () => {
                 <button
                   type="button"
                   onClick={copyEmail}
-                  className="px-4 py-2 rounded bg-zinc-900 dark:bg-white text-zinc-100 dark:text-zinc-950 font-mono text-xs font-medium flex items-center gap-1.5 shrink-0 transition-all duration-200 active:scale-95 shadow-sm hover:bg-emerald-600 dark:hover:bg-emerald-400"
+                  className="px-4 py-2 rounded bg-zinc-900 dark:bg-white text-zinc-100 dark:text-zinc-950 font-mono text-xs font-medium flex items-center gap-1.5 shrink-0 transition-all duration-200 active:scale-95 shadow-sm hover:bg-indigo-600 dark:hover:bg-indigo-400"
                   aria-label="Copy email address"
                 >
                   {copied ? (
                     <>
-                      <Check className="w-3.5 h-3.5 text-emerald-400 dark:text-emerald-600" />
+                      <Check className="w-3.5 h-3.5 text-indigo-400 dark:text-indigo-600" />
                       <span>Copied!</span>
                     </>
                   ) : (
@@ -229,14 +229,14 @@ export const Contact = () => {
 
                 <button 
                   type="submit" 
-                  className="group px-5 py-3 rounded bg-zinc-900 dark:bg-white text-zinc-100 dark:text-zinc-950 font-mono text-xs font-bold hover:bg-emerald-600 dark:hover:bg-emerald-400 transition-all duration-200 flex items-center justify-center gap-2 w-full sm:w-auto active:scale-95 shadow-sm"
+                  className="group px-5 py-3 rounded bg-zinc-900 dark:bg-white text-zinc-100 dark:text-zinc-950 font-mono text-xs font-bold hover:bg-indigo-600 dark:hover:bg-indigo-400 transition-all duration-200 flex items-center justify-center gap-2 w-full sm:w-auto active:scale-95 shadow-sm"
                 >
                   <Send className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
                   <span>Launch Email Client with Message</span>
                 </button>
 
                 {isClientLaunching && (
-                  <p className="text-xs font-mono text-emerald-700 dark:text-emerald-400">
+                  <p className="text-xs font-mono text-indigo-700 dark:text-indigo-400">
                     Opening your default mail client with pre-filled details...
                   </p>
                 )}
@@ -269,15 +269,15 @@ export const Contact = () => {
 
               <div className="space-y-2 pt-2 font-mono text-xs text-zinc-600 dark:text-zinc-400">
                 <div className="flex items-center gap-2">
-                  <MapPin className="w-3.5 h-3.5 text-emerald-700 dark:text-emerald-400" />
+                  <MapPin className="w-3.5 h-3.5 text-indigo-700 dark:text-indigo-400" />
                   <span>Location: Saharanpur, Uttar Pradesh, India</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Clock className="w-3.5 h-3.5 text-emerald-700 dark:text-emerald-400" />
+                  <Clock className="w-3.5 h-3.5 text-indigo-700 dark:text-indigo-400" />
                   <span>Timezone: Indian Standard Time (IST, UTC+5:30)</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Globe className="w-3.5 h-3.5 text-emerald-700 dark:text-emerald-400" />
+                  <Globe className="w-3.5 h-3.5 text-indigo-700 dark:text-indigo-400" />
                   <span>Arrangement: On-site, Hybrid & Remote Roles</span>
                 </div>
               </div>
