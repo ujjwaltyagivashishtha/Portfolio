@@ -5,11 +5,10 @@ import {
   X, 
   Sun, 
   Moon, 
-  FileText,
   ArrowUpRight 
 } from 'lucide-react';
 
-export const Navbar = ({ theme, toggleTheme, onOpenResume }) => {
+export const Navbar = ({ theme, toggleTheme }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
@@ -153,16 +152,6 @@ export const Navbar = ({ theme, toggleTheme, onOpenResume }) => {
                   <Moon className="w-4 h-4 text-zinc-700" />
                 )}
               </button>
-
-              {/* Resume CTA */}
-              <button
-                type="button"
-                onClick={onOpenResume}
-                className="px-3.5 py-1.5 rounded bg-zinc-900 dark:bg-white text-zinc-100 dark:text-zinc-950 hover:bg-emerald-700 dark:hover:bg-emerald-400 font-mono text-xs font-medium transition-all duration-200 flex items-center gap-1.5 active:scale-95 shadow-sm"
-              >
-                <FileText className="w-3.5 h-3.5" />
-                <span>Resume</span>
-              </button>
             </div>
 
             {/* Mobile Controls */}
@@ -229,7 +218,7 @@ export const Navbar = ({ theme, toggleTheme, onOpenResume }) => {
             </nav>
           </div>
 
-          <div className="pt-6 border-t border-zinc-200 dark:border-white/[0.08] space-y-3">
+          <div className="pt-6 border-t border-zinc-200 dark:border-white/[0.08]">
             <div className="flex items-center gap-3">
               <a
                 href={siteConfig.socials.github.url}
@@ -248,17 +237,6 @@ export const Navbar = ({ theme, toggleTheme, onOpenResume }) => {
                 LinkedIn
               </a>
             </div>
-
-            <button
-              type="button"
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenResume();
-              }}
-              className="w-full py-3 rounded bg-zinc-900 dark:bg-white text-zinc-100 dark:text-zinc-950 font-mono text-xs font-medium text-center"
-            >
-              View Resume
-            </button>
           </div>
         </div>
       )}
