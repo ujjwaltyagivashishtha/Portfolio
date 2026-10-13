@@ -33,8 +33,8 @@ export default {
           borderSubtle: 'rgba(255, 255, 255, 0.05)',
         },
         editorial: {
-          accent: '#10b981',
-          accentLight: '#059669',
+          accent: '#6366f1',
+          accentLight: '#4f46e5',
           muted: '#71717a',
         }
       },
