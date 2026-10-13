@@ -30,8 +30,8 @@ export function useScrollReveal(options = {}) {
         setIsVisible(false);
       }
     }, {
-      threshold: options.threshold ?? 0.1,
-      rootMargin: options.rootMargin ?? '0px 0px -40px 0px',
+      threshold: options.threshold ?? 0.05,
+      rootMargin: options.rootMargin ?? '0px 0px -20px 0px',
     });
 
     observer.observe(ref.current);
