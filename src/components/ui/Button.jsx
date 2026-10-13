@@ -17,9 +17,9 @@ export const Button = ({
   const baseStyles = 'inline-flex items-center justify-center font-medium transition-all duration-150 focus:outline-none disabled:opacity-50 disabled:pointer-events-none cursor-pointer text-xs rounded-xl border select-none';
 
   const variants = {
-    primary: 'bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 hover:from-emerald-300 hover:via-teal-300 hover:to-cyan-300 text-zinc-950 border-teal-300/40 font-semibold shadow-[0_0_20px_-4px_rgba(20,184,166,0.35)] hover:shadow-[0_0_28px_-2px_rgba(45,212,191,0.55)] active:scale-[0.98] transition-all duration-200',
-    secondary: 'bg-white/[0.04] hover:bg-gradient-to-b hover:from-white/[0.09] hover:to-white/[0.03] text-zinc-100 border-white/[0.09] hover:border-teal-500/40 active:scale-[0.98] transition-all duration-200 font-medium',
-    outline: 'bg-transparent text-zinc-300 border-white/[0.12] hover:border-teal-400/50 hover:text-teal-300 hover:bg-teal-500/[0.05] transition-all',
+    primary: 'bg-gradient-to-r from-indigo-500 via-indigo-400 to-violet-400 hover:from-indigo-400 hover:via-indigo-300 hover:to-violet-300 text-zinc-950 border-indigo-300/40 font-semibold shadow-[0_0_20px_-4px_rgba(99,102,241,0.35)] hover:shadow-[0_0_28px_-2px_rgba(129,140,248,0.55)] active:scale-[0.98] transition-all duration-200',
+    secondary: 'bg-white/[0.04] hover:bg-gradient-to-b hover:from-white/[0.09] hover:to-white/[0.03] text-zinc-100 border-white/[0.09] hover:border-indigo-500/40 active:scale-[0.98] transition-all duration-200 font-medium',
+    outline: 'bg-transparent text-zinc-300 border-white/[0.12] hover:border-indigo-400/50 hover:text-indigo-300 hover:bg-indigo-500/[0.05] transition-all',
     ghost: 'bg-transparent text-zinc-400 border-transparent hover:text-zinc-100 hover:bg-white/[0.04] transition-all',
   };
 
