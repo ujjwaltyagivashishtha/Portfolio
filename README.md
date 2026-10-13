@@ -23,7 +23,7 @@ Rather than relying on excessive visual effects, the design emphasizes readabili
 - **Responsive Layout:** Adaptable experience across desktop, tablet, and mobile screens.
 - **Smooth Animations:** Staggered hero animations, scroll-triggered reveals, and subtle transitions.
 - **Interactive Project Showcases:** Explore projects through dedicated case study views.
-- **Resume Preview:** View and print the resume using the built-in resume interface.
+- **Resume Preview:** View the resume using the built-in modal interface.
 - **Command Palette:** Quickly navigate portfolio sections using `Cmd + K` on supported devices.
 - **Micro-interactions:** Refined hover states, animated navigation, and interactive controls.
 - **Reading Progress Indicator:** Track progress while exploring the page.
