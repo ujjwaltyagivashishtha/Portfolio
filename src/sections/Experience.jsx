@@ -49,7 +49,7 @@ export const Experience = () => {
           }`}
         >
           {experienceData.map((exp, index) => (
-            <div key={index} className="space-y-6">
+            <div key={index} className="p-6 sm:p-8 rounded-2xl bg-zinc-50/70 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] space-y-6 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg dark:hover:shadow-[0_16px_32px_-12px_rgba(0,0,0,0.5)] hover:border-indigo-500/40">
               
               {/* Header Bar */}
               <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 pb-3 border-b border-zinc-200 dark:border-white/[0.08]">
@@ -111,7 +111,7 @@ export const Experience = () => {
                 {exp.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="px-2.5 py-1 rounded bg-zinc-100 dark:bg-white/[0.05] border border-zinc-200 dark:border-white/[0.08] text-zinc-800 dark:text-zinc-200 transition-colors hover:border-indigo-500/30"
+                    className="px-2.5 py-1 rounded-lg bg-zinc-100 dark:bg-white/[0.05] border border-zinc-200 dark:border-white/[0.08] text-zinc-800 dark:text-zinc-200 transition-all duration-150 hover:-translate-y-0.5 hover:border-indigo-500/40 hover:text-indigo-600 dark:hover:text-indigo-300"
                   >
                     {skill}
                   </span>
