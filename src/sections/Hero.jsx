@@ -42,13 +42,13 @@ export const Hero = ({ onOpenResume }) => {
             d="M 120 180 C 340 180, 480 320, 720 320 C 960 320, 1100 220, 1340 220"
             stroke="currentColor"
             strokeWidth="1.5"
-            className="text-emerald-500/40 animate-data-pulse"
+            className="text-indigo-500/40 animate-data-pulse"
           />
           <path
             d="M 180 520 C 420 520, 560 360, 800 360 C 1040 360, 1180 480, 1380 480"
             stroke="currentColor"
             strokeWidth="1.5"
-            className="text-zinc-400 dark:text-emerald-400/30 animate-data-pulse"
+            className="text-zinc-400 dark:text-indigo-400/30 animate-data-pulse"
             style={{ animationDelay: '1.5s' }}
           />
           <path
@@ -68,25 +68,25 @@ export const Hero = ({ onOpenResume }) => {
 
           {/* Node 1 */}
           <g transform="translate(120, 180)">
-            <circle r="4" fill="#10b981" className="animate-node-breathe" />
+            <circle r="4" fill="#6366f1" className="animate-node-breathe" />
             <circle r="1.5" fill="#ffffff" />
           </g>
 
           {/* Node 2 */}
           <g transform="translate(720, 320)">
-            <circle r="4" fill="#10b981" className="animate-node-breathe" style={{ animationDelay: '1s' }} />
+            <circle r="4" fill="#6366f1" className="animate-node-breathe" style={{ animationDelay: '1s' }} />
             <circle r="1.5" fill="#ffffff" />
           </g>
 
           {/* Node 3 */}
           <g transform="translate(1340, 220)">
-            <circle r="4" fill="#10b981" className="animate-node-breathe" style={{ animationDelay: '2s' }} />
+            <circle r="4" fill="#6366f1" className="animate-node-breathe" style={{ animationDelay: '2s' }} />
             <circle r="1.5" fill="#ffffff" />
           </g>
 
           {/* Node 4 */}
           <g transform="translate(800, 360)">
-            <circle r="3.5" fill="#10b981" className="animate-node-breathe" style={{ animationDelay: '0.5s' }} />
+            <circle r="3.5" fill="#6366f1" className="animate-node-breathe" style={{ animationDelay: '0.5s' }} />
             <circle r="1.5" fill="#ffffff" />
           </g>
         </svg>
@@ -99,10 +99,10 @@ export const Hero = ({ onOpenResume }) => {
           
           {/* Eyebrow Label & Current Availability - Staggered 0ms */}
           <div className="animate-fade-up flex flex-wrap items-center gap-3 text-xs font-mono text-zinc-600 dark:text-zinc-400">
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-zinc-100 dark:bg-white/[0.05] border border-zinc-200 dark:border-white/[0.08] text-zinc-900 dark:text-zinc-200 font-medium transition-all hover:border-emerald-500/40">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-zinc-100 dark:bg-white/[0.05] border border-zinc-200 dark:border-white/[0.08] text-zinc-900 dark:text-zinc-200 font-medium transition-all hover:border-indigo-500/40">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
               </span>
               Available for Software Roles
             </span>
@@ -127,7 +127,7 @@ export const Hero = ({ onOpenResume }) => {
           <div className="animate-fade-up delay-300 flex flex-wrap items-center gap-4 pt-2">
             <a
               href="#projects"
-              className="group px-6 py-3.5 rounded bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 hover:bg-emerald-600 dark:hover:bg-emerald-400 font-mono text-xs font-bold tracking-wide transition-all duration-200 flex items-center gap-2 shadow-sm hover:shadow-md active:scale-[0.98]"
+              className="group px-6 py-3.5 rounded bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 hover:bg-indigo-600 dark:hover:bg-indigo-500 font-mono text-xs font-bold tracking-wide transition-all duration-200 flex items-center gap-2 shadow-sm hover:shadow-md active:scale-[0.98]"
             >
               <span>Explore Selected Projects</span>
               <ArrowDown className="w-3.5 h-3.5 group-hover:translate-y-1 transition-transform duration-200" />
@@ -138,7 +138,7 @@ export const Hero = ({ onOpenResume }) => {
               onClick={onOpenResume}
               className="group px-6 py-3.5 rounded border border-zinc-300 dark:border-white/[0.15] hover:border-zinc-950 dark:hover:border-white hover:bg-zinc-100/50 dark:hover:bg-white/[0.04] text-zinc-900 dark:text-white font-mono text-xs font-medium transition-all duration-200 flex items-center gap-2 active:scale-[0.98]"
             >
-              <FileText className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 group-hover:scale-110 transition-transform duration-200" />
+              <FileText className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform duration-200" />
               <span>Review Verified Resume</span>
             </button>
           </div>
@@ -148,25 +148,25 @@ export const Hero = ({ onOpenResume }) => {
         {/* Structural Architecture Signature Strip - Staggered 400ms */}
         <div className="animate-fade-up delay-400 mt-16 sm:mt-24 pt-8 border-t border-zinc-200 dark:border-white/[0.08] grid grid-cols-2 md:grid-cols-4 gap-6 font-mono text-xs">
           <div className="space-y-1 group">
-            <span className="text-zinc-400 text-[11px] block uppercase tracking-wider group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">01 / PERSISTENCE</span>
+            <span className="text-zinc-400 text-[11px] block uppercase tracking-wider group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">01 / PERSISTENCE</span>
             <strong className="text-zinc-900 dark:text-white block font-medium">MongoDB ACID Sessions</strong>
             <span className="text-zinc-600 dark:text-zinc-400 text-[11px] block">Multi-document atomicity</span>
           </div>
 
           <div className="space-y-1 group">
-            <span className="text-zinc-400 text-[11px] block uppercase tracking-wider group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">02 / PROTOCOLS</span>
+            <span className="text-zinc-400 text-[11px] block uppercase tracking-wider group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">02 / PROTOCOLS</span>
             <strong className="text-zinc-900 dark:text-white block font-medium">Express & REST Contracts</strong>
             <span className="text-zinc-600 dark:text-zinc-400 text-[11px] block">Deterministic JSON envelopes</span>
           </div>
 
           <div className="space-y-1 group">
-            <span className="text-zinc-400 text-[11px] block uppercase tracking-wider group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">03 / REAL-TIME</span>
+            <span className="text-zinc-400 text-[11px] block uppercase tracking-wider group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">03 / REAL-TIME</span>
             <strong className="text-zinc-900 dark:text-white block font-medium">Socket.io Event Rooms</strong>
             <span className="text-zinc-600 dark:text-zinc-400 text-[11px] block">Isolated multi-tenant channels</span>
           </div>
 
           <div className="space-y-1 group">
-            <span className="text-zinc-400 text-[11px] block uppercase tracking-wider group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">04 / ALGORITHMS</span>
+            <span className="text-zinc-400 text-[11px] block uppercase tracking-wider group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">04 / ALGORITHMS</span>
             <strong className="text-zinc-900 dark:text-white block font-medium">Java DSA Core</strong>
             <span className="text-zinc-600 dark:text-zinc-400 text-[11px] block">Algorithmic complexity rigor</span>
           </div>
