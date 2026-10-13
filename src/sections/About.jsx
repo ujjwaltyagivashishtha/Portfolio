@@ -85,7 +85,7 @@ export const About = () => {
               </div>
               <div>
                 <span className="text-zinc-400 block text-[11px]">SPECIALIZATION</span>
-                <strong className="text-emerald-700 dark:text-emerald-400 font-bold">Minor in Data Analytics</strong>
+                <strong className="text-indigo-700 dark:text-indigo-400 font-bold">Minor in Data Analytics</strong>
               </div>
             </div>
           </div>
@@ -103,10 +103,10 @@ export const About = () => {
                 className="group py-7 space-y-2 text-left transition-colors duration-200 hover:pl-2"
               >
                 <div className="flex items-baseline justify-between font-mono text-xs">
-                  <span className="text-emerald-600 dark:text-emerald-400 font-bold group-hover:translate-x-1 transition-transform duration-200 inline-block">{item.num}</span>
+                  <span className="text-indigo-600 dark:text-indigo-400 font-bold group-hover:translate-x-1 transition-transform duration-200 inline-block">{item.num}</span>
                   <span className="text-zinc-400 text-[11px] uppercase tracking-wider">CORE TENET</span>
                 </div>
-                <h3 className="text-lg sm:text-xl font-display font-bold text-zinc-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                <h3 className="text-lg sm:text-xl font-display font-bold text-zinc-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
                   {item.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed pt-1">
