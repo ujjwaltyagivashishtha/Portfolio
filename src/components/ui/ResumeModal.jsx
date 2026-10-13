@@ -107,7 +107,7 @@ export const ResumeModal = ({ isOpen, onClose }) => {
                   </span>
                 </div>
                 <div className="text-xs font-mono text-slate-500 dark:text-zinc-400 sm:text-right mt-1 sm:mt-0">
-                  <span className="text-emerald-600 dark:text-emerald-400 font-bold">CGPA: 7.99</span> • 2023 – Present (Expected 2027)
+                  2023 – Present (Expected 2027)
                 </div>
               </div>
             </div>
