@@ -87,18 +87,11 @@ export const Education = () => {
                   </p>
 
                   {/* Academic Metrics */}
-                  {(edu.cgpa || edu.minor) && (
+                  {edu.minor && (
                     <div className="flex flex-wrap items-center gap-2 font-mono text-xs pt-1">
-                      {edu.cgpa && (
-                        <span className="px-2.5 py-0.5 rounded bg-emerald-500/10 text-emerald-800 dark:text-emerald-300 font-bold border border-emerald-500/20">
-                          CGPA: {edu.cgpa} / 10.0
-                        </span>
-                      )}
-                      {edu.minor && (
-                        <span className="px-2.5 py-0.5 rounded bg-zinc-100 dark:bg-white/[0.05] text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-white/[0.08]">
-                          {edu.minor}
-                        </span>
-                      )}
+                      <span className="px-2.5 py-0.5 rounded bg-zinc-100 dark:bg-white/[0.05] text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-white/[0.08]">
+                        {edu.minor}
+                      </span>
                     </div>
                   )}
 
