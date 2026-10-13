@@ -132,7 +132,7 @@ export default function App() {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 z-30 p-2.5 rounded-full bg-white dark:bg-[#121215] border border-zinc-200 dark:border-white/[0.1] text-zinc-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 shadow-lg backdrop-blur-md transition-all duration-200 active:scale-90 animate-modal-enter group"
+          className="fixed bottom-6 right-6 z-30 p-3 rounded-full bg-white dark:bg-[#121215] border border-zinc-200 dark:border-white/[0.1] text-zinc-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 shadow-lg hover:shadow-xl backdrop-blur-md transition-all duration-200 ease-out hover:-translate-y-1 active:translate-y-0 active:scale-90 animate-modal-enter group"
           aria-label="Scroll to top of page"
         >
           <ArrowUp className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform duration-200" />
