@@ -33,7 +33,7 @@ export const ProjectCaseStudyModal = ({ project, onClose }) => {
         {/* Modal Header */}
         <div className="flex items-start justify-between gap-4 pb-4 border-b border-zinc-200 dark:border-white/[0.08]">
           <div className="space-y-1">
-            <span className="text-emerald-700 dark:text-emerald-400 font-mono text-xs uppercase tracking-wider font-semibold block">
+            <span className="text-indigo-700 dark:text-indigo-400 font-mono text-xs uppercase tracking-wider font-semibold block">
               {project.category}
             </span>
             <h3 id="case-study-title" className="text-2xl sm:text-3xl font-bold font-display text-zinc-950 dark:text-white">
@@ -65,7 +65,7 @@ export const ProjectCaseStudyModal = ({ project, onClose }) => {
           </div>
 
           <div className="p-4 rounded bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.06] space-y-2">
-            <h4 className="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider">
+            <h4 className="text-xs font-mono font-bold text-indigo-700 dark:text-indigo-400 uppercase tracking-wider">
               Architectural Solution
             </h4>
             <p className="text-xs sm:text-sm text-zinc-700 dark:text-zinc-300 font-sans leading-relaxed">
@@ -104,7 +104,7 @@ export const ProjectCaseStudyModal = ({ project, onClose }) => {
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-sans text-zinc-700 dark:text-zinc-300">
               {project.features.map((feat, i) => (
                 <li key={i} className="flex items-start gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700 dark:text-emerald-400 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-indigo-700 dark:text-indigo-400 shrink-0 mt-0.5" />
                   <span>{feat}</span>
                 </li>
               ))}
@@ -133,7 +133,7 @@ export const ProjectCaseStudyModal = ({ project, onClose }) => {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group px-4 py-2 rounded bg-zinc-900 dark:bg-white text-zinc-100 dark:text-zinc-950 font-bold transition-all duration-200 flex items-center gap-2 hover:bg-emerald-600 dark:hover:bg-emerald-400 active:scale-95"
+              className="group px-4 py-2 rounded bg-zinc-900 dark:bg-white text-zinc-100 dark:text-zinc-950 font-bold transition-all duration-200 flex items-center gap-2 hover:bg-indigo-600 dark:hover:bg-indigo-400 active:scale-95"
             >
               <Github className="w-4 h-4" />
               <span>GitHub Source</span>
