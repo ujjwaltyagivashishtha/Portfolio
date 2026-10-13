@@ -91,7 +91,6 @@ export default function App() {
       <Navbar
         theme={theme}
         toggleTheme={toggleTheme}
-        onOpenCmd={() => setIsCmdOpen(true)}
         onOpenResume={() => setIsResumeOpen(true)}
       />
 
