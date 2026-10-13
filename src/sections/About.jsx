@@ -67,7 +67,7 @@ export const About = () => {
 
             <div className="space-y-4 text-sm sm:text-base text-zinc-700 dark:text-zinc-300 font-sans leading-relaxed">
               <p>
-                I am an undergraduate in Computer Science & Engineering at <strong>Quantum University</strong> (CGPA 7.99, Minor in Data Analytics). Rather than treating backend systems as simple database wrappers, I view them as state machines where data consistency, error handling, and latency matter.
+                I am an undergraduate in Computer Science & Engineering at <strong>Quantum University</strong> (Minor in Data Analytics). Rather than treating backend systems as simple database wrappers, I view them as state machines where data consistency, error handling, and latency matter.
               </p>
               <p>
                 During my web development internship at <strong>3Skill India</strong>, I built modular REST APIs in Node.js/Express, managed schemas with Mongoose ORM, and collaborated using disciplined Git version control workflows.
@@ -84,8 +84,8 @@ export const About = () => {
                 <strong className="text-zinc-900 dark:text-white font-medium">B.Tech CSE (2023–2027)</strong>
               </div>
               <div>
-                <span className="text-zinc-400 block text-[11px]">ACADEMICS</span>
-                <strong className="text-emerald-700 dark:text-emerald-400 font-bold">7.99 CGPA • Data Analytics</strong>
+                <span className="text-zinc-400 block text-[11px]">SPECIALIZATION</span>
+                <strong className="text-emerald-700 dark:text-emerald-400 font-bold">Minor in Data Analytics</strong>
               </div>
             </div>
           </div>
