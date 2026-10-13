@@ -79,11 +79,11 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fafaf9] dark:bg-[#09090b] text-zinc-900 dark:text-zinc-100 selection:bg-emerald-500 selection:text-zinc-950 relative font-sans transition-colors duration-200">
+    <div className="min-h-screen bg-[#fafaf9] dark:bg-[#09090b] text-zinc-900 dark:text-zinc-100 selection:bg-indigo-500 selection:text-white relative font-sans transition-colors duration-200">
       {/* Skip to Content for Accessibility */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 px-4 py-2 bg-emerald-600 text-white font-mono text-xs rounded shadow-lg"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 px-4 py-2 bg-indigo-600 text-white font-mono text-xs rounded shadow-lg"
       >
         Skip to main content
       </a>
@@ -132,7 +132,7 @@ export default function App() {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 z-30 p-2.5 rounded-full bg-white dark:bg-[#121215] border border-zinc-200 dark:border-white/[0.1] text-zinc-700 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-emerald-400 shadow-lg backdrop-blur-md transition-all duration-200 active:scale-90 animate-modal-enter group"
+          className="fixed bottom-6 right-6 z-30 p-2.5 rounded-full bg-white dark:bg-[#121215] border border-zinc-200 dark:border-white/[0.1] text-zinc-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 shadow-lg backdrop-blur-md transition-all duration-200 active:scale-90 animate-modal-enter group"
           aria-label="Scroll to top of page"
         >
           <ArrowUp className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform duration-200" />
