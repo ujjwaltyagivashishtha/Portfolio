@@ -57,7 +57,7 @@ export const Education = () => {
           >
             <div className="pb-3 border-b border-zinc-200 dark:border-white/[0.08] flex items-center justify-between font-mono text-xs">
               <span className="font-bold text-zinc-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
-                <GraduationCap className="w-4 h-4 text-emerald-700 dark:text-emerald-400" />
+                <GraduationCap className="w-4 h-4 text-indigo-700 dark:text-indigo-400" />
                 Formal Academic Education
               </span>
               <span className="text-zinc-500 text-[11px]">Degree & Secondary</span>
@@ -72,7 +72,7 @@ export const Education = () => {
                         {edu.institution}
                       </h3>
                       <div className="flex items-center gap-2 text-xs font-mono text-zinc-500 mt-0.5">
-                        <MapPin className="w-3.5 h-3.5 text-emerald-700 dark:text-emerald-400" />
+                        <MapPin className="w-3.5 h-3.5 text-indigo-700 dark:text-indigo-400" />
                         <span>{edu.location}</span>
                       </div>
                     </div>
@@ -118,7 +118,7 @@ export const Education = () => {
           >
             <div className="pb-3 border-b border-zinc-200 dark:border-white/[0.08] flex items-center justify-between font-mono text-xs">
               <span className="font-bold text-zinc-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-emerald-700 dark:text-emerald-400" />
+                <ShieldCheck className="w-4 h-4 text-indigo-700 dark:text-indigo-400" />
                 Verified Technical Certifications
               </span>
               <span className="text-zinc-500 text-[11px]">2 Credentials</span>
@@ -128,13 +128,13 @@ export const Education = () => {
               {certificationsData.map((cert, idx) => (
                 <div 
                   key={idx} 
-                  className="p-5 rounded bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] space-y-2.5 transition-colors duration-200 hover:border-emerald-500/30"
+                  className="p-5 rounded bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] space-y-2.5 transition-colors duration-200 hover:border-indigo-500/30"
                 >
                   <div className="flex items-baseline justify-between font-mono text-xs">
                     <span className="text-[11px] text-zinc-500 uppercase tracking-wider">
                       {cert.category}
                     </span>
-                    <span className="text-emerald-700 dark:text-emerald-400 font-semibold text-[11px] flex items-center gap-1">
+                    <span className="text-indigo-700 dark:text-indigo-400 font-semibold text-[11px] flex items-center gap-1">
                       <ShieldCheck className="w-3.5 h-3.5" />
                       Verified
                     </span>
@@ -144,7 +144,7 @@ export const Education = () => {
                     <h4 className="text-base font-display font-bold text-zinc-950 dark:text-white">
                       {cert.title}
                     </h4>
-                    <p className="text-xs font-mono text-emerald-800 dark:text-emerald-400 font-medium mt-0.5">
+                    <p className="text-xs font-mono text-indigo-800 dark:text-indigo-400 font-medium mt-0.5">
                       Issued by {cert.issuer}
                     </p>
                   </div>
