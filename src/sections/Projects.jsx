@@ -80,7 +80,7 @@ export const Projects = () => {
                 href={bankProject.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-1.5 text-zinc-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium"
+                className="group inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-200 dark:border-white/[0.08] text-zinc-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:border-indigo-500/40 hover:bg-zinc-100/60 dark:hover:bg-white/[0.04] hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all duration-200 ease-out font-medium"
               >
                 <Github className="w-4 h-4" />
                 <span>Source Repository</span>
@@ -89,7 +89,7 @@ export const Projects = () => {
               <button
                 type="button"
                 onClick={() => setSelectedProject(bankProject)}
-                className="group inline-flex items-center gap-1.5 text-zinc-950 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 font-semibold transition-colors active:scale-95"
+                className="group inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-200 dark:border-white/[0.08] text-zinc-950 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 hover:border-indigo-500/40 hover:bg-zinc-100/60 dark:hover:bg-white/[0.04] font-semibold hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all duration-200 ease-out"
               >
                 <Maximize2 className="w-3.5 h-3.5 group-hover:scale-110 transition-transform duration-200" />
                 <span>Case Study</span>
@@ -113,7 +113,7 @@ export const Projects = () => {
               </span>
               <div className="flex flex-wrap gap-1.5 font-mono text-xs">
                 {bankProject.techStack.map(t => (
-                  <span key={t} className="px-2.5 py-1 rounded bg-zinc-100 dark:bg-white/[0.05] border border-zinc-200 dark:border-white/[0.08] text-zinc-800 dark:text-zinc-200 transition-colors hover:border-indigo-500/30">
+                  <span key={t} className="px-2.5 py-1 rounded-lg bg-zinc-100 dark:bg-white/[0.05] border border-zinc-200 dark:border-white/[0.08] text-zinc-800 dark:text-zinc-200 transition-all duration-150 hover:-translate-y-0.5 hover:border-indigo-500/40 hover:text-indigo-600 dark:hover:text-indigo-300">
                     {t}
                   </span>
                 ))}
@@ -123,7 +123,7 @@ export const Projects = () => {
 
           {/* Technical Deep Dive: Problem vs Architectural Solution */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
-            <div className="p-6 rounded-lg bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] space-y-3 transition-colors hover:border-zinc-300 dark:hover:border-white/[0.15]">
+            <div className="p-6 rounded-xl bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] space-y-3 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-md dark:hover:shadow-[0_12px_24px_-10px_rgba(0,0,0,0.5)] hover:border-zinc-300 dark:hover:border-white/[0.15]">
               <span className="font-mono text-xs uppercase tracking-wider text-zinc-500 font-semibold block">
                 The Problem
               </span>
@@ -132,7 +132,7 @@ export const Projects = () => {
               </p>
             </div>
 
-            <div className="p-6 rounded-lg bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] space-y-3 transition-colors hover:border-indigo-500/30">
+            <div className="p-6 rounded-xl bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] space-y-3 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-md dark:hover:shadow-[0_12px_24px_-10px_rgba(0,0,0,0.5)] hover:border-indigo-500/40">
               <span className="font-mono text-xs uppercase tracking-wider text-indigo-700 dark:text-indigo-400 font-semibold block">
                 The Architectural Solution
               </span>
@@ -182,7 +182,7 @@ export const Projects = () => {
                 href={fusionProject.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-1.5 text-zinc-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium"
+                className="group inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-200 dark:border-white/[0.08] text-zinc-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:border-indigo-500/40 hover:bg-zinc-100/60 dark:hover:bg-white/[0.04] hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all duration-200 ease-out font-medium"
               >
                 <Github className="w-4 h-4" />
                 <span>Source Repository</span>
@@ -191,7 +191,7 @@ export const Projects = () => {
               <button
                 type="button"
                 onClick={() => setSelectedProject(fusionProject)}
-                className="group inline-flex items-center gap-1.5 text-zinc-950 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 font-semibold transition-colors active:scale-95"
+                className="group inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-200 dark:border-white/[0.08] text-zinc-950 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 hover:border-indigo-500/40 hover:bg-zinc-100/60 dark:hover:bg-white/[0.04] font-semibold hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all duration-200 ease-out"
               >
                 <Maximize2 className="w-3.5 h-3.5 group-hover:scale-110 transition-transform duration-200" />
                 <span>Case Study</span>
@@ -215,7 +215,7 @@ export const Projects = () => {
               </span>
               <div className="flex flex-wrap gap-1.5 font-mono text-xs">
                 {fusionProject.techStack.map(t => (
-                  <span key={t} className="px-2.5 py-1 rounded bg-zinc-100 dark:bg-white/[0.05] border border-zinc-200 dark:border-white/[0.08] text-zinc-800 dark:text-zinc-200 transition-colors hover:border-indigo-500/30">
+                  <span key={t} className="px-2.5 py-1 rounded-lg bg-zinc-100 dark:bg-white/[0.05] border border-zinc-200 dark:border-white/[0.08] text-zinc-800 dark:text-zinc-200 transition-all duration-150 hover:-translate-y-0.5 hover:border-indigo-500/40 hover:text-indigo-600 dark:hover:text-indigo-300">
                     {t}
                   </span>
                 ))}
@@ -238,7 +238,7 @@ export const Projects = () => {
               {genAiSectionData.architectureFlow.map((item, idx) => (
                 <div 
                   key={idx} 
-                  className="p-3.5 rounded bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] space-y-1.5 transition-colors hover:border-indigo-500/30"
+                  className="p-3.5 rounded-xl bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] space-y-1.5 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-md dark:hover:shadow-[0_12px_24px_-10px_rgba(0,0,0,0.5)] hover:border-indigo-500/40"
                 >
                   <span className="text-[10px] text-indigo-700 dark:text-indigo-400 font-bold block">
                     STAGE 0{idx + 1}
@@ -257,7 +257,7 @@ export const Projects = () => {
           {/* Engineering Challenges Grid */}
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 font-mono text-xs">
             {fusionProject.engineeringChallenges.map((ec, i) => (
-              <div key={i} className="space-y-1.5">
+              <div key={i} className="p-4 rounded-xl space-y-1.5 transition-all duration-200 ease-out hover:bg-zinc-100/50 dark:hover:bg-white/[0.02] hover:-translate-y-0.5">
                 <strong className="text-zinc-900 dark:text-white block font-semibold">
                   {ec.title}
                 </strong>
@@ -293,7 +293,7 @@ export const Projects = () => {
                 href={resumeProject.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-1.5 text-zinc-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium"
+                className="group inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-200 dark:border-white/[0.08] text-zinc-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:border-indigo-500/40 hover:bg-zinc-100/60 dark:hover:bg-white/[0.04] hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all duration-200 ease-out font-medium"
               >
                 <Github className="w-4 h-4" />
                 <span>Source Repository</span>
@@ -302,7 +302,7 @@ export const Projects = () => {
               <button
                 type="button"
                 onClick={() => setSelectedProject(resumeProject)}
-                className="group inline-flex items-center gap-1.5 text-zinc-950 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 font-semibold transition-colors active:scale-95"
+                className="group inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-200 dark:border-white/[0.08] text-zinc-950 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 hover:border-indigo-500/40 hover:bg-zinc-100/60 dark:hover:bg-white/[0.04] font-semibold hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all duration-200 ease-out"
               >
                 <Maximize2 className="w-3.5 h-3.5 group-hover:scale-110 transition-transform duration-200" />
                 <span>Case Study</span>
@@ -326,7 +326,7 @@ export const Projects = () => {
               </span>
               <div className="flex flex-wrap gap-1.5 font-mono text-xs">
                 {resumeProject.techStack.map(t => (
-                  <span key={t} className="px-2.5 py-1 rounded bg-zinc-100 dark:bg-white/[0.05] border border-zinc-200 dark:border-white/[0.08] text-zinc-800 dark:text-zinc-200 transition-colors hover:border-indigo-500/30">
+                  <span key={t} className="px-2.5 py-1 rounded-lg bg-zinc-100 dark:bg-white/[0.05] border border-zinc-200 dark:border-white/[0.08] text-zinc-800 dark:text-zinc-200 transition-all duration-150 hover:-translate-y-0.5 hover:border-indigo-500/40 hover:text-indigo-600 dark:hover:text-indigo-300">
                     {t}
                   </span>
                 ))}
@@ -337,7 +337,7 @@ export const Projects = () => {
           {/* Technical Decisions */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-4">
             {resumeProject.engineeringChallenges.map((ec, i) => (
-              <div key={i} className="p-6 rounded-lg bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] space-y-2 transition-colors hover:border-indigo-500/30">
+              <div key={i} className="p-6 rounded-xl bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] space-y-2 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-md dark:hover:shadow-[0_12px_24px_-10px_rgba(0,0,0,0.5)] hover:border-indigo-500/40">
                 <span className="font-mono text-xs uppercase tracking-wider text-indigo-700 dark:text-indigo-400 font-semibold block">
                   {ec.title}
                 </span>
