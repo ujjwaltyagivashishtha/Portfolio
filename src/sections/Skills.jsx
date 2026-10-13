@@ -121,14 +121,14 @@ export const Skills = () => {
         {/* 6 Category Matrix Divided by Clean Structural Rules */}
         <div 
           ref={gridRef}
-          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12 text-left reveal-init ${
+          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 text-left reveal-init ${
             isGridVisible ? 'reveal-active' : ''
           }`}
         >
           {technicalCategories.map((cat) => {
             const Icon = cat.icon;
             return (
-              <div key={cat.id} className="group space-y-4">
+              <div key={cat.id} className="group p-5 rounded-xl bg-zinc-50/50 dark:bg-white/[0.015] border border-zinc-200/80 dark:border-white/[0.06] space-y-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-md dark:hover:shadow-[0_12px_24px_-10px_rgba(0,0,0,0.5)] hover:border-indigo-500/40">
                 
                 {/* Category Header */}
                 <div className="flex items-center gap-2.5 pb-2.5 border-b border-zinc-200 dark:border-white/[0.08] transition-colors group-hover:border-indigo-500/40">
@@ -171,9 +171,9 @@ export const Skills = () => {
             <span>Computer Science Academic Rigor (Quantum University Coursework)</span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 font-mono text-xs">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 font-mono text-xs">
             {computerScienceFoundations.map((f, i) => (
-              <div key={i} className="p-4 rounded bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] space-y-1.5 transition-colors hover:border-indigo-500/30">
+              <div key={i} className="p-4 rounded-xl bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] space-y-1.5 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-md dark:hover:shadow-[0_12px_24px_-10px_rgba(0,0,0,0.5)] hover:border-indigo-500/40">
                 <strong className="text-zinc-900 dark:text-white block font-medium">
                   {f.name}
                 </strong>
