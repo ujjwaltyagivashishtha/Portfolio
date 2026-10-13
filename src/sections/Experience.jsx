@@ -55,7 +55,7 @@ export const Experience = () => {
               <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 pb-3 border-b border-zinc-200 dark:border-white/[0.08]">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="text-sm font-mono font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">
+                    <span className="text-sm font-mono font-bold uppercase tracking-wider text-indigo-700 dark:text-indigo-400">
                       {exp.company}
                     </span>
                     <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-100 dark:bg-white/[0.05] border border-zinc-200 dark:border-white/[0.08] text-zinc-700 dark:text-zinc-300">
@@ -69,12 +69,12 @@ export const Experience = () => {
 
                 <div className="flex items-center gap-3 font-mono text-xs text-zinc-600 dark:text-zinc-400">
                   <span className="inline-flex items-center gap-1.5">
-                    <Calendar className="w-3.5 h-3.5 text-emerald-700 dark:text-emerald-400" />
+                    <Calendar className="w-3.5 h-3.5 text-indigo-700 dark:text-indigo-400" />
                     {exp.period}
                   </span>
                   <span>•</span>
                   <span className="inline-flex items-center gap-1">
-                    <MapPin className="w-3.5 h-3.5 text-emerald-700 dark:text-emerald-400" />
+                    <MapPin className="w-3.5 h-3.5 text-indigo-700 dark:text-indigo-400" />
                     {exp.location}
                   </span>
                 </div>
@@ -96,7 +96,7 @@ export const Experience = () => {
                       key={idx} 
                       className="flex items-start gap-3 text-xs sm:text-sm text-zinc-700 dark:text-zinc-300 font-sans leading-relaxed transition-transform duration-150 hover:translate-x-1"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 dark:bg-emerald-400 shrink-0 mt-2" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-indigo-600 dark:bg-indigo-400 shrink-0 mt-2" />
                       <span>{point}</span>
                     </div>
                   ))}
@@ -111,7 +111,7 @@ export const Experience = () => {
                 {exp.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="px-2.5 py-1 rounded bg-zinc-100 dark:bg-white/[0.05] border border-zinc-200 dark:border-white/[0.08] text-zinc-800 dark:text-zinc-200 transition-colors hover:border-emerald-500/30"
+                    className="px-2.5 py-1 rounded bg-zinc-100 dark:bg-white/[0.05] border border-zinc-200 dark:border-white/[0.08] text-zinc-800 dark:text-zinc-200 transition-colors hover:border-indigo-500/30"
                   >
                     {skill}
                   </span>
