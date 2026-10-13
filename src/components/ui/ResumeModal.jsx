@@ -42,7 +42,7 @@ export const ResumeModal = ({ isOpen, onClose }) => {
         {/* Top Control Bar */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200 dark:border-white/[0.08] bg-slate-50 dark:bg-[#0c0c10]">
           <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+            <span className="w-2.5 h-2.5 rounded-full bg-indigo-500"></span>
             <h3 id="resume-modal-title" className="font-mono text-xs uppercase tracking-wider font-semibold text-slate-800 dark:text-zinc-200">
               Ujjwal Tyagi — Software Engineering Resume
             </h3>
@@ -66,25 +66,25 @@ export const ResumeModal = ({ isOpen, onClose }) => {
             <h1 className="text-3xl font-bold font-display text-slate-900 dark:text-white">
               {personalInfo.name}
             </h1>
-            <p className="text-sm font-mono text-emerald-600 dark:text-emerald-400 font-medium">
+            <p className="text-sm font-mono text-indigo-600 dark:text-indigo-400 font-medium">
               Software Developer — Backend & Systems Focus
             </p>
             <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-slate-600 dark:text-zinc-400 pt-1">
               <span className="flex items-center gap-1">
-                <MapPin className="w-3.5 h-3.5 text-emerald-500" />
+                <MapPin className="w-3.5 h-3.5 text-indigo-500" />
                 {personalInfo.location}
               </span>
               <span>•</span>
-              <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-1 hover:text-emerald-500 transition-colors">
-                <Mail className="w-3.5 h-3.5 text-emerald-500" />
+              <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-1 hover:text-indigo-500 transition-colors">
+                <Mail className="w-3.5 h-3.5 text-indigo-500" />
                 {siteConfig.email}
               </a>
               <span>•</span>
-              <a href={siteConfig.socials.github.url} target="_blank" rel="noopener noreferrer" className="hover:text-emerald-500 transition-colors">
-                github.com/ujjwaltyagivashishtha
+              <a href={siteConfig.socials.github.url} target="_blank" rel="noopener noreferrer" className="hover:text-indigo-500 transition-colors">
+                github.com/ujjwaltyagi/Portfolio
               </a>
               <span>•</span>
-              <a href={siteConfig.socials.linkedin.url} target="_blank" rel="noopener noreferrer" className="hover:text-emerald-500 transition-colors">
+              <a href={siteConfig.socials.linkedin.url} target="_blank" rel="noopener noreferrer" className="hover:text-indigo-500 transition-colors">
                 linkedin.com/in/ujjwal-tyagi
               </a>
             </div>
@@ -92,7 +92,7 @@ export const ResumeModal = ({ isOpen, onClose }) => {
 
           {/* Education */}
           <div className="space-y-3">
-            <h2 className="text-xs font-mono uppercase tracking-widest text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-2">
+            <h2 className="text-xs font-mono uppercase tracking-widest text-indigo-600 dark:text-indigo-400 font-bold flex items-center gap-2">
               <GraduationCap className="w-4 h-4" />
               <span>Education</span>
             </h2>
@@ -115,7 +115,7 @@ export const ResumeModal = ({ isOpen, onClose }) => {
 
           {/* Experience */}
           <div className="space-y-3">
-            <h2 className="text-xs font-mono uppercase tracking-widest text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-2">
+            <h2 className="text-xs font-mono uppercase tracking-widest text-indigo-600 dark:text-indigo-400 font-bold flex items-center gap-2">
               <Briefcase className="w-4 h-4" />
               <span>Work Experience</span>
             </h2>
@@ -142,7 +142,7 @@ export const ResumeModal = ({ isOpen, onClose }) => {
 
           {/* Featured Projects */}
           <div className="space-y-4">
-            <h2 className="text-xs font-mono uppercase tracking-widest text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-2">
+            <h2 className="text-xs font-mono uppercase tracking-widest text-indigo-600 dark:text-indigo-400 font-bold flex items-center gap-2">
               <Code className="w-4 h-4" />
               <span>Key Software Projects</span>
             </h2>
@@ -170,7 +170,7 @@ export const ResumeModal = ({ isOpen, onClose }) => {
 
           {/* Technical Skills */}
           <div className="space-y-3">
-            <h2 className="text-xs font-mono uppercase tracking-widest text-emerald-600 dark:text-emerald-400 font-bold">
+            <h2 className="text-xs font-mono uppercase tracking-widest text-indigo-600 dark:text-indigo-400 font-bold">
               Technical Competencies
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono">
@@ -195,7 +195,7 @@ export const ResumeModal = ({ isOpen, onClose }) => {
 
           {/* Verified Certifications */}
           <div className="space-y-2 border-t border-slate-200 dark:border-white/[0.08] pt-4">
-            <h2 className="text-xs font-mono uppercase tracking-widest text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1.5">
+            <h2 className="text-xs font-mono uppercase tracking-widest text-indigo-600 dark:text-indigo-400 font-bold flex items-center gap-1.5">
               <Award className="w-3.5 h-3.5" />
               <span>Verified Certifications</span>
             </h2>
