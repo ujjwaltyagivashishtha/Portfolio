@@ -94,7 +94,7 @@ export const Navbar = ({ theme, toggleTheme }) => {
       >
         <div 
           ref={progressBarRef}
-          className="h-full w-full origin-left bg-gradient-to-r from-emerald-600 via-emerald-400 to-teal-300 shadow-[0_0_10px_rgba(16,185,129,0.7),0_0_3px_rgba(52,211,153,0.9)] will-change-transform"
+          className="h-full w-full origin-left bg-gradient-to-r from-indigo-600 via-indigo-500 to-violet-400 shadow-[0_0_10px_rgba(99,102,241,0.7),0_0_3px_rgba(129,140,248,0.9)] will-change-transform"
           style={{ transform: 'scaleX(0)' }}
         />
       </div>
@@ -116,7 +116,7 @@ export const Navbar = ({ theme, toggleTheme }) => {
               className="flex items-baseline gap-2.5 group focus:outline-none"
               aria-label="Ujjwal Tyagi - Home"
             >
-              <span className="font-display font-bold text-base sm:text-lg tracking-tight text-zinc-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+              <span className="font-display font-bold text-base sm:text-lg tracking-tight text-zinc-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
                 UJJWAL TYAGI
               </span>
               <span className="hidden sm:inline font-mono text-[11px] text-zinc-500 dark:text-zinc-400">
@@ -144,7 +144,7 @@ export const Navbar = ({ theme, toggleTheme }) => {
                   >
                     <span>{link.name}</span>
                     {isActive ? (
-                      <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-emerald-600 dark:bg-emerald-400 transition-all duration-200" />
+                      <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-indigo-600 dark:bg-indigo-400 transition-all duration-200" />
                     ) : (
                       <span className="absolute bottom-0 left-1/2 right-1/2 h-[1.5px] bg-zinc-300 dark:bg-zinc-700 opacity-0 group-hover:opacity-100 group-hover:left-0 group-hover:right-0 transition-all duration-200" />
                     )}
@@ -225,7 +225,7 @@ export const Navbar = ({ theme, toggleTheme }) => {
                   >
                     <span className="font-mono text-xs text-zinc-400">0{idx + 1}</span>
                     <span className={`text-xl font-display font-bold ${
-                      isActive ? 'text-emerald-600 dark:text-emerald-400' : 'text-zinc-900 dark:text-white'
+                      isActive ? 'text-indigo-600 dark:text-indigo-400' : 'text-zinc-900 dark:text-white'
                     }`}>
                       {link.name}
                     </span>
