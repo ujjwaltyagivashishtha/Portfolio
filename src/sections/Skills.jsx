@@ -131,8 +131,8 @@ export const Skills = () => {
               <div key={cat.id} className="group space-y-4">
                 
                 {/* Category Header */}
-                <div className="flex items-center gap-2.5 pb-2.5 border-b border-zinc-200 dark:border-white/[0.08] transition-colors group-hover:border-emerald-500/40">
-                  <Icon className="w-4 h-4 text-emerald-700 dark:text-emerald-400 shrink-0 group-hover:scale-110 transition-transform duration-200" />
+                <div className="flex items-center gap-2.5 pb-2.5 border-b border-zinc-200 dark:border-white/[0.08] transition-colors group-hover:border-indigo-500/40">
+                  <Icon className="w-4 h-4 text-indigo-700 dark:text-indigo-400 shrink-0 group-hover:scale-110 transition-transform duration-200" />
                   <h3 className="font-mono text-xs uppercase tracking-wider font-bold text-zinc-900 dark:text-white">
                     {cat.category}
                   </h3>
@@ -167,13 +167,13 @@ export const Skills = () => {
           }`}
         >
           <div className="flex items-center gap-2 mb-6 font-mono text-xs uppercase tracking-wider text-zinc-500 font-semibold">
-            <BookOpen className="w-4 h-4 text-emerald-700 dark:text-emerald-400" />
+            <BookOpen className="w-4 h-4 text-indigo-700 dark:text-indigo-400" />
             <span>Computer Science Academic Rigor (Quantum University Coursework)</span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 font-mono text-xs">
             {computerScienceFoundations.map((f, i) => (
-              <div key={i} className="p-4 rounded bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] space-y-1.5 transition-colors hover:border-emerald-500/30">
+              <div key={i} className="p-4 rounded bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] space-y-1.5 transition-colors hover:border-indigo-500/30">
                 <strong className="text-zinc-900 dark:text-white block font-medium">
                   {f.name}
                 </strong>
