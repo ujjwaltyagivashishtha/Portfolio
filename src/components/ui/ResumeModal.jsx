@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import profilePhoto from '../../assets/ujjwal-profile.jpg';
 import { X, ExternalLink, Mail, MapPin, GraduationCap, Briefcase, Code, Award } from 'lucide-react';
 import { personalInfo } from '../../data/personalInfo';
 import { educationData } from '../../data/education';
@@ -62,31 +63,43 @@ export const ResumeModal = ({ isOpen, onClose }) => {
         <div className="overflow-y-auto p-6 sm:p-10 space-y-8 font-sans text-slate-900 dark:text-zinc-100 bg-white dark:bg-[#0e0e12]">
           
           {/* Header */}
-          <div className="border-b border-slate-200 dark:border-white/[0.08] pb-6 space-y-2">
-            <h1 className="text-3xl font-bold font-display text-slate-900 dark:text-white">
-              {personalInfo.name}
-            </h1>
-            <p className="text-sm font-mono text-indigo-600 dark:text-indigo-400 font-medium">
-              Software Developer — Backend & Systems Focus
-            </p>
-            <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-slate-600 dark:text-zinc-400 pt-1">
-              <span className="flex items-center gap-1">
-                <MapPin className="w-3.5 h-3.5 text-indigo-500" />
-                {personalInfo.location}
-              </span>
-              <span>•</span>
-              <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-1 hover:text-indigo-500 transition-colors">
-                <Mail className="w-3.5 h-3.5 text-indigo-500" />
-                {siteConfig.email}
-              </a>
-              <span>•</span>
-              <a href={siteConfig.socials.github.url} target="_blank" rel="noopener noreferrer" className="hover:text-indigo-500 transition-colors">
-                github.com/ujjwaltyagi/Portfolio
-              </a>
-              <span>•</span>
-              <a href={siteConfig.socials.linkedin.url} target="_blank" rel="noopener noreferrer" className="hover:text-indigo-500 transition-colors">
-                linkedin.com/in/ujjwal-tyagi
-              </a>
+          <div className="border-b border-slate-200 dark:border-white/[0.08] pb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+            <div className="space-y-2">
+              <h1 className="text-3xl font-bold font-display text-slate-900 dark:text-white">
+                {personalInfo.name}
+              </h1>
+              <p className="text-sm font-mono text-indigo-600 dark:text-indigo-400 font-medium">
+                Software Developer — Backend & Systems Focus
+              </p>
+              <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-slate-600 dark:text-zinc-400 pt-1">
+                <span className="flex items-center gap-1">
+                  <MapPin className="w-3.5 h-3.5 text-indigo-500" />
+                  {personalInfo.location}
+                </span>
+                <span>•</span>
+                <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-1 hover:text-indigo-500 transition-colors">
+                  <Mail className="w-3.5 h-3.5 text-indigo-500" />
+                  {siteConfig.email}
+                </a>
+                <span>•</span>
+                <a href={siteConfig.socials.github.url} target="_blank" rel="noopener noreferrer" className="hover:text-indigo-500 transition-colors">
+                  github.com/ujjwaltyagivashishtha
+                </a>
+                <span>•</span>
+                <a href={siteConfig.socials.linkedin.url} target="_blank" rel="noopener noreferrer" className="hover:text-indigo-500 transition-colors">
+                  linkedin.com/in/ujjwal-tyagi
+                </a>
+              </div>
+            </div>
+
+            <div className="hidden sm:block shrink-0">
+              <div className="w-20 h-20 rounded-2xl overflow-hidden border border-slate-200 dark:border-white/10 shadow-md">
+                <img 
+                  src={profilePhoto} 
+                  alt={personalInfo.name} 
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
             </div>
           </div>
 
