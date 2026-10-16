@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import profilePhoto from '../../assets/ujjwal-profile.jpg';
+import profileDark from '../../assets/ujjwal-profile-dark.jpg';
+import profileLight from '../../assets/ujjwal-profile-light.png';
 import { X, ExternalLink, Mail, MapPin, GraduationCap, Briefcase, Code, Award } from 'lucide-react';
 import { personalInfo } from '../../data/personalInfo';
 import { educationData } from '../../data/education';
@@ -93,11 +94,16 @@ export const ResumeModal = ({ isOpen, onClose }) => {
             </div>
 
             <div className="hidden sm:block shrink-0">
-              <div className="w-20 h-20 rounded-2xl overflow-hidden border border-slate-200 dark:border-white/10 shadow-md">
+              <div className="w-20 h-20 rounded-2xl overflow-hidden border border-slate-200 dark:border-white/10 shadow-md bg-zinc-100 dark:bg-zinc-900">
                 <img 
-                  src={profilePhoto} 
+                  src={profileDark} 
                   alt={personalInfo.name} 
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-top hidden dark:block"
+                />
+                <img 
+                  src={profileLight} 
+                  alt={personalInfo.name} 
+                  className="w-full h-full object-cover object-top block dark:hidden"
                 />
               </div>
             </div>
