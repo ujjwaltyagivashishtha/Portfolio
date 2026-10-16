@@ -1,5 +1,6 @@
 import React from 'react';
-import profilePhoto from '../assets/ujjwal-profile.jpg';
+import profileDark from '../assets/ujjwal-profile-dark.jpg';
+import profileLight from '../assets/ujjwal-profile-light.png';
 import { useScrollReveal } from '../lib/useScrollReveal';
 import { 
   Database, 
@@ -68,11 +69,17 @@ export const About = () => {
 
             {/* Engineer Profile Bio Badge */}
             <div className="flex items-center gap-3.5 p-3 rounded-2xl bg-zinc-100/70 dark:bg-white/[0.03] border border-zinc-200 dark:border-white/[0.08] transition-all duration-300 hover:border-indigo-500/40">
-              <div className="relative w-12 h-12 rounded-xl overflow-hidden shrink-0 border border-zinc-200/80 dark:border-white/10 shadow-sm">
+              <div className="relative w-12 h-12 rounded-xl overflow-hidden shrink-0 border border-zinc-200/80 dark:border-white/10 shadow-sm bg-zinc-100 dark:bg-zinc-900">
                 <img 
-                  src={profilePhoto} 
+                  src={profileDark} 
                   alt="Ujjwal Tyagi" 
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-top hidden dark:block"
+                  loading="lazy"
+                />
+                <img 
+                  src={profileLight} 
+                  alt="Ujjwal Tyagi" 
+                  className="w-full h-full object-cover object-top block dark:hidden"
                   loading="lazy"
                 />
               </div>
