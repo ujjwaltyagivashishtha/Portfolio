@@ -2,11 +2,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import profileDark from '../../assets/ujjwal-profile-dark.jpg';
 import profileLight from '../../assets/ujjwal-profile-light.png';
 import { siteConfig } from '../../config/site';
+import { ThemeToggle } from '../ui/ThemeToggle';
 import { 
   Menu, 
   X, 
-  Sun, 
-  Moon, 
   ArrowUpRight 
 } from 'lucide-react';
 
@@ -171,33 +170,12 @@ export const Navbar = ({ theme, toggleTheme }) => {
 
             {/* Desktop Action Controls */}
             <div className="hidden md:flex items-center gap-3">
-
-              {/* Theme Toggle */}
-              <button
-                type="button"
-                onClick={toggleTheme}
-                className="p-1.5 rounded hover:bg-zinc-100 dark:hover:bg-white/[0.05] text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-all duration-200 hover:rotate-12 active:scale-90"
-                title={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`}
-                aria-label="Toggle color theme"
-              >
-                {theme === 'dark' ? (
-                  <Sun className="w-4 h-4 text-amber-400" />
-                ) : (
-                  <Moon className="w-4 h-4 text-zinc-700" />
-                )}
-              </button>
+              <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
             </div>
 
             {/* Mobile Controls */}
             <div className="flex items-center gap-2 md:hidden">
-              <button
-                type="button"
-                onClick={toggleTheme}
-                className="p-2 text-zinc-700 dark:text-zinc-300 transition-transform duration-200 hover:rotate-12 active:scale-90"
-                aria-label="Toggle theme"
-              >
-                {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-zinc-700" />}
-              </button>
+              <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
 
               <button
                 type="button"
