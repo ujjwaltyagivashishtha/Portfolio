@@ -1,4 +1,5 @@
 import React from 'react';
+import profilePhoto from '../assets/ujjwal-profile.jpg';
 import { personalInfo } from '../data/personalInfo';
 import { siteConfig } from '../config/site';
 import { 
@@ -90,53 +91,140 @@ export const Hero = ({ onOpenResume }) => {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Editorial Header Block */}
-        <div className="space-y-8 max-w-5xl">
+        {/* Editorial Header & Visual Block */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
-          {/* Eyebrow Label & Current Availability - Staggered 0ms */}
-          <div className="animate-fade-up flex flex-wrap items-center gap-3 text-xs font-mono text-zinc-600 dark:text-zinc-400">
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-zinc-100 dark:bg-white/[0.05] border border-zinc-200 dark:border-white/[0.08] text-zinc-900 dark:text-zinc-200 font-medium transition-all duration-200 hover:border-indigo-500/40 hover:-translate-y-0.5">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-indigo-400/50"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500 shadow-[0_0_6px_rgba(99,102,241,0.8)]"></span>
+          {/* Left Column: Headlines & Actions (7 cols on lg, 8 on xl) */}
+          <div className="lg:col-span-7 xl:col-span-8 space-y-8">
+            
+            {/* Eyebrow Label & Current Availability - Staggered 0ms */}
+            <div className="animate-fade-up flex flex-wrap items-center gap-3 text-xs font-mono text-zinc-600 dark:text-zinc-400">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-zinc-100 dark:bg-white/[0.05] border border-zinc-200 dark:border-white/[0.08] text-zinc-900 dark:text-zinc-200 font-medium transition-all duration-200 hover:border-indigo-500/40 hover:-translate-y-0.5">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-indigo-400/50"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500 shadow-[0_0_6px_rgba(99,102,241,0.8)]"></span>
+                </span>
+                Available for Software Roles
               </span>
-              Available for Software Roles
-            </span>
-            <span>•</span>
-            <span className="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors">Based in Saharanpur, UP, India</span>
+              <span>•</span>
+              <span className="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors">Based in Saharanpur, UP, India</span>
+            </div>
+
+            {/* Expressive Oversized Headline - Staggered 80ms */}
+            <h1 className="animate-fade-up delay-100 text-5xl sm:text-7xl lg:text-8xl font-display font-bold tracking-tighter text-zinc-950 dark:text-white leading-[0.98]">
+              Building Reliable Systems.<br />
+              <span className="text-zinc-500 dark:text-zinc-400 font-normal">
+                Engineering Scalable Backends.
+              </span>
+            </h1>
+
+            {/* Concise Editorial Introduction - Staggered 160ms */}
+            <p className="animate-fade-up delay-200 text-lg sm:text-xl text-zinc-700 dark:text-zinc-300 font-sans max-w-3xl leading-relaxed">
+              I am a software developer with a backend focus, currently pursuing Computer Science & Engineering at Quantum University. I design predictable RESTful APIs, enforce ACID transaction integrity in databases, and build real-time collaborative systems with Node.js, Express, and MongoDB.
+            </p>
+
+            {/* Dual Action CTAs - Responsive and Tactile - Staggered 240ms */}
+            <div className="animate-fade-up delay-300 flex flex-wrap items-center gap-4 pt-2">
+              <a
+                href="#projects"
+                className="group px-6 py-3.5 rounded-xl bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 hover:bg-indigo-600 dark:hover:bg-indigo-500 font-mono text-xs font-bold tracking-wide transition-all duration-200 ease-out flex items-center gap-2 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
+              >
+                <span>Explore Selected Projects</span>
+                <ArrowDown className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform duration-200" />
+              </a>
+
+              <button
+                type="button"
+                onClick={onOpenResume}
+                className="group px-6 py-3.5 rounded-xl border border-zinc-300 dark:border-white/[0.15] hover:border-zinc-950 dark:hover:border-white hover:bg-zinc-100/50 dark:hover:bg-white/[0.04] text-zinc-900 dark:text-white font-mono text-xs font-medium transition-all duration-200 ease-out flex items-center gap-2 hover:-translate-y-0.5 hover:shadow-sm active:translate-y-0 active:scale-[0.98]"
+              >
+                <FileText className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform duration-200" />
+                <span>Review Verified Resume</span>
+              </button>
+            </div>
+
           </div>
 
-          {/* Expressive Oversized Headline - Staggered 80ms */}
-          <h1 className="animate-fade-up delay-100 text-5xl sm:text-7xl lg:text-8xl font-display font-bold tracking-tighter text-zinc-950 dark:text-white leading-[0.98]">
-            Building Reliable Systems.<br />
-            <span className="text-zinc-500 dark:text-zinc-400 font-normal">
-              Engineering Scalable Backends.
-            </span>
-          </h1>
+          {/* Right Column: High-Tech Identity Portrait (5 cols on lg, 4 on xl) */}
+          <div className="lg:col-span-5 xl:col-span-4 flex justify-center lg:justify-end animate-fade-up delay-200">
+            <div className="relative group max-w-[320px] sm:max-w-[350px] w-full">
+              {/* Subtle ambient backlight glow */}
+              <div 
+                className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-indigo-500/25 via-violet-500/15 to-transparent blur-2xl opacity-60 dark:opacity-40 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" 
+                aria-hidden="true"
+              />
 
-          {/* Concise Editorial Introduction - Staggered 160ms */}
-          <p className="animate-fade-up delay-200 text-lg sm:text-xl text-zinc-700 dark:text-zinc-300 font-sans max-w-3xl leading-relaxed">
-            I am a software developer with a backend focus, currently pursuing Computer Science & Engineering at Quantum University. I design predictable RESTful APIs, enforce ACID transaction integrity in databases, and build real-time collaborative systems with Node.js, Express, and MongoDB.
-          </p>
+              {/* Framed Card Container */}
+              <div className="relative rounded-3xl p-3 sm:p-3.5 bg-gradient-to-b from-white/95 via-zinc-50/90 to-zinc-100/90 dark:from-zinc-900/90 dark:via-zinc-900/80 dark:to-zinc-950/95 border border-zinc-200/90 dark:border-white/[0.12] shadow-2xl backdrop-blur-md">
+                
+                {/* Top System Status Bar */}
+                <div className="flex items-center justify-between px-1.5 pb-2.5 font-mono text-[11px] text-zinc-500 dark:text-zinc-400">
+                  <div className="flex items-center gap-2">
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]"></span>
+                    </span>
+                    <span className="font-semibold tracking-wider uppercase text-zinc-800 dark:text-zinc-200 text-[10px]">
+                      IDENTITY // VERIFIED
+                    </span>
+                  </div>
+                  <span className="text-[10px] text-zinc-400 dark:text-zinc-500">
+                    CSE '27
+                  </span>
+                </div>
 
-          {/* Dual Action CTAs - Responsive and Tactile - Staggered 240ms */}
-          <div className="animate-fade-up delay-300 flex flex-wrap items-center gap-4 pt-2">
-            <a
-              href="#projects"
-              className="group px-6 py-3.5 rounded-xl bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 hover:bg-indigo-600 dark:hover:bg-indigo-500 font-mono text-xs font-bold tracking-wide transition-all duration-200 ease-out flex items-center gap-2 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
-            >
-              <span>Explore Selected Projects</span>
-              <ArrowDown className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform duration-200" />
-            </a>
+                {/* Main Photo Frame */}
+                <div className="relative overflow-hidden rounded-2xl aspect-[3/4] bg-zinc-950 border border-zinc-200/60 dark:border-white/[0.08] shadow-inner">
+                  <img 
+                    src={profilePhoto} 
+                    alt="Ujjwal Tyagi — Software Developer" 
+                    className="w-full h-full object-cover object-top filter contrast-[1.03] transition-transform duration-700 ease-out group-hover:scale-105"
+                    loading="eager"
+                  />
+                  
+                  {/* Atmospheric Bottom Gradient Overlay */}
+                  <div 
+                    className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/20 to-transparent pointer-events-none" 
+                    aria-hidden="true"
+                  />
 
-            <button
-              type="button"
-              onClick={onOpenResume}
-              className="group px-6 py-3.5 rounded-xl border border-zinc-300 dark:border-white/[0.15] hover:border-zinc-950 dark:hover:border-white hover:bg-zinc-100/50 dark:hover:bg-white/[0.04] text-zinc-900 dark:text-white font-mono text-xs font-medium transition-all duration-200 ease-out flex items-center gap-2 hover:-translate-y-0.5 hover:shadow-sm active:translate-y-0 active:scale-[0.98]"
-            >
-              <FileText className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform duration-200" />
-              <span>Review Verified Resume</span>
-            </button>
+                  {/* Floating Location Badge */}
+                  <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/15 text-[10px] font-mono text-white/90 flex items-center gap-1.5 shadow-sm">
+                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>
+                    <span>Saharanpur, IN</span>
+                  </div>
+
+                  {/* Floating Identity & Role Card */}
+                  <div className="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-black/65 backdrop-blur-md border border-white/10 text-white shadow-lg">
+                    <div className="flex items-center justify-between font-mono text-[10px] text-zinc-300 mb-0.5">
+                      <span>UJJWAL TYAGI</span>
+                      <span className="text-indigo-300 font-medium">Quantum Univ</span>
+                    </div>
+                    <div className="text-xs font-bold text-white tracking-tight">
+                      Software Developer
+                    </div>
+                    <div className="mt-2 pt-2 border-t border-white/10 flex items-center justify-between font-mono text-[10px] text-zinc-300">
+                      <span>Backend & Systems</span>
+                      <span className="text-emerald-400 font-medium">● Open to roles</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Technical Stack Micro-Badges */}
+                <div className="mt-3 pt-2.5 border-t border-zinc-200/80 dark:border-white/[0.08] grid grid-cols-3 gap-1.5 text-center font-mono text-[10px]">
+                  <div className="px-1.5 py-1 rounded-md bg-zinc-100 dark:bg-white/[0.04] text-zinc-700 dark:text-zinc-300 font-medium truncate">
+                    Node / Express
+                  </div>
+                  <div className="px-1.5 py-1 rounded-md bg-zinc-100 dark:bg-white/[0.04] text-zinc-700 dark:text-zinc-300 font-medium truncate">
+                    MongoDB ACID
+                  </div>
+                  <div className="px-1.5 py-1 rounded-md bg-zinc-100 dark:bg-white/[0.04] text-zinc-700 dark:text-zinc-300 font-medium truncate">
+                    Java DSA
+                  </div>
+                </div>
+
+              </div>
+            </div>
           </div>
 
         </div>
