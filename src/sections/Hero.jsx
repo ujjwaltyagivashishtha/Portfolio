@@ -32,7 +32,7 @@ export const Hero = ({ onOpenResume }) => {
   return (
     <section 
       id="hero" 
-      className="relative pt-32 sm:pt-40 pb-20 sm:pb-28 border-b border-zinc-200 dark:border-white/[0.08] transition-colors duration-200 overflow-hidden"
+      className="relative pt-20 sm:pt-24 lg:pt-28 pb-16 sm:pb-24 border-b border-zinc-200 dark:border-white/[0.08] transition-colors duration-200 overflow-hidden"
     >
       {/* Restrained Technical Architecture & Data Flow Background */}
       <div 
