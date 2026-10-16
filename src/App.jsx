@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { flushSync } from 'react-dom';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { Hero } from './sections/Hero';
@@ -23,6 +24,10 @@ export default function App() {
   const [toast, setToast] = useState({ message: '', isVisible: false });
   const [theme, setTheme] = useState(() => {
     if (typeof window !== 'undefined') {
+      const urlParam = new URLSearchParams(window.location.search).get('theme');
+      if (urlParam === 'light' || urlParam === 'dark') {
+        return urlParam;
+      }
       return localStorage.getItem('theme') || 'dark';
     }
     return 'dark';
@@ -41,10 +46,96 @@ export default function App() {
     localStorage.setItem('theme', theme);
   }, [theme]);
 
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
-    triggerToast(`Switched to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`);
+  const toggleTheme = (e) => {
+    const nextTheme = theme === 'dark' ? 'light' : 'dark';
+
+    // If browser doesn't support View Transitions or prefers reduced motion, fallback immediately
+    const isReducedMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!document.startViewTransition || isReducedMotion) {
+      setTheme(nextTheme);
+      return;
+    }
+
+    // Determine circular ripple origin coordinate (from click or fallback to top-right)
+    let x = window.innerWidth - 70;
+    let y = 32;
+
+    if (e && typeof e.clientX === 'number' && typeof e.clientY === 'number') {
+      x = e.clientX;
+      y = e.clientY;
+    } else if (e?.currentTarget && typeof e.currentTarget.getBoundingClientRect === 'function') {
+      const rect = e.currentTarget.getBoundingClientRect();
+      x = rect.left + rect.width / 2;
+      y = rect.top + rect.height / 2;
+    }
+
+    const endRadius = Math.hypot(
+      Math.max(x, window.innerWidth - x),
+      Math.max(y, window.innerHeight - y)
+    );
+
+    document.documentElement.classList.add('theme-transitioning');
+
+    const transition = document.startViewTransition(() => {
+      flushSync(() => {
+        setTheme(nextTheme);
+        const root = document.documentElement;
+        if (nextTheme === 'dark') {
+          root.classList.add('dark');
+          root.classList.remove('light');
+        } else {
+          root.classList.add('light');
+          root.classList.remove('dark');
+        }
+      });
+    });
+
+    transition.ready.then(() => {
+      const clipPath = [
+        `circle(0px at ${x}px ${y}px)`,
+        `circle(${endRadius}px at ${x}px ${y}px)`
+      ];
+
+      const anim = document.documentElement.animate(
+        {
+          clipPath: clipPath
+        },
+        {
+          duration: 450,
+          easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+          pseudoElement: '::view-transition-new(root)'
+        }
+      );
+
+      anim.finished.finally(() => {
+        document.documentElement.classList.remove('theme-transitioning');
+      });
+    }).catch(() => {
+      document.documentElement.classList.remove('theme-transitioning');
+    });
   };
+
+  // Global Keyboard Shortcut: 'T' toggles color theme
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      const activeEl = document.activeElement;
+      const isInput = 
+        activeEl && 
+        (activeEl.tagName === 'INPUT' || 
+         activeEl.tagName === 'TEXTAREA' || 
+         activeEl.isContentEditable);
+
+      if (isInput || isCmdOpen || isResumeOpen) return;
+
+      if ((e.key === 't' || e.key === 'T') && !e.metaKey && !e.ctrlKey && !e.altKey) {
+        e.preventDefault();
+        toggleTheme();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [theme, isCmdOpen, isResumeOpen]);
 
   const triggerToast = (msg) => {
     setToast({ message: msg, isVisible: true });
