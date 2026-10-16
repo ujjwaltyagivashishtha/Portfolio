@@ -109,11 +109,14 @@ export const CommandPalette = ({ isOpen, onClose, onCopyEmail, onOpenResume, onR
     {
       id: 'toggle-theme',
       title: `Toggle Theme (Currently ${theme === 'dark' ? 'Dark' : 'Light'})`,
+      shortcut: 'T',
       category: 'Actions',
       icon: theme === 'dark' ? Sun : Moon,
       action: () => {
-        toggleTheme();
         onClose();
+        setTimeout(() => {
+          toggleTheme();
+        }, 120);
       }
     },
     {
@@ -246,6 +249,11 @@ export const CommandPalette = ({ isOpen, onClose, onCopyEmail, onOpenResume, onR
                     <span>{item.title}</span>
                   </div>
                   <div className="flex items-center gap-2">
+                    {item.shortcut && (
+                      <kbd className="text-[10px] font-mono font-medium text-zinc-500 dark:text-zinc-400 px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-white/[0.08] border border-zinc-200 dark:border-white/[0.1] shadow-2xs">
+                        {item.shortcut}
+                      </kbd>
+                    )}
                     <span className="text-[10px] uppercase text-slate-500 dark:text-zinc-400 px-2 py-0.5 rounded bg-slate-100 dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.06]">
                       {item.category}
                     </span>
