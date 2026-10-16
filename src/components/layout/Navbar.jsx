@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import profilePhoto from '../../assets/ujjwal-profile.jpg';
+import profileDark from '../../assets/ujjwal-profile-dark.jpg';
+import profileLight from '../../assets/ujjwal-profile-light.png';
 import { siteConfig } from '../../config/site';
 import { 
   Menu, 
@@ -117,11 +118,16 @@ export const Navbar = ({ theme, toggleTheme }) => {
               className="flex items-center gap-2.5 group focus:outline-none"
               aria-label="Ujjwal Tyagi - Home"
             >
-              <div className="relative w-8 h-8 rounded-full overflow-hidden border border-zinc-200 dark:border-white/10 shrink-0 ring-2 ring-indigo-500/20 group-hover:ring-indigo-500/50 transition-all duration-200">
+              <div className="relative w-8 h-8 rounded-full overflow-hidden border border-zinc-200 dark:border-white/10 shrink-0 ring-2 ring-indigo-500/20 group-hover:ring-indigo-500/50 transition-all duration-200 bg-zinc-100 dark:bg-zinc-900">
                 <img 
-                  src={profilePhoto} 
+                  src={profileDark} 
                   alt="Ujjwal Tyagi" 
-                  className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-300"
+                  className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-300 hidden dark:block"
+                />
+                <img 
+                  src={profileLight} 
+                  alt="Ujjwal Tyagi" 
+                  className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-300 block dark:hidden"
                 />
               </div>
               <div className="flex items-baseline gap-2">
@@ -219,8 +225,9 @@ export const Navbar = ({ theme, toggleTheme }) => {
           <div className="space-y-6">
             <div className="flex items-center justify-between text-xs font-mono text-zinc-500 pb-3 border-b border-zinc-200 dark:border-white/[0.08]">
               <div className="flex items-center gap-2.5">
-                <div className="w-6 h-6 rounded-full overflow-hidden border border-zinc-200 dark:border-white/10 shrink-0">
-                  <img src={profilePhoto} alt="Ujjwal Tyagi" className="w-full h-full object-cover object-top" />
+                <div className="w-6 h-6 rounded-full overflow-hidden border border-zinc-200 dark:border-white/10 shrink-0 bg-zinc-100 dark:bg-zinc-900">
+                  <img src={profileDark} alt="Ujjwal Tyagi" className="w-full h-full object-cover object-top hidden dark:block" />
+                  <img src={profileLight} alt="Ujjwal Tyagi" className="w-full h-full object-cover object-top block dark:hidden" />
                 </div>
                 <span className="font-semibold text-zinc-900 dark:text-white">UJJWAL TYAGI</span>
               </div>
