@@ -11,10 +11,12 @@ import { Contact } from './sections/Contact';
 import { CommandPalette } from './components/ui/CommandPalette';
 import { ResumeModal } from './components/ui/ResumeModal';
 import { Toast } from './components/ui/Toast';
+import { Preloader } from './components/ui/Preloader';
 import { siteConfig } from './config/site';
 import { ArrowUp } from 'lucide-react';
 
 export default function App() {
+  const [isLoading, setIsLoading] = useState(true);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [isCmdOpen, setIsCmdOpen] = useState(false);
   const [isResumeOpen, setIsResumeOpen] = useState(false);
@@ -79,7 +81,14 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fafaf9] dark:bg-[#09090b] text-zinc-900 dark:text-zinc-100 selection:bg-indigo-500 selection:text-white relative font-sans transition-colors duration-200">
+    <div className={`min-h-screen bg-[#fafaf9] dark:bg-[#09090b] text-zinc-900 dark:text-zinc-100 selection:bg-indigo-500 selection:text-white relative font-sans transition-colors duration-200 ${
+      isLoading ? 'overflow-hidden max-h-screen' : ''
+    }`}>
+      {/* High-Tech System Boot Preloader */}
+      {isLoading && (
+        <Preloader onComplete={() => setIsLoading(false)} />
+      )}
+
       {/* Skip to Content for Accessibility */}
       <a
         href="#main-content"
@@ -111,6 +120,7 @@ export default function App() {
         onClose={() => setIsCmdOpen(false)}
         onCopyEmail={copyEmail}
         onOpenResume={() => setIsResumeOpen(true)}
+        onReplayPreloader={() => setIsLoading(true)}
         theme={theme}
         toggleTheme={toggleTheme}
       />
