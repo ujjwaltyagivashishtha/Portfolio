@@ -1,4 +1,5 @@
 import React from 'react';
+import profilePhoto from '../assets/ujjwal-profile.jpg';
 import { useScrollReveal } from '../lib/useScrollReveal';
 import { 
   Database, 
@@ -64,6 +65,29 @@ export const About = () => {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold tracking-tight text-zinc-950 dark:text-white leading-[1.08]">
               Reliability is won or lost at the architecture level.
             </h2>
+
+            {/* Engineer Profile Bio Badge */}
+            <div className="flex items-center gap-3.5 p-3 rounded-2xl bg-zinc-100/70 dark:bg-white/[0.03] border border-zinc-200 dark:border-white/[0.08] transition-all duration-300 hover:border-indigo-500/40">
+              <div className="relative w-12 h-12 rounded-xl overflow-hidden shrink-0 border border-zinc-200/80 dark:border-white/10 shadow-sm">
+                <img 
+                  src={profilePhoto} 
+                  alt="Ujjwal Tyagi" 
+                  className="w-full h-full object-cover object-top"
+                  loading="lazy"
+                />
+              </div>
+              <div className="min-w-0 flex-1 font-mono text-xs">
+                <div className="flex items-center gap-2">
+                  <span className="font-display font-bold text-sm text-zinc-950 dark:text-white">Ujjwal Tyagi</span>
+                  <span className="text-[10px] text-indigo-600 dark:text-indigo-400 font-semibold px-1.5 py-0.5 rounded bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800">
+                    Backend Engineer
+                  </span>
+                </div>
+                <div className="text-[11px] text-zinc-500 dark:text-zinc-400 truncate mt-0.5">
+                  Quantum University • Saharanpur, UP, India
+                </div>
+              </div>
+            </div>
 
             <div className="space-y-4 text-sm sm:text-base text-zinc-700 dark:text-zinc-300 font-sans leading-relaxed">
               <p>
