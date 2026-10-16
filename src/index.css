@@ -102,9 +102,32 @@
     background: transparent;
   }
 
-  /* Smooth Theme Switch */
-  html {
-    transition: background-color 0.25s ease, color 0.25s ease;
+  /* Smooth Theme Switch & View Transitions API */
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+  }
+
+  ::view-transition-old(root) {
+    z-index: 1;
+  }
+
+  ::view-transition-new(root) {
+    z-index: 99999;
+  }
+
+  /* Prevent CSS transitions from fighting View Transition snapshot capture */
+  html.theme-transitioning,
+  html.theme-transitioning *,
+  html.theme-transitioning *::before,
+  html.theme-transitioning *::after {
+    transition: none !important;
+  }
+
+  html:not(.theme-transitioning) {
+    transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   /* Reduced Motion Accessibility - Disables all animations and transitions */
