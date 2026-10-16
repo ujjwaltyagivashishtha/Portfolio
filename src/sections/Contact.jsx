@@ -11,7 +11,8 @@ import {
   Send, 
   ArrowUpRight,
   Clock,
-  Globe
+  Globe,
+  Loader2
 } from 'lucide-react';
 
 export const Contact = () => {
@@ -229,15 +230,26 @@ export const Contact = () => {
 
                 <button 
                   type="submit" 
-                  className="group px-5 py-3 rounded-xl bg-zinc-900 dark:bg-white text-zinc-100 dark:text-zinc-950 font-mono text-xs font-bold hover:bg-indigo-600 dark:hover:bg-indigo-500 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200 ease-out flex items-center justify-center gap-2 w-full sm:w-auto active:translate-y-0 active:scale-[0.98] shadow-sm"
+                  disabled={isClientLaunching}
+                  className="group px-5 py-3 rounded-xl bg-zinc-900 dark:bg-white text-zinc-100 dark:text-zinc-950 font-mono text-xs font-bold hover:bg-indigo-600 dark:hover:bg-indigo-500 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200 ease-out flex items-center justify-center gap-2 w-full sm:w-auto active:translate-y-0 active:scale-[0.98] shadow-sm disabled:opacity-80 disabled:cursor-not-allowed"
                 >
-                  <Send className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
-                  <span>Launch Email Client with Message</span>
+                  {isClientLaunching ? (
+                    <>
+                      <Loader2 className="w-3.5 h-3.5 animate-spin text-indigo-400 dark:text-indigo-600" />
+                      <span>Dispatching Message Envelope...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
+                      <span>Launch Email Client with Message</span>
+                    </>
+                  )}
                 </button>
 
                 {isClientLaunching && (
-                  <p className="text-xs font-mono text-indigo-700 dark:text-indigo-400">
-                    Opening your default mail client with pre-filled details...
+                  <p className="text-xs font-mono text-indigo-700 dark:text-indigo-400 flex items-center gap-1.5 animate-pulse">
+                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-ping" />
+                    <span>Preparing client mail payload and opening your default email application...</span>
                   </p>
                 )}
               </form>
