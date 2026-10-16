@@ -14,11 +14,12 @@ import {
   Copy,
   ArrowRight,
   FileText,
-  GraduationCap
+  GraduationCap,
+  RotateCcw
 } from 'lucide-react';
 import { siteConfig } from '../../config/site';
 
-export const CommandPalette = ({ isOpen, onClose, onCopyEmail, onOpenResume, theme, toggleTheme }) => {
+export const CommandPalette = ({ isOpen, onClose, onCopyEmail, onOpenResume, onReplayPreloader, theme, toggleTheme }) => {
   const [query, setQuery] = useState('');
   const [selectedIndex, setSelectedIndex] = useState(0);
   const inputRef = useRef(null);
@@ -112,6 +113,16 @@ export const CommandPalette = ({ isOpen, onClose, onCopyEmail, onOpenResume, the
       icon: theme === 'dark' ? Sun : Moon,
       action: () => {
         toggleTheme();
+        onClose();
+      }
+    },
+    {
+      id: 'replay-loader',
+      title: 'Replay System Boot Animation',
+      category: 'Actions',
+      icon: RotateCcw,
+      action: () => {
+        onReplayPreloader?.();
         onClose();
       }
     },
