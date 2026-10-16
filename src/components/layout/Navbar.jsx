@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import profilePhoto from '../../assets/ujjwal-profile.jpg';
 import { siteConfig } from '../../config/site';
 import { 
   Menu, 
@@ -109,19 +110,28 @@ export const Navbar = ({ theme, toggleTheme }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             
-            {/* Wordmark */}
+            {/* Wordmark & Avatar */}
             <a
               href="#hero"
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-baseline gap-2.5 group focus:outline-none"
+              className="flex items-center gap-2.5 group focus:outline-none"
               aria-label="Ujjwal Tyagi - Home"
             >
-              <span className="font-display font-bold text-base sm:text-lg tracking-tight text-zinc-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
-                UJJWAL TYAGI
-              </span>
-              <span className="hidden sm:inline font-mono text-[11px] text-zinc-500 dark:text-zinc-400">
-                / Backend & Systems
-              </span>
+              <div className="relative w-8 h-8 rounded-full overflow-hidden border border-zinc-200 dark:border-white/10 shrink-0 ring-2 ring-indigo-500/20 group-hover:ring-indigo-500/50 transition-all duration-200">
+                <img 
+                  src={profilePhoto} 
+                  alt="Ujjwal Tyagi" 
+                  className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-300"
+                />
+              </div>
+              <div className="flex items-baseline gap-2">
+                <span className="font-display font-bold text-base sm:text-lg tracking-tight text-zinc-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                  UJJWAL TYAGI
+                </span>
+                <span className="hidden sm:inline font-mono text-[11px] text-zinc-500 dark:text-zinc-400">
+                  / Backend & Systems
+                </span>
+              </div>
             </a>
 
             {/* Desktop Navigation Links */}
@@ -208,8 +218,13 @@ export const Navbar = ({ theme, toggleTheme }) => {
         >
           <div className="space-y-6">
             <div className="flex items-center justify-between text-xs font-mono text-zinc-500 pb-3 border-b border-zinc-200 dark:border-white/[0.08]">
+              <div className="flex items-center gap-2.5">
+                <div className="w-6 h-6 rounded-full overflow-hidden border border-zinc-200 dark:border-white/10 shrink-0">
+                  <img src={profilePhoto} alt="Ujjwal Tyagi" className="w-full h-full object-cover object-top" />
+                </div>
+                <span className="font-semibold text-zinc-900 dark:text-white">UJJWAL TYAGI</span>
+              </div>
               <span>INDEX</span>
-              <span className="font-semibold text-zinc-900 dark:text-white">UJJWAL TYAGI</span>
             </div>
 
             <nav className="flex flex-col space-y-3" aria-label="Mobile Navigation">
