@@ -1,5 +1,6 @@
 import React from 'react';
-import profilePhoto from '../assets/ujjwal-profile.jpg';
+import profileDark from '../assets/ujjwal-profile-dark.jpg';
+import profileLight from '../assets/ujjwal-profile-light.png';
 import { personalInfo } from '../data/personalInfo';
 import { siteConfig } from '../config/site';
 import { 
@@ -174,38 +175,47 @@ export const Hero = ({ onOpenResume }) => {
                 </div>
 
                 {/* Main Photo Frame */}
-                <div className="relative overflow-hidden rounded-2xl aspect-[3/4] bg-zinc-950 border border-zinc-200/60 dark:border-white/[0.08] shadow-inner">
+                <div className="relative overflow-hidden rounded-2xl aspect-[3/4] bg-zinc-100 dark:bg-zinc-950 border border-zinc-200/80 dark:border-white/[0.08] shadow-inner">
+                  {/* Dark Mode Photo (Dark Studio Background) */}
                   <img 
-                    src={profilePhoto} 
+                    src={profileDark} 
                     alt="Ujjwal Tyagi — Software Developer" 
-                    className="w-full h-full object-cover object-top filter contrast-[1.03] transition-transform duration-700 ease-out group-hover:scale-105"
+                    className="w-full h-full object-cover object-top filter contrast-[1.03] transition-transform duration-700 ease-out group-hover:scale-105 hidden dark:block"
+                    loading="eager"
+                  />
+                  
+                  {/* Light Mode Photo (White Studio Background) */}
+                  <img 
+                    src={profileLight} 
+                    alt="Ujjwal Tyagi — Software Developer" 
+                    className="w-full h-full object-cover object-top filter contrast-[1.02] transition-transform duration-700 ease-out group-hover:scale-105 block dark:hidden"
                     loading="eager"
                   />
                   
                   {/* Atmospheric Bottom Gradient Overlay */}
                   <div 
-                    className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/20 to-transparent pointer-events-none" 
+                    className="absolute inset-0 bg-gradient-to-t from-white/95 via-white/20 to-transparent dark:from-zinc-950/95 dark:via-zinc-950/20 dark:to-transparent pointer-events-none" 
                     aria-hidden="true"
                   />
 
                   {/* Floating Location Badge */}
-                  <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/15 text-[10px] font-mono text-white/90 flex items-center gap-1.5 shadow-sm">
-                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>
+                  <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-white/85 dark:bg-black/60 backdrop-blur-md border border-zinc-200/80 dark:border-white/15 text-[10px] font-mono text-zinc-800 dark:text-white/90 flex items-center gap-1.5 shadow-sm">
+                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 dark:bg-indigo-400"></span>
                     <span>Saharanpur, IN</span>
                   </div>
 
                   {/* Floating Identity & Role Card */}
-                  <div className="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-black/65 backdrop-blur-md border border-white/10 text-white shadow-lg">
-                    <div className="flex items-center justify-between font-mono text-[10px] text-zinc-300 mb-0.5">
+                  <div className="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-white/90 dark:bg-black/65 backdrop-blur-md border border-zinc-200/80 dark:border-white/10 text-zinc-900 dark:text-white shadow-lg">
+                    <div className="flex items-center justify-between font-mono text-[10px] text-zinc-600 dark:text-zinc-300 mb-0.5">
                       <span>UJJWAL TYAGI</span>
-                      <span className="text-indigo-300 font-medium">Quantum Univ</span>
+                      <span className="text-indigo-600 dark:text-indigo-300 font-medium">Quantum Univ</span>
                     </div>
-                    <div className="text-xs font-bold text-white tracking-tight">
+                    <div className="text-xs font-bold text-zinc-950 dark:text-white tracking-tight">
                       Software Developer
                     </div>
-                    <div className="mt-2 pt-2 border-t border-white/10 flex items-center justify-between font-mono text-[10px] text-zinc-300">
+                    <div className="mt-2 pt-2 border-t border-zinc-200/80 dark:border-white/10 flex items-center justify-between font-mono text-[10px] text-zinc-600 dark:text-zinc-300">
                       <span>Backend & Systems</span>
-                      <span className="text-emerald-400 font-medium">● Open to roles</span>
+                      <span className="text-emerald-600 dark:text-emerald-400 font-medium">● Open to roles</span>
                     </div>
                   </div>
                 </div>
