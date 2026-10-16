@@ -103,8 +103,8 @@ export const Navbar = ({ theme, toggleTheme }) => {
       <header 
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-200 border-b ${
           isScrolled
-            ? 'bg-[#fafaf9]/90 dark:bg-[#09090b]/90 backdrop-blur-md border-zinc-200 dark:border-white/[0.08] py-3.5'
-            : 'bg-transparent border-transparent py-5'
+            ? 'bg-[#fafaf9]/90 dark:bg-[#09090b]/90 backdrop-blur-md border-zinc-200 dark:border-white/[0.08] py-3 shadow-xs'
+            : 'bg-[#fafaf9]/75 dark:bg-[#09090b]/75 backdrop-blur-md border-zinc-200/50 dark:border-white/[0.05] py-3.5 sm:py-4'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
