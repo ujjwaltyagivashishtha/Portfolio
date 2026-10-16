@@ -10,10 +10,25 @@ import {
   Database,
   Server,
   Layers,
-  Radio
+  Radio,
+  MapPin,
+  GraduationCap
 } from 'lucide-react';
 
+const REMOTE_PROFILE_IMAGE = 'https://www.ujjwaltyagivashishtha.tech/assets/ujjwal-profile-dark-jxI5pFSY.jpg';
+
 export const Hero = ({ onOpenResume }) => {
+  const [profileDarkSrc, setProfileDarkSrc] = React.useState(profileDark);
+
+  React.useEffect(() => {
+    // Gracefully test if the remote CDN profile image resolves before updating source
+    const img = new Image();
+    img.src = REMOTE_PROFILE_IMAGE;
+    img.onload = () => {
+      setProfileDarkSrc(REMOTE_PROFILE_IMAGE);
+    };
+  }, []);
+
   return (
     <section 
       id="hero" 
@@ -146,95 +161,90 @@ export const Hero = ({ onOpenResume }) => {
 
           </div>
 
-          {/* Right Column: High-Tech Identity Portrait (5 cols on lg, 4 on xl) */}
+          {/* Right Column: Minimal Editorial Identity Card (5 cols on lg, 4 on xl) */}
           <div className="lg:col-span-5 xl:col-span-4 flex justify-center lg:justify-end animate-fade-up delay-200">
-            <div className="relative group max-w-[320px] sm:max-w-[350px] w-full">
-              {/* Subtle ambient backlight glow */}
-              <div 
-                className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-indigo-500/25 via-violet-500/15 to-transparent blur-2xl opacity-60 dark:opacity-40 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" 
-                aria-hidden="true"
-              />
+            <aside 
+              aria-label="Engineer Identity Profile"
+              className="w-full max-w-[360px] sm:max-w-[380px] rounded-2xl border border-zinc-200/90 dark:border-white/[0.08] bg-white dark:bg-[#111114] p-5 sm:p-6 shadow-sm transition-colors duration-200 space-y-4"
+            >
+              {/* Header: Eyebrow & Status Row */}
+              <div className="flex items-center justify-between gap-2 pb-3.5 border-b border-zinc-100 dark:border-white/[0.06]">
+                <span className="font-mono text-[10px] uppercase tracking-widest text-zinc-500 dark:text-zinc-400 font-semibold">
+                  IDENTITY / VERIFIED
+                </span>
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/15 border border-emerald-500/20 text-[11px] font-mono text-emerald-700 dark:text-emerald-400 font-medium">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" aria-hidden="true" />
+                  <span>Open to Opportunities</span>
+                </div>
+              </div>
 
-              {/* Framed Card Container */}
-              <div className="relative rounded-3xl p-3 sm:p-3.5 bg-gradient-to-b from-white/95 via-zinc-50/90 to-zinc-100/90 dark:from-zinc-900/90 dark:via-zinc-900/80 dark:to-zinc-950/95 border border-zinc-200/90 dark:border-white/[0.12] shadow-2xl backdrop-blur-md">
+              {/* Profile Image Area */}
+              <div className="relative overflow-hidden rounded-xl aspect-[3/4] bg-zinc-100 dark:bg-zinc-900 border border-zinc-200/80 dark:border-white/[0.06]">
+                {/* Dark Theme Portrait */}
+                <img 
+                  src={profileDarkSrc}
+                  onError={(e) => {
+                    // Graceful fallback to bundled high-res profile photo if remote domain fails
+                    if (e.currentTarget.src !== profileDark) {
+                      e.currentTarget.src = profileDark;
+                    }
+                  }}
+                  alt="Ujjwal Tyagi — Software Developer"
+                  className="w-full h-full object-cover object-center filter contrast-[1.02] hidden dark:block"
+                  loading="eager"
+                />
                 
-                {/* Top System Status Bar */}
-                <div className="flex items-center justify-between px-1.5 pb-2.5 font-mono text-[11px] text-zinc-500 dark:text-zinc-400">
-                  <div className="flex items-center gap-2">
-                    <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]"></span>
-                    </span>
-                    <span className="font-semibold tracking-wider uppercase text-zinc-800 dark:text-zinc-200 text-[10px]">
-                      IDENTITY // VERIFIED
-                    </span>
-                  </div>
-                  <span className="text-[10px] text-zinc-400 dark:text-zinc-500">
-                    CSE '27
+                {/* Light Theme Portrait */}
+                <img 
+                  src={profileLight}
+                  alt="Ujjwal Tyagi — Software Developer"
+                  className="w-full h-full object-cover object-center filter contrast-[1.01] block dark:hidden"
+                  loading="eager"
+                />
+              </div>
+
+              {/* Primary Focal Point: Name & Role */}
+              <div className="space-y-1">
+                <h2 className="font-display font-bold text-2xl tracking-tight text-zinc-950 dark:text-white uppercase">
+                  UJJWAL TYAGI
+                </h2>
+                <p className="font-sans text-sm text-zinc-700 dark:text-zinc-300 font-medium">
+                  Software Developer
+                  <span className="text-zinc-400 dark:text-zinc-600 mx-2">·</span>
+                  <span className="text-zinc-500 dark:text-zinc-400">Backend & Systems</span>
+                </p>
+              </div>
+
+              {/* Compact Secondary Metadata: Location & Education */}
+              <div className="pt-3 border-t border-zinc-100 dark:border-white/[0.06] space-y-1.5 font-mono text-xs text-zinc-600 dark:text-zinc-400">
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500 shrink-0" aria-hidden="true" />
+                  <span>Saharanpur, India</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <GraduationCap className="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500 shrink-0" aria-hidden="true" />
+                  <span>Quantum University · CSE ’27</span>
+                </div>
+              </div>
+
+              {/* Refined Technical Focus Tags */}
+              <div className="pt-3 border-t border-zinc-100 dark:border-white/[0.06] space-y-2">
+                <span className="font-mono text-[10px] uppercase tracking-widest text-zinc-500 dark:text-zinc-400 font-semibold block">
+                  Technical Focus
+                </span>
+                <div className="flex flex-wrap gap-1.5">
+                  <span className="px-2.5 py-1 rounded-md text-[11px] font-mono bg-zinc-100 dark:bg-white/[0.04] text-zinc-800 dark:text-zinc-200 border border-zinc-200/70 dark:border-white/[0.06]">
+                    Node.js · Express.js
+                  </span>
+                  <span className="px-2.5 py-1 rounded-md text-[11px] font-mono bg-zinc-100 dark:bg-white/[0.04] text-zinc-800 dark:text-zinc-200 border border-zinc-200/70 dark:border-white/[0.06]">
+                    MongoDB · ACID Transactions
+                  </span>
+                  <span className="px-2.5 py-1 rounded-md text-[11px] font-mono bg-zinc-100 dark:bg-white/[0.04] text-zinc-800 dark:text-zinc-200 border border-zinc-200/70 dark:border-white/[0.06]">
+                    Java · Data Structures & Algorithms
                   </span>
                 </div>
-
-                {/* Main Photo Frame */}
-                <div className="relative overflow-hidden rounded-2xl aspect-[3/4] bg-zinc-100 dark:bg-zinc-950 border border-zinc-200/80 dark:border-white/[0.08] shadow-inner">
-                  {/* Dark Mode Photo (Dark Studio Background) */}
-                  <img 
-                    src={profileDark} 
-                    alt="Ujjwal Tyagi — Software Developer" 
-                    className="w-full h-full object-cover object-top filter contrast-[1.03] transition-transform duration-700 ease-out group-hover:scale-105 hidden dark:block"
-                    loading="eager"
-                  />
-                  
-                  {/* Light Mode Photo (White Studio Background) */}
-                  <img 
-                    src={profileLight} 
-                    alt="Ujjwal Tyagi — Software Developer" 
-                    className="w-full h-full object-cover object-top filter contrast-[1.02] transition-transform duration-700 ease-out group-hover:scale-105 block dark:hidden"
-                    loading="eager"
-                  />
-                  
-                  {/* Atmospheric Bottom Gradient Overlay */}
-                  <div 
-                    className="absolute inset-0 bg-gradient-to-t from-white/95 via-white/20 to-transparent dark:from-zinc-950/95 dark:via-zinc-950/20 dark:to-transparent pointer-events-none" 
-                    aria-hidden="true"
-                  />
-
-                  {/* Floating Location Badge */}
-                  <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-white/85 dark:bg-black/60 backdrop-blur-md border border-zinc-200/80 dark:border-white/15 text-[10px] font-mono text-zinc-800 dark:text-white/90 flex items-center gap-1.5 shadow-sm">
-                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 dark:bg-indigo-400"></span>
-                    <span>Saharanpur, IN</span>
-                  </div>
-
-                  {/* Floating Identity & Role Card */}
-                  <div className="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-white/90 dark:bg-black/65 backdrop-blur-md border border-zinc-200/80 dark:border-white/10 text-zinc-900 dark:text-white shadow-lg">
-                    <div className="flex items-center justify-between font-mono text-[10px] text-zinc-600 dark:text-zinc-300 mb-0.5">
-                      <span>UJJWAL TYAGI</span>
-                      <span className="text-indigo-600 dark:text-indigo-300 font-medium">Quantum Univ</span>
-                    </div>
-                    <div className="text-xs font-bold text-zinc-950 dark:text-white tracking-tight">
-                      Software Developer
-                    </div>
-                    <div className="mt-2 pt-2 border-t border-zinc-200/80 dark:border-white/10 flex items-center justify-between font-mono text-[10px] text-zinc-600 dark:text-zinc-300">
-                      <span>Backend & Systems</span>
-                      <span className="text-emerald-600 dark:text-emerald-400 font-medium">● Open to roles</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Technical Stack Micro-Badges */}
-                <div className="mt-3 pt-2.5 border-t border-zinc-200/80 dark:border-white/[0.08] grid grid-cols-3 gap-1.5 text-center font-mono text-[10px]">
-                  <div className="px-1.5 py-1 rounded-md bg-zinc-100 dark:bg-white/[0.04] text-zinc-700 dark:text-zinc-300 font-medium truncate">
-                    Node / Express
-                  </div>
-                  <div className="px-1.5 py-1 rounded-md bg-zinc-100 dark:bg-white/[0.04] text-zinc-700 dark:text-zinc-300 font-medium truncate">
-                    MongoDB ACID
-                  </div>
-                  <div className="px-1.5 py-1 rounded-md bg-zinc-100 dark:bg-white/[0.04] text-zinc-700 dark:text-zinc-300 font-medium truncate">
-                    Java DSA
-                  </div>
-                </div>
-
               </div>
-            </div>
+            </aside>
           </div>
 
         </div>
