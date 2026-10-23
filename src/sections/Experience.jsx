@@ -3,9 +3,7 @@ import { experienceData } from '../data/experience';
 import { useScrollReveal } from '../lib/useScrollReveal';
 import { 
   Calendar, 
-  MapPin, 
-  CheckCircle2, 
-  Briefcase 
+  MapPin 
 } from 'lucide-react';
 
 export const Experience = () => {
