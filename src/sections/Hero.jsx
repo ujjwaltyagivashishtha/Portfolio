@@ -1,31 +1,60 @@
 import React from 'react';
 import profileDark from '../assets/ujjwal-profile-dark.jpg';
-import profileLight from '../assets/ujjwal-profile-light.png';
-import { personalInfo } from '../data/personalInfo';
-import { siteConfig } from '../config/site';
+import profileLight from '../assets/ujjwal-profile-light.jpg';
 import { 
   ArrowDown, 
-  FileText, 
-  ArrowUpRight,
-  Database,
-  Server,
-  Layers,
-  Radio,
+  FileText,
   MapPin,
   GraduationCap
 } from 'lucide-react';
+import { useMagnetic, useTilt } from '../lib/useMotionFx';
 
-const REMOTE_PROFILE_IMAGE = 'https://www.ujjwaltyagivashishtha.tech/assets/ujjwal-profile-dark-jxI5pFSY.jpg';
+const HEADLINE_PRIMARY = 'Building Reliable Systems.';
+const HEADLINE_SECONDARY = 'Engineering Scalable Backends.';
+
+/* Word-cascade entrance: each word drifts up with its own delay, giving the
+   headline a composed typographic reveal instead of one block fade */
+const WordCascade = ({ text, baseDelay = 0, muted = false }) => (
+  <span className={`inline-block font-display font-bold tracking-tighter leading-[0.98] text-5xl sm:text-7xl lg:text-8xl ${
+    muted ? 'text-zinc-500 dark:text-zinc-400 font-normal' : 'text-zinc-950 dark:text-white'
+  }`}>
+    {text.split(' ').map((word, i) => (
+      <React.Fragment key={i}>
+        <span
+          className="inline-block animate-fade-up"
+          style={{ animationDelay: `${baseDelay + i * 50}ms` }}
+        >
+          {word}
+        </span>{' '}
+      </React.Fragment>
+    ))}
+  </span>
+);
 
 export const Hero = ({ onOpenResume }) => {
-  const [profileDarkSrc, setProfileDarkSrc] = React.useState(profileDark);
+  const bgRef = React.useRef(null);
+  const ctaRef = useMagnetic(0.3);
+  const cardRef = useTilt(5);
 
+  // Subtle scroll-linked parallax on the topology background (transform-only, GPU-composited,
+  // requestAnimationFrame-throttled, and disabled for reduced-motion users)
   React.useEffect(() => {
-    // Gracefully test if the remote CDN profile image resolves before updating source
-    const img = new Image();
-    img.src = REMOTE_PROFILE_IMAGE;
-    img.onload = () => {
-      setProfileDarkSrc(REMOTE_PROFILE_IMAGE);
+    const el = bgRef.current;
+    if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    let rafId = null;
+    const handleScroll = () => {
+      if (rafId) return;
+      rafId = window.requestAnimationFrame(() => {
+        el.style.transform = `translate3d(0, ${window.scrollY * 0.18}px, 0)`;
+        rafId = null;
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (rafId) window.cancelAnimationFrame(rafId);
     };
   }, []);
 
@@ -36,7 +65,8 @@ export const Hero = ({ onOpenResume }) => {
     >
       {/* Restrained Technical Architecture & Data Flow Background */}
       <div 
-        className="pointer-events-none absolute inset-0 select-none overflow-hidden opacity-[0.2] dark:opacity-[0.25]"
+        ref={bgRef}
+        className="pointer-events-none absolute inset-0 select-none overflow-hidden opacity-[0.2] dark:opacity-[0.25] will-change-transform"
         aria-hidden="true"
       >
         <svg
@@ -126,12 +156,11 @@ export const Hero = ({ onOpenResume }) => {
               <span className="hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors">Based in Saharanpur, UP, India</span>
             </div>
 
-            {/* Expressive Oversized Headline - Staggered 80ms */}
-            <h1 className="animate-fade-up delay-100 text-5xl sm:text-7xl lg:text-8xl font-display font-bold tracking-tighter text-zinc-950 dark:text-white leading-[0.98]">
-              Building Reliable Systems.<br />
-              <span className="text-zinc-500 dark:text-zinc-400 font-normal">
-                Engineering Scalable Backends.
-              </span>
+            {/* Expressive Oversized Headline — cascading word reveal */}
+            <h1 className="animate-fade-up text-5xl sm:text-7xl lg:text-8xl tracking-tighter">
+              <WordCascade text={HEADLINE_PRIMARY} baseDelay={60} />
+              <br />
+              <WordCascade text={HEADLINE_SECONDARY} baseDelay={420} muted />
             </h1>
 
             {/* Concise Editorial Introduction - Staggered 160ms */}
@@ -142,8 +171,9 @@ export const Hero = ({ onOpenResume }) => {
             {/* Dual Action CTAs - Responsive and Tactile - Staggered 240ms */}
             <div className="animate-fade-up delay-300 flex flex-wrap items-center gap-4 pt-2">
               <a
+                ref={ctaRef}
                 href="#projects"
-                className="group px-6 py-3.5 rounded-xl bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 hover:bg-indigo-600 dark:hover:bg-indigo-500 font-mono text-xs font-bold tracking-wide transition-all duration-200 ease-out flex items-center gap-2 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
+                className="btn-sheen group px-6 py-3.5 rounded-xl bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 hover:bg-indigo-600 dark:hover:bg-indigo-500 font-mono text-xs font-bold tracking-wide transition-all duration-200 ease-out flex items-center gap-2 shadow-sm hover:shadow-md hover:shadow-indigo-500/20 active:scale-[0.98]"
               >
                 <span>Explore Selected Projects</span>
                 <ArrowDown className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform duration-200" />
@@ -162,10 +192,10 @@ export const Hero = ({ onOpenResume }) => {
           </div>
 
           {/* Right Column: Minimal Editorial Identity Card (5 cols on lg, 4 on xl) */}
-          <div className="lg:col-span-5 xl:col-span-4 flex justify-center lg:justify-end animate-fade-up delay-200">
+          <div ref={cardRef} className="lg:col-span-5 xl:col-span-4 flex justify-center lg:justify-end">
             <aside 
               aria-label="Engineer Identity Profile"
-              className="w-full max-w-[360px] sm:max-w-[380px] rounded-2xl border border-zinc-200/90 dark:border-white/[0.08] bg-white dark:bg-[#111114] p-5 sm:p-6 shadow-sm transition-colors duration-200 space-y-4"
+              className="w-full max-w-[360px] sm:max-w-[380px] rounded-2xl border border-zinc-200/90 dark:border-white/[0.08] bg-white dark:bg-[#111114] p-5 sm:p-6 shadow-lg shadow-zinc-200/40 dark:shadow-black/40 transition-colors duration-200 space-y-4 will-change-transform"
             >
               {/* Header: Eyebrow & Status Row */}
               <div className="flex items-center justify-between gap-2 pb-3.5 border-b border-zinc-100 dark:border-white/[0.06]">
@@ -179,18 +209,11 @@ export const Hero = ({ onOpenResume }) => {
               </div>
 
               {/* Profile Image Area */}
-              <div className="relative overflow-hidden rounded-xl aspect-[3/4] bg-zinc-100 dark:bg-zinc-900 border border-zinc-200/80 dark:border-white/[0.06]">
-                {/* Dark Theme Portrait */}
+              <div className="relative group/tile overflow-hidden rounded-xl aspect-[3/4] bg-zinc-100 dark:bg-zinc-900 border border-zinc-200/80 dark:border-white/[0.06]">
                 <img 
-                  src={profileDarkSrc}
-                  onError={(e) => {
-                    // Graceful fallback to bundled high-res profile photo if remote domain fails
-                    if (e.currentTarget.src !== profileDark) {
-                      e.currentTarget.src = profileDark;
-                    }
-                  }}
+                  src={profileDark}
                   alt="Ujjwal Tyagi — Software Developer"
-                  className="w-full h-full object-cover object-center filter contrast-[1.02] hidden dark:block"
+                  className="w-full h-full object-cover object-center filter contrast-[1.02] transition-transform duration-500 ease-out group-hover/tile:scale-[1.04] hidden dark:block"
                   loading="eager"
                 />
                 
@@ -198,7 +221,7 @@ export const Hero = ({ onOpenResume }) => {
                 <img 
                   src={profileLight}
                   alt="Ujjwal Tyagi — Software Developer"
-                  className="w-full h-full object-cover object-center filter contrast-[1.01] block dark:hidden"
+                  className="w-full h-full object-cover object-center filter contrast-[1.01] transition-transform duration-500 ease-out group-hover/tile:scale-[1.04] block dark:hidden"
                   loading="eager"
                 />
               </div>
