@@ -38,7 +38,7 @@ export const ThemeToggle = ({ theme, toggleTheme, className = '' }) => {
     <button
       type="button"
       onClick={handleClick}
-      className={`group relative inline-flex items-center justify-center w-8 h-8 sm:w-8.5 sm:h-8.5 rounded-xl border border-zinc-200/90 dark:border-white/[0.08] bg-zinc-100/70 dark:bg-white/[0.04] hover:bg-zinc-200/70 dark:hover:bg-white/[0.08] text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white transition-all duration-300 ease-out active:scale-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 shadow-sm ${
+      className={`group relative inline-flex items-center justify-center w-8 h-8 rounded-xl border border-zinc-200/90 dark:border-white/[0.08] bg-zinc-100/70 dark:bg-white/[0.04] hover:bg-zinc-200/70 dark:hover:bg-white/[0.08] text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white transition-all duration-300 ease-out active:scale-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 shadow-sm ${
         isDark 
           ? 'hover:border-amber-400/40 hover:shadow-[0_0_14px_rgba(251,191,36,0.22)]' 
           : 'hover:border-indigo-500/40 hover:shadow-[0_0_14px_rgba(99,102,241,0.2)]'
