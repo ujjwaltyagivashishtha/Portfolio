@@ -4,11 +4,8 @@ import { certificationsData } from '../data/certifications';
 import { useScrollReveal } from '../lib/useScrollReveal';
 import { 
   GraduationCap, 
-  MapPin, 
-  Calendar, 
-  ShieldCheck, 
-  Award,
-  BookOpen
+  MapPin,
+  ShieldCheck
 } from 'lucide-react';
 
 export const Education = () => {
@@ -63,7 +60,7 @@ export const Education = () => {
               <span className="text-zinc-500 text-[11px]">Degree & Secondary</span>
             </div>
 
-            <div className="space-y-6">
+            <div data-stagger className="space-y-6">
               {educationData.map((edu, idx) => (
                 <div key={idx} className="p-6 rounded-xl bg-zinc-50/70 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] space-y-3 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-md dark:hover:shadow-[0_12px_24px_-10px_rgba(0,0,0,0.5)] hover:border-zinc-300 dark:hover:border-white/[0.15]">
                   <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
@@ -124,7 +121,7 @@ export const Education = () => {
               <span className="text-zinc-500 text-[11px]">2 Credentials</span>
             </div>
 
-            <div className="space-y-6">
+            <div data-stagger className="space-y-6">
               {certificationsData.map((cert, idx) => (
                 <div 
                   key={idx} 
