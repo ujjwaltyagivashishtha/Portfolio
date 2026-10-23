@@ -121,6 +121,7 @@ export const Skills = () => {
         {/* 6 Category Matrix Divided by Clean Structural Rules */}
         <div 
           ref={gridRef}
+          data-stagger
           className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 text-left reveal-init ${
             isGridVisible ? 'reveal-active' : ''
           }`}
@@ -141,9 +142,9 @@ export const Skills = () => {
                 {/* Skill List */}
                 <ul className="space-y-2.5 font-sans">
                   {cat.skills.map((skill, idx) => (
-                    <li key={idx} className="space-y-0.5 transition-transform duration-150 hover:translate-x-1">
+                    <li key={idx} className="group/skill space-y-0.5 transition-transform duration-150 hover:translate-x-1">
                       <div className="flex items-baseline justify-between font-mono text-xs">
-                        <strong className="text-zinc-900 dark:text-white font-semibold">
+                        <strong className="text-zinc-900 dark:text-white font-semibold transition-colors duration-200 group-hover/skill:text-indigo-600 dark:group-hover/skill:text-indigo-400">
                           {skill.name}
                         </strong>
                       </div>
@@ -171,10 +172,10 @@ export const Skills = () => {
             <span>Computer Science Academic Rigor (Quantum University Coursework)</span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 font-mono text-xs">
+          <div data-stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 font-mono text-xs">
             {computerScienceFoundations.map((f, i) => (
-              <div key={i} className="p-4 rounded-xl bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] space-y-1.5 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-md dark:hover:shadow-[0_12px_24px_-10px_rgba(0,0,0,0.5)] hover:border-indigo-500/40">
-                <strong className="text-zinc-900 dark:text-white block font-medium">
+              <div key={i} className="group/skill p-4 rounded-xl bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] space-y-1.5 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-md dark:hover:shadow-[0_12px_24px_-10px_rgba(0,0,0,0.5)] hover:border-indigo-500/40">
+                <strong className="text-zinc-900 dark:text-white block font-medium transition-colors duration-200 group-hover/skill:text-indigo-600 dark:group-hover/skill:text-indigo-400">
                   {f.name}
                 </strong>
                 <p className="text-[11px] text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed">
