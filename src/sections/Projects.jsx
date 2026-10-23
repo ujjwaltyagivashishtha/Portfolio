@@ -5,14 +5,7 @@ import { genAiSectionData } from '../data/genAI';
 import { useScrollReveal } from '../lib/useScrollReveal';
 import { 
   ArrowUpRight, 
-  Github, 
-  CheckCircle2, 
-  Layers, 
-  Database,
-  Radio, 
-  Cpu, 
-  FileText, 
-  ShieldCheck, 
+  Github,
   Maximize2 
 } from 'lucide-react';
 
@@ -59,10 +52,9 @@ export const Projects = () => {
 
         {/* ========================================================================= */}
         {/* PROJECT 01: BANK TRANSACTION SYSTEM (FINANCIAL LEDGER ARCHITECTURE) */}
-        {/* ========================================================================= */}
-        <article 
+        {/* ========================================================================= */}          <article 
           ref={proj1Ref}
-          className={`mb-24 pb-20 border-b border-zinc-200 dark:border-white/[0.08] text-left reveal-init ${
+          className={`group/proj mb-24 pb-20 border-b border-zinc-200 dark:border-white/[0.08] text-left reveal-init ${
             isProj1Visible ? 'reveal-active' : ''
           }`}
         >
@@ -100,7 +92,7 @@ export const Projects = () => {
           {/* Project Header */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 py-8 items-start">
             <div className="lg:col-span-8 space-y-3">
-              <h3 className="text-3xl sm:text-4xl font-display font-bold text-zinc-950 dark:text-white tracking-tight">
+              <h3 className="text-3xl sm:text-4xl font-display font-bold text-zinc-950 dark:text-white tracking-tight transition-colors duration-300 group-hover/proj:text-indigo-600 dark:group-hover/proj:text-indigo-400">
                 {bankProject.title}
               </h3>
               <p className="text-base sm:text-lg text-zinc-700 dark:text-zinc-300 font-sans leading-relaxed">
@@ -143,7 +135,7 @@ export const Projects = () => {
           </div>
 
           {/* Key Engineering Invariants */}
-          <div className="mt-8 pt-6 border-t border-zinc-200 dark:border-white/[0.08] grid grid-cols-1 sm:grid-cols-3 gap-6 font-mono text-xs">
+          <div data-stagger className="mt-8 pt-6 border-t border-zinc-200 dark:border-white/[0.08] grid grid-cols-1 sm:grid-cols-3 gap-6 font-mono text-xs">
             {bankProject.engineeringChallenges.map((ec, i) => (
               <div key={i} className="space-y-1.5">
                 <strong className="text-zinc-900 dark:text-white block font-semibold">
@@ -161,10 +153,9 @@ export const Projects = () => {
         {/* ========================================================================= */}
         {/* PROJECT 02: FUSION AI STUDIO (REAL-TIME COLLABORATIVE AI IDE PLATFORM)    */}
         {/* MERGED: Includes the 5-Stage LLM Orchestration & WebContainer Architecture*/}
-        {/* ========================================================================= */}
-        <article 
+        {/* ========================================================================= */}          <article 
           ref={proj2Ref}
-          className={`mb-24 pb-20 border-b border-zinc-200 dark:border-white/[0.08] text-left reveal-init ${
+          className={`group/proj mb-24 pb-20 border-b border-zinc-200 dark:border-white/[0.08] text-left reveal-init ${
             isProj2Visible ? 'reveal-active' : ''
           }`}
         >
@@ -202,7 +193,7 @@ export const Projects = () => {
           {/* Project Header */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 py-8 items-start">
             <div className="lg:col-span-8 space-y-3">
-              <h3 className="text-3xl sm:text-4xl font-display font-bold text-zinc-950 dark:text-white tracking-tight">
+              <h3 className="text-3xl sm:text-4xl font-display font-bold text-zinc-950 dark:text-white tracking-tight transition-colors duration-300 group-hover/proj:text-indigo-600 dark:group-hover/proj:text-indigo-400">
                 {fusionProject.title}
               </h3>
               <p className="text-base sm:text-lg text-zinc-700 dark:text-zinc-300 font-sans leading-relaxed">
@@ -234,7 +225,7 @@ export const Projects = () => {
               </span>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-3 font-mono text-xs">
+            <div data-stagger className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-3 font-mono text-xs">
               {genAiSectionData.architectureFlow.map((item, idx) => (
                 <div 
                   key={idx} 
@@ -255,7 +246,7 @@ export const Projects = () => {
           </div>
 
           {/* Engineering Challenges Grid */}
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 font-mono text-xs">
+          <div data-stagger className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 font-mono text-xs">
             {fusionProject.engineeringChallenges.map((ec, i) => (
               <div key={i} className="p-4 rounded-xl space-y-1.5 transition-all duration-200 ease-out hover:bg-zinc-100/50 dark:hover:bg-white/[0.02] hover:-translate-y-0.5">
                 <strong className="text-zinc-900 dark:text-white block font-semibold">
@@ -272,10 +263,9 @@ export const Projects = () => {
 
         {/* ========================================================================= */}
         {/* PROJECT 03: INTERACTIVE RESUME BUILDER (DOCUMENT ENGINE)                  */}
-        {/* ========================================================================= */}
-        <article 
+        {/* ========================================================================= */}          <article 
           ref={proj3Ref}
-          className={`text-left reveal-init ${
+          className={`group/proj text-left reveal-init ${
             isProj3Visible ? 'reveal-active' : ''
           }`}
         >
@@ -313,7 +303,7 @@ export const Projects = () => {
           {/* Project Header */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 py-8 items-start">
             <div className="lg:col-span-8 space-y-3">
-              <h3 className="text-3xl sm:text-4xl font-display font-bold text-zinc-950 dark:text-white tracking-tight">
+              <h3 className="text-3xl sm:text-4xl font-display font-bold text-zinc-950 dark:text-white tracking-tight transition-colors duration-300 group-hover/proj:text-indigo-600 dark:group-hover/proj:text-indigo-400">
                 {resumeProject.title}
               </h3>
               <p className="text-base sm:text-lg text-zinc-700 dark:text-zinc-300 font-sans leading-relaxed">
@@ -335,7 +325,7 @@ export const Projects = () => {
           </div>
 
           {/* Technical Decisions */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-4">
+          <div data-stagger className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-4">
             {resumeProject.engineeringChallenges.map((ec, i) => (
               <div key={i} className="p-6 rounded-xl bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] space-y-2 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-md dark:hover:shadow-[0_12px_24px_-10px_rgba(0,0,0,0.5)] hover:border-indigo-500/40">
                 <span className="font-mono text-xs uppercase tracking-wider text-indigo-700 dark:text-indigo-400 font-semibold block">
