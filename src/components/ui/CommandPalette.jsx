@@ -14,12 +14,11 @@ import {
   Copy,
   ArrowRight,
   FileText,
-  GraduationCap,
-  RotateCcw
+  GraduationCap
 } from 'lucide-react';
 import { siteConfig } from '../../config/site';
 
-export const CommandPalette = ({ isOpen, onClose, onCopyEmail, onOpenResume, onReplayPreloader, theme, toggleTheme }) => {
+export const CommandPalette = ({ isOpen, onClose, onCopyEmail, onOpenResume, theme, toggleTheme }) => {
   const [query, setQuery] = useState('');
   const [selectedIndex, setSelectedIndex] = useState(0);
   const inputRef = useRef(null);
@@ -120,16 +119,6 @@ export const CommandPalette = ({ isOpen, onClose, onCopyEmail, onOpenResume, onR
       }
     },
     {
-      id: 'replay-loader',
-      title: 'Replay System Boot Animation',
-      category: 'Actions',
-      icon: RotateCcw,
-      action: () => {
-        onReplayPreloader?.();
-        onClose();
-      }
-    },
-    {
       id: 'github',
       title: 'Open GitHub Profile',
       category: 'Socials',
@@ -196,18 +185,18 @@ export const CommandPalette = ({ isOpen, onClose, onCopyEmail, onOpenResume, onR
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4 bg-slate-900/70 dark:bg-black/80 backdrop-blur-sm animate-in fade-in"
+      className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4 bg-zinc-900/70 dark:bg-black/80 backdrop-blur-md animate-overlay"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-label="Command Palette"
     >
       <div
-        className="w-full max-w-xl bg-white dark:bg-[#111115] border border-slate-200 dark:border-white/[0.1] rounded-2xl shadow-2xl overflow-hidden text-slate-900 dark:text-zinc-100 transition-colors animate-modal-enter"
+        className="w-full max-w-xl bg-white dark:bg-[#111115] border border-zinc-200 dark:border-white/[0.1] rounded-2xl shadow-2xl overflow-hidden text-zinc-900 dark:text-zinc-100 transition-colors animate-modal-enter"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Search Input Bar */}
-        <div className="flex items-center gap-3 px-4 py-3.5 border-b border-slate-200 dark:border-white/[0.08] bg-slate-50 dark:bg-[#0c0c10]">
+        <div className="flex items-center gap-3 px-4 py-3.5 border-b border-zinc-200 dark:border-white/[0.08] bg-zinc-50 dark:bg-[#0c0c10]">
           <Terminal className="w-5 h-5 text-indigo-600 dark:text-indigo-400 shrink-0" />
           <input
             ref={inputRef}
@@ -215,12 +204,12 @@ export const CommandPalette = ({ isOpen, onClose, onCopyEmail, onOpenResume, onR
             placeholder="Search commands, navigate sections, open resume..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="w-full bg-transparent text-sm font-mono text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-zinc-500 focus:outline-none"
+            className="w-full bg-transparent text-sm font-mono text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-500 focus:outline-none"
             aria-label="Search commands"
           />
           <button
             onClick={onClose}
-            className="p-1 rounded-lg hover:bg-slate-200 dark:hover:bg-white/[0.08] text-slate-500 dark:text-zinc-400 transition-colors"
+            className="p-1 rounded-lg hover:bg-zinc-200 dark:hover:bg-white/[0.08] text-zinc-500 dark:text-zinc-400 transition-colors"
             aria-label="Close Command Palette"
           >
             <X className="w-4 h-4" />
@@ -241,11 +230,11 @@ export const CommandPalette = ({ isOpen, onClose, onCopyEmail, onOpenResume, onR
                   className={`flex items-center justify-between px-3.5 py-2.5 rounded-xl cursor-pointer transition-all ${
                     isSelected
                       ? 'bg-indigo-500/10 dark:bg-indigo-500/15 text-indigo-800 dark:text-indigo-300 border border-indigo-500/20 dark:border-indigo-500/30 font-semibold'
-                      : 'text-slate-700 dark:text-zinc-300 hover:bg-slate-100 dark:hover:bg-white/[0.04] border border-transparent'
+                      : 'text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-white/[0.04] border border-transparent'
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <IconComp className={`w-4 h-4 ${isSelected ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-400 dark:text-zinc-500'}`} />
+                    <IconComp className={`w-4 h-4 ${isSelected ? 'text-indigo-600 dark:text-indigo-400' : 'text-zinc-400 dark:text-zinc-500'}`} />
                     <span>{item.title}</span>
                   </div>
                   <div className="flex items-center gap-2">
@@ -254,7 +243,7 @@ export const CommandPalette = ({ isOpen, onClose, onCopyEmail, onOpenResume, onR
                         {item.shortcut}
                       </kbd>
                     )}
-                    <span className="text-[10px] uppercase text-slate-500 dark:text-zinc-400 px-2 py-0.5 rounded bg-slate-100 dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.06]">
+                    <span className="text-[10px] uppercase text-zinc-500 dark:text-zinc-400 px-2 py-0.5 rounded bg-zinc-100 dark:bg-white/[0.04] border border-zinc-200 dark:border-white/[0.06]">
                       {item.category}
                     </span>
                     {isSelected && <ArrowRight className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />}
@@ -263,18 +252,18 @@ export const CommandPalette = ({ isOpen, onClose, onCopyEmail, onOpenResume, onR
               );
             })
           ) : (
-            <div className="p-8 text-center text-slate-500 dark:text-zinc-500 font-mono text-xs">
+            <div className="p-8 text-center text-zinc-500 dark:text-zinc-500 font-mono text-xs">
               No matching commands found.
             </div>
           )}
         </div>
 
         {/* Shortcuts Hints Footer */}
-        <div className="px-4 py-2.5 border-t border-slate-200 dark:border-white/[0.08] bg-slate-50 dark:bg-[#0c0c10] flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-zinc-400">
+        <div className="px-4 py-2.5 border-t border-zinc-200 dark:border-white/[0.08] bg-zinc-50 dark:bg-[#0c0c10] flex items-center justify-between text-[11px] font-mono text-zinc-500 dark:text-zinc-400">
           <div className="flex items-center gap-3">
-            <span><kbd className="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-white/[0.08] text-slate-700 dark:text-zinc-300">↑↓</kbd> navigate</span>
-            <span><kbd className="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-white/[0.08] text-slate-700 dark:text-zinc-300">↵</kbd> select</span>
-            <span><kbd className="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-white/[0.08] text-slate-700 dark:text-zinc-300">esc</kbd> close</span>
+            <span><kbd className="px-1.5 py-0.5 rounded bg-zinc-200 dark:bg-white/[0.08] text-zinc-700 dark:text-zinc-300">↑↓</kbd> navigate</span>
+            <span><kbd className="px-1.5 py-0.5 rounded bg-zinc-200 dark:bg-white/[0.08] text-zinc-700 dark:text-zinc-300">↵</kbd> select</span>
+            <span><kbd className="px-1.5 py-0.5 rounded bg-zinc-200 dark:bg-white/[0.08] text-zinc-700 dark:text-zinc-300">esc</kbd> close</span>
           </div>
           <span className="text-indigo-700 dark:text-indigo-300 font-medium">Command Menu</span>
         </div>
