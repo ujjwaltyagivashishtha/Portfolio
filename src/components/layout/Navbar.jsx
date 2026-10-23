@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import profileDark from '../../assets/ujjwal-profile-dark.jpg';
-import profileLight from '../../assets/ujjwal-profile-light.png';
+import profileLight from '../../assets/ujjwal-profile-light.jpg';
 import { siteConfig } from '../../config/site';
 import { ThemeToggle } from '../ui/ThemeToggle';
 import { 
@@ -151,7 +151,7 @@ export const Navbar = ({ theme, toggleTheme }) => {
                   <a
                     key={link.name}
                     href={link.href}
-                    className={`relative py-1 transition-colors duration-200 ${
+                    className={`group relative py-1 transition-colors duration-200 ${
                       isActive
                         ? 'text-zinc-900 dark:text-white font-semibold'
                         : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white'
@@ -195,7 +195,7 @@ export const Navbar = ({ theme, toggleTheme }) => {
       {/* Editorial Mobile Navigation Drawer */}
       {mobileMenuOpen && (
         <div 
-          className="fixed inset-0 z-30 bg-[#fafaf9] dark:bg-[#09090b] text-zinc-900 dark:text-zinc-100 pt-24 pb-8 px-6 flex flex-col justify-between md:hidden overflow-y-auto animate-in fade-in slide-in-from-top-2 duration-200"
+          className="fixed inset-0 z-30 bg-[#fafaf9] dark:bg-[#09090b] text-zinc-900 dark:text-zinc-100 pt-24 pb-8 px-6 flex flex-col justify-between md:hidden overflow-y-auto animate-overlay"
           role="dialog"
           aria-modal="true"
           aria-label="Mobile Navigation Menu"
@@ -221,7 +221,8 @@ export const Navbar = ({ theme, toggleTheme }) => {
                     key={link.name}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-baseline justify-between py-2 border-b border-zinc-200/60 dark:border-white/[0.05]"
+                    style={{ animationDelay: `${120 + idx * 60}ms` }}
+                    className="flex items-baseline justify-between py-2 border-b border-zinc-200/60 dark:border-white/[0.05] animate-modal-enter"
                   >
                     <span className="font-mono text-xs text-zinc-400">0{idx + 1}</span>
                     <span className={`text-xl font-display font-bold ${
