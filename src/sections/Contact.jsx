@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { siteConfig } from '../config/site';
 import { useScrollReveal } from '../lib/useScrollReveal';
 import { 
-  Mail, 
   MapPin, 
   Copy, 
   Check, 
@@ -107,6 +106,7 @@ export const Contact = () => {
           {/* Left Column: Direct Email & Pre-formatted Draft Helper (7 cols) */}
           <div 
             ref={leftRef}
+            data-stagger
             className={`lg:col-span-7 space-y-8 reveal-init ${
               isLeftVisible ? 'reveal-active' : ''
             }`}
@@ -129,7 +129,7 @@ export const Contact = () => {
                 <button
                   type="button"
                   onClick={copyEmail}
-                  className="px-4 py-2 rounded-xl bg-zinc-900 dark:bg-white text-zinc-100 dark:text-zinc-950 font-mono text-xs font-medium flex items-center gap-1.5 shrink-0 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-sm active:translate-y-0 active:scale-95 hover:bg-indigo-600 dark:hover:bg-indigo-500"
+                  className="btn-sheen px-4 py-2 rounded-xl bg-zinc-900 dark:bg-white text-zinc-100 dark:text-zinc-950 font-mono text-xs font-medium flex items-center gap-1.5 shrink-0 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-sm active:translate-y-0 active:scale-95 hover:bg-indigo-600 dark:hover:bg-indigo-500"
                   aria-label="Copy email address"
                 >
                   {copied ? (
@@ -148,7 +148,7 @@ export const Contact = () => {
 
               <div className="pt-3 border-t border-zinc-200 dark:border-white/[0.06] flex items-center justify-between text-xs font-mono text-zinc-500">
                 <span>Direct Access</span>
-                <span>Response turnaround &lt; 24h</span>
+                <span>Attachments welcome: CV, job description, project brief</span>
               </div>
             </div>
 
@@ -231,7 +231,7 @@ export const Contact = () => {
                 <button 
                   type="submit" 
                   disabled={isClientLaunching}
-                  className="group px-5 py-3 rounded-xl bg-zinc-900 dark:bg-white text-zinc-100 dark:text-zinc-950 font-mono text-xs font-bold hover:bg-indigo-600 dark:hover:bg-indigo-500 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200 ease-out flex items-center justify-center gap-2 w-full sm:w-auto active:translate-y-0 active:scale-[0.98] shadow-sm disabled:opacity-80 disabled:cursor-not-allowed"
+                  className="btn-sheen group px-5 py-3 rounded-xl bg-zinc-900 dark:bg-white text-zinc-100 dark:text-zinc-950 font-mono text-xs font-bold hover:bg-indigo-600 dark:hover:bg-indigo-500 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200 ease-out flex items-center justify-center gap-2 w-full sm:w-auto active:translate-y-0 active:scale-[0.98] shadow-sm disabled:opacity-80 disabled:cursor-not-allowed"
                 >
                   {isClientLaunching ? (
                     <>
@@ -260,6 +260,7 @@ export const Contact = () => {
           {/* Right Column: Location, Timezone, and Professional Profiles (5 cols) */}
           <div 
             ref={rightRef}
+            data-stagger
             className={`lg:col-span-5 space-y-8 reveal-init ${
               isRightVisible ? 'reveal-active' : ''
             }`}
@@ -312,7 +313,7 @@ export const Contact = () => {
                     <Github className="w-4 h-4 text-zinc-700 dark:text-zinc-300" />
                     <div>
                       <strong className="text-zinc-900 dark:text-white block font-medium">GitHub</strong>
-                      <span className="text-[11px] text-zinc-500">github.com/ujjwaltyagi/Portfolio</span>
+                      <span className="text-[11px] text-zinc-500">github.com/ujjwaltyagivashishtha</span>
                     </div>
                   </div>
                   <ArrowUpRight className="w-4 h-4 text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
@@ -328,7 +329,7 @@ export const Contact = () => {
                     <Linkedin className="w-4 h-4 text-zinc-700 dark:text-zinc-300" />
                     <div>
                       <strong className="text-zinc-900 dark:text-white block font-medium">LinkedIn</strong>
-                      <span className="text-[11px] text-zinc-500">linkedin.com/in/ujjwal-tyagi</span>
+                      <span className="text-[11px] text-zinc-500">linkedin.com/in/ujjwal-tyagi-0a3798386</span>
                     </div>
                   </div>
                   <ArrowUpRight className="w-4 h-4 text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
