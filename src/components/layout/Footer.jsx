@@ -29,7 +29,7 @@ export const Footer = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="hover:text-zinc-900 dark:hover:text-white transition-colors"
+                className="link-sweep hover:text-zinc-900 dark:hover:text-white transition-colors"
               >
                 {link.name}
               </a>
@@ -48,7 +48,7 @@ export const Footer = () => {
               href={siteConfig.socials.github.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-zinc-900 dark:hover:text-white transition-colors"
+              className="link-sweep hover:text-zinc-900 dark:hover:text-white transition-colors"
             >
               GitHub
             </a>
@@ -56,13 +56,13 @@ export const Footer = () => {
               href={siteConfig.socials.linkedin.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-zinc-900 dark:hover:text-white transition-colors"
+              className="link-sweep hover:text-zinc-900 dark:hover:text-white transition-colors"
             >
               LinkedIn
             </a>
             <a
               href={`mailto:${siteConfig.email}`}
-              className="hover:text-zinc-900 dark:hover:text-white transition-colors"
+              className="link-sweep hover:text-zinc-900 dark:hover:text-white transition-colors"
             >
               Email
             </a>
