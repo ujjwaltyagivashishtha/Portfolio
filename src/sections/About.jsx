@@ -1,16 +1,7 @@
 import React from 'react';
 import profileDark from '../assets/ujjwal-profile-dark.jpg';
-import profileLight from '../assets/ujjwal-profile-light.png';
+import profileLight from '../assets/ujjwal-profile-light.jpg';
 import { useScrollReveal } from '../lib/useScrollReveal';
-import { 
-  Database, 
-  Server, 
-  Radio, 
-  Code2,
-  GraduationCap,
-  Briefcase,
-  CheckCircle2
-} from 'lucide-react';
 
 export const About = () => {
   const [sectionRef, isSectionVisible] = useScrollReveal();
@@ -124,6 +115,7 @@ export const About = () => {
           {/* Right Column: 4 Architecture Principles Divided by Rules (7 cols) */}
           <div 
             ref={rightRef}
+            data-stagger
             className={`lg:col-span-7 space-y-2 reveal-init ${
               isRightVisible ? 'reveal-active' : ''
             }`}
