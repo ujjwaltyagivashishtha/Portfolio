@@ -2,6 +2,20 @@
 <html lang="en" class="dark scroll-smooth">
   <head>
     <meta charset="UTF-8" />
+
+    <!-- Pre-paint theme resolution: applies URL ?theme= or the stored preference before React mounts, preventing a wrong-theme flash -->
+    <script>
+      (function () {
+        try {
+          var theme = new URLSearchParams(window.location.search).get('theme')
+            || localStorage.getItem('theme')
+            || 'dark';
+          document.documentElement.classList.remove('dark', 'light');
+          document.documentElement.classList.add(theme === 'light' ? 'light' : 'dark');
+        } catch (e) { /* storage unavailable — keep server-side default */ }
+      })();
+    </script>
+
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -69,22 +83,8 @@
       }
     </script>
   </head>
-  <body class="bg-slate-50 dark:bg-[#09090b] text-slate-900 dark:text-zinc-100 font-sans antialiased selection:bg-emerald-500/25 selection:text-emerald-400 transition-colors duration-200 overflow-x-hidden">
-    <div id="root">
-      <div id="initial-loader" style="position:fixed;inset:0;background:#09090b;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;font-family:'Space Grotesk',sans-serif;color:#f4f4f5;">
-        <div style="position:relative;width:64px;height:64px;display:flex;align-items:center;justify-content:center;">
-          <div style="position:absolute;inset:0;border-radius:50%;border:2px solid rgba(99,102,241,0.2);border-top-color:#6366f1;animation:initialSpin 0.75s linear infinite;"></div>
-          <span style="font-weight:800;font-size:18px;letter-spacing:-0.05em;color:#ffffff;">UT</span>
-        </div>
-        <p style="margin-top:20px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.15em;color:#818cf8;font-weight:600;text-transform:uppercase;">INITIALIZING SYSTEM...</p>
-      </div>
-      <style>
-        @keyframes initialSpin {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-        }
-      </style>
-    </div>
+  <body class="bg-[#fafaf9] dark:bg-[#09090b] text-zinc-900 dark:text-zinc-100 font-sans antialiased transition-colors duration-200 overflow-x-hidden">
+    <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
