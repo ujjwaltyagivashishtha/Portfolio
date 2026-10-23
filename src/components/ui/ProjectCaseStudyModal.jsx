@@ -20,7 +20,7 @@ export const ProjectCaseStudyModal = ({ project, onClose }) => {
 
   return (
     <div 
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-zinc-950/80 backdrop-blur-sm animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-zinc-950/80 backdrop-blur-md animate-overlay"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
