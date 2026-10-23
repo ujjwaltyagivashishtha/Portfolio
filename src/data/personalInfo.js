@@ -5,8 +5,6 @@ export const personalInfo = {
   email: "ujjwaltyagivashishtha@gmail.com",
   photo: "/ujjwal-profile.jpg",
   avatar: "/ujjwal-profile.jpg",
-  photoDark: "/ujjwal-profile-dark.jpg",
-  photoLight: "/ujjwal-profile-light.png",
   headline: "Software developer specializing in backend engineering, database architectures, real-time WebSockets, and Generative AI integration.",
   description: "Computer Science & Engineering undergraduate at Quantum University (Minor in Data Analytics). Focused on building reliable backend APIs, atomic database transaction systems, real-time event platforms, and practical LLM integration with Java, Node.js, and the MERN stack.",
   aboutSummary: [
